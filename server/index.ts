@@ -1,30 +1,40 @@
-import { createServer } from "http";
-import { parse } from "url";
+import express, { Request, Response } from "express";
 import next from "next";
 
-const port = parseInt(process.env.PORT || "3000", 10);
+// @ts-ignore
+const port = parseInt(process.env.PORT, 10) || 3000;
 const dev = process.env.NODE_ENV !== "production";
 const app = next({ dev });
 const handle = app.getRequestHandler();
 
 app.prepare().then(() => {
-  createServer((req, res) => {
-    const parsedUrl = parse(req.url!, true);
-    const { pathname, query } = parsedUrl;
+  const server = express();
 
-    if (pathname === "/a") {
-      app.render(req, res, "/a", query);
-    } else if (pathname === "/b") {
-      app.render(req, res, "/b", query);
-    } else {
-      handle(req, res, parsedUrl);
-    }
-  }).listen(port);
+  server.get("/a", (req: Request, res: Response) => {
+    return app.render(req, res, "/a", req.query);
+  });
 
-  // tslint:disable-next-line:no-console
-  console.log(
-    `> Server listening at http://localhost:${port} as ${
-      dev ? "development" : process.env.NODE_ENV
-    }`
-  );
+  server.get("/b", (req: Request, res: Response) => {
+    return app.render(req, res, "/b", req.query);
+  });
+
+  server.get("/posts/:id", (req: Request, res: Response) => {
+    return app.render(req, res, "/posts", {
+      id: req.params.id,
+    });
+  });
+
+  server.get("api/post", (req: Request, res: Response) => {
+    const {id} = req.query;
+    return res.send(id)
+  });
+
+  server.all("*", (req: Request, res: Response) => {
+    return handle(req, res);
+  });
+
+  server.listen(port, (err: any) => {
+    if (err) throw err;
+    console.log(`> Ready on http://localhost:${port}`);
+  });
 });
