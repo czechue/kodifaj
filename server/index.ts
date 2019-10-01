@@ -1,5 +1,7 @@
 import express, { Request, Response } from "express";
 import next from "next";
+import routes from "./routes";
+import courses from "../dummy/courses";
 
 // @ts-ignore
 const port = parseInt(process.env.PORT, 10) || 3000;
@@ -10,24 +12,21 @@ const handle = app.getRequestHandler();
 app.prepare().then(() => {
   const server = express();
 
-  server.get("/a", (req: Request, res: Response) => {
-    return app.render(req, res, "/a", req.query);
-  });
+  server.get(
+    "/api/courses",
+    (_req: Request, res: Response): Response => {
+      return res.send(courses);
+    }
+  );
 
-  server.get("/b", (req: Request, res: Response) => {
-    return app.render(req, res, "/b", req.query);
-  });
+  server.get(
+      "/api/courses/:id",
+      (_req: Request, res: Response): Response => {
+        return res.send(courses);
+      }
+  );
 
-  server.get("/posts/:id", (req: Request, res: Response) => {
-    return app.render(req, res, "/posts", {
-      id: req.params.id,
-    });
-  });
-
-  server.get("api/post", (req: Request, res: Response) => {
-    const {id} = req.query;
-    return res.send(id)
-  });
+  routes(app, server);
 
   server.all("*", (req: Request, res: Response) => {
     return handle(req, res);
