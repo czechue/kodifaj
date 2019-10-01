@@ -1,7 +1,7 @@
 import express, { Request, Response } from "express";
 import next from "next";
 import routes from "./routes";
-import courses from "../dummy/courses";
+import endpoints from "./endpoints";
 
 // @ts-ignore
 const port = parseInt(process.env.PORT, 10) || 3000;
@@ -12,20 +12,7 @@ const handle = app.getRequestHandler();
 app.prepare().then(() => {
   const server = express();
 
-  server.get(
-    "/api/courses",
-    (_req: Request, res: Response): Response => {
-      return res.send(courses);
-    }
-  );
-
-  server.get(
-    "/api/courses/:id",
-    (_req: Request, res: Response): Response => {
-      return res.send(courses);
-    }
-  );
-
+  endpoints(server);
   routes(app, server);
 
   server.all("*", (req: Request, res: Response) => {

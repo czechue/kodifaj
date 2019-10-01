@@ -9,8 +9,8 @@ interface Props {
 export default class extends Component<Props> {
   static async getInitialProps() {
     const res = await fetch("http://localhost:3000/api/courses");
-    const json = await res.json();
-    return { courses: json };
+    const courses = await res.json();
+    return { courses };
   }
 
   render() {
@@ -19,7 +19,9 @@ export default class extends Component<Props> {
         <h1>Courses</h1>
         {this.props.courses.map(course => (
           <div key={course.id}>
-            <Link href={`/course/${course.id.toString()}`}>{course.name}</Link>
+            <Link href={"/courses/[id]"} as={`/courses/${course.id.toString()}`}>
+              <a>{course.name}</a>
+            </Link>
           </div>
         ))}
       </div>
