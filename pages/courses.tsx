@@ -1,7 +1,11 @@
 import React, { Component } from "react";
+
 import fetch from "isomorphic-unfetch";
-import { Course } from "../interfaces";
 import Link from "next/dist/client/link";
+
+import { Course } from "../interfaces";
+
+import '../assets/style.css'
 
 interface Props {
   courses: Course[];
@@ -16,7 +20,7 @@ export default class extends Component<Props> {
   render() {
     return (
       <div>
-        <h1>Courses</h1>
+        <h1 className="p-3 hover:bg-indigo-500">Courses</h1>
         {this.props.courses.map(course => (
           <div key={course.id}>
             <Link href={"/courses/[id]"} as={`/courses/${course.id.toString()}`}>
