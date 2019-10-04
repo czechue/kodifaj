@@ -3,7 +3,7 @@ import { NextPageContext } from "next";
 import fetch from "isomorphic-unfetch";
 import {Task} from "../../interfaces";
 
-import "../assets/style.css";
+import "../../assets/style.css";
 
 interface Props {
   task: Task
