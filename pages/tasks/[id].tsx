@@ -8,7 +8,7 @@ interface Props {
 }
 export default class extends Component<Props> {
   static async getInitialProps({ query: { id } }: NextPageContext) {
-    const res = await fetch(`http://localhost:3000/api/tasks/${id}`);
+    const res = await fetch(`https://tranquil-crag-25841.herokuapp.com/api/tasks/${id}`);
     const task = await res.json();
     return { task };
   }

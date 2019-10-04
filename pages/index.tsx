@@ -7,15 +7,19 @@ import TaskListComponent from "../components/task-list/task-list.component";
 import NavbarComponent from "../components/navbar/navbar.component";
 
 import "../assets/style.css";
+import {NextPageContext} from "next";
 
 interface Props {
   tasks: Task[];
 }
 export default class extends Component<Props> {
-  static async getInitialProps() {
-    const res = await fetch("http://localhost:3000/api/tasks");
+  static async getInitialProps({req}: NextPageContext) {
+    if (req) {
+    const res = await fetch("https://tranquil-crag-25841.herokuapp.com/api/tasks");
     const tasks = await res.json();
     return { tasks };
+
+    }
   }
 
   render() {
