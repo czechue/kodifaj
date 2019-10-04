@@ -1,5 +1,10 @@
-export interface Course {
+export interface Task {
 	id: number;
-	name: string;
+	title: string;
 	author: string;
+	imageUrl: string;
+	rating: string;
+	technologies: string[];
+	createdAt: string;
+	reviewCount: string;
 }
