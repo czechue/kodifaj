@@ -11,6 +11,12 @@ const handle = app.getRequestHandler();
 
 app.prepare().then(() => {
   const server = express();
+  // Allows for cross origin domain request:
+  server.use(function (_req, res, next) {
+    res.header('Access-Control-Allow-Origin', '*')
+    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
+    next()
+  })
 
   endpoints(server);
   routes(app, server);
