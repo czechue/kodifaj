@@ -1,22 +1,22 @@
 import React, { Component } from "react";
 import { NextPageContext } from "next";
 import fetch from "isomorphic-unfetch";
-import {Course} from "../../interfaces";
+import {Task} from "../../interfaces";
 
 interface Props {
-  course: Course
+  task: Task
 }
 export default class extends Component<Props> {
   static async getInitialProps({ query: { id } }: NextPageContext) {
-    const res = await fetch(`http://localhost:3000/api/courses/${id}`);
-    const course = await res.json();
-    return { course };
+    const res = await fetch(`http://localhost:3000/api/tasks/${id}`);
+    const task = await res.json();
+    return { task };
   }
 
   render() {
     return (
       <div>
-        <h1>My course id: #{this.props.course.name}</h1>
+        <h1>My course id: #{this.props.task.title}</h1>
       </div>
     );
   }

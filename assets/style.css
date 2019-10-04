@@ -2,4 +2,11 @@
 
 @tailwind components;
 
+.bg-gradient-navbar {
+  background-image: linear-gradient(
+    theme("colors.violet_primary"),
+    theme("colors.pink_primary")
+  );
+}
+
 @tailwind utilities;

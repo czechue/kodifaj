@@ -1,19 +1,19 @@
 import { Express, Request, Response } from "express";
-import courses from "../../dummy/courses";
+import tasks from "../../dummy/tasks";
 
 export default function endpoints(server: Express) {
   server.get(
-    "/api/courses",
+    "/api/tasks",
     (_req: Request, res: Response): Response => {
-      return res.send(courses);
+      return res.send(tasks);
     }
   );
 
   server.get(
-    "/api/courses/:id",
+    "/api/tasks/:id",
     (req: CourseRequest, res: Response): Response => {
       const courseId = Number(req.params.id) - 1;
-      return res.send(courses[courseId]);
+      return res.send(tasks[courseId]);
     }
   );
 }
