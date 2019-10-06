@@ -4,6 +4,11 @@
   "engines": {
     "node": "12.4.0"
   },
+  "proxy": {
+    "/api/*": {
+      "target": "http://localhost:3000"
+    }
+  },
   "scripts": {
     "dev": "nodemon",
     "build": "next build && tsc --project tsconfig.server.json",

@@ -7,13 +7,14 @@ import TaskListComponent from "../components/task-list/task-list.component";
 import NavbarComponent from "../components/navbar/navbar.component";
 
 import "../assets/style.css";
+import {HOSTNAME} from "../lib/hostname.config";
 
 interface Props {
   tasks: Task[];
 }
 export default class extends Component<Props> {
   static async getInitialProps() {
-    const res = await fetch("https://tranquil-crag-25841.herokuapp.com/api/tasks");
+    const res = await fetch(`${HOSTNAME}/api/tasks`);
     const tasks = await res.json();
     return { tasks };
   }

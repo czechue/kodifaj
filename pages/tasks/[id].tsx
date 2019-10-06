@@ -4,13 +4,14 @@ import fetch from "isomorphic-unfetch";
 import {Task} from "../../interfaces";
 
 import "../../assets/style.css";
+import {HOSTNAME} from "../../lib/hostname.config";
 
 interface Props {
   task: Task
 }
 export default class extends Component<Props> {
   static async getInitialProps({ query: { id } }: NextPageContext) {
-    const res = await fetch(`https://tranquil-crag-25841.herokuapp.com/api/tasks/${id}`);
+    const res = await fetch(`${HOSTNAME}/api/tasks/${id}`);
     const task = await res.json();
     return { task };
   }

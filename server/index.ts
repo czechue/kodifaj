@@ -18,7 +18,7 @@ app.prepare().then(() => {
       var proto = req.headers["x-forwarded-proto"];
       if (proto === "https") {
         res.set({
-          'Strict-Transport-Security': 'max-age=31557600' // one-year
+          "Strict-Transport-Security": "max-age=31557600" // one-year
         });
         return next();
       }
@@ -27,11 +27,14 @@ app.prepare().then(() => {
   }
 
   // Allows for cross origin domain request:
-  server.use(function (_req, res, next) {
-    res.header('Access-Control-Allow-Origin', '*')
-    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
-    next()
-  })
+  server.use(function(_req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header(
+      "Access-Control-Allow-Headers",
+      "Origin, X-Requested-With, Content-Type, Accept"
+    );
+    next();
+  });
 
   endpoints(server);
   routes(app, server);

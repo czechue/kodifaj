@@ -39,8 +39,8 @@ export default function TaskItemComponent({
                 {task.title}
               </h4>
               <div className="mt-1">
-                {task.technologies.map(t => (
-                  <BadgeComponent>{t}</BadgeComponent>
+                {task.technologies.map((t, index) => (
+                  <BadgeComponent key={index}>{t}</BadgeComponent>
                 ))}
               </div>
               <div className="mt-4 flex items-center text-xs">
