@@ -1,7 +1,11 @@
-import express, { Request, Response } from "express";
 import next from "next";
-import routes from "./routes";
+import express, { Request, Response } from "express";
+
+import passportService from "./services/passport";
+
+import tasksRoutes from "./routes/tasks.routes";
 import endpoints from "./endpoints";
+import authRoutes from "./routes/auth.routes";
 
 // @ts-ignore
 const port = process.env.PORT || 3000;
@@ -12,32 +16,11 @@ const handle = app.getRequestHandler();
 app.prepare().then(() => {
   const server = express();
 
-  // if (!dev) {
-  //   // Enforce SSL & HSTS in production
-  //   server.use(function(req, res, next) {
-  //     var proto = req.headers["x-forwarded-proto"];
-  //     if (proto === "https") {
-  //       res.set({
-  //         "Strict-Transport-Security": "max-age=31557600" // one-year
-  //       });
-  //       return next();
-  //     }
-  //     res.redirect("https://" + req.headers.host + req.url);
-  //   });
-  // }
-  //
-  // // Allows for cross origin domain request:
-  // server.use(function(_req, res, next) {
-  //   res.header("Access-Control-Allow-Origin", "*");
-  //   res.header(
-  //     "Access-Control-Allow-Headers",
-  //     "Origin, X-Requested-With, Content-Type, Accept"
-  //   );
-  //   next();
-  // });
+  passportService();
 
   endpoints(server);
-  routes(app, server);
+  authRoutes(app, server);
+  tasksRoutes(app, server);
 
   server.all("*", (req: Request, res: Response) => {
     return handle(req, res);
