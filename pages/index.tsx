@@ -1,12 +1,12 @@
 import React, { Component } from "react";
-import { Task } from "../interfaces";
+import { Task } from "../lib/interfaces";
 
 import fetch from "isomorphic-unfetch";
 
 import TaskListComponent from "../components/task-list/task-list.component";
 import NavbarComponent from "../components/navbar/navbar.component";
 
-import "../assets/style.css";
+import "../static/style.css";
 import {HOSTNAME} from "../lib/hostname.config";
 
 interface Props {

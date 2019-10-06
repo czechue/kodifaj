@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { NextPageContext } from "next";
 import fetch from "isomorphic-unfetch";
-import {Task} from "../../interfaces";
+import {Task} from "../../lib/interfaces";
 
-import "../../assets/style.css";
+import "../../static/style.css";
 import {HOSTNAME} from "../../lib/hostname.config";
 
 interface Props {

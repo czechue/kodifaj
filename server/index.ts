@@ -1,11 +1,22 @@
 import next from "next";
 import express, { Request, Response } from "express";
+import mongoose from "mongoose";
+import keys from "./config/keys";
+import passport from "passport";
+import cookieSession from "cookie-session";
+
+// MODELS:
+import "./models/User";
 
 import passportService from "./services/passport";
-
 import tasksRoutes from "./routes/tasks.routes";
 import endpoints from "./endpoints";
 import authRoutes from "./routes/auth.routes";
+
+mongoose.connect(
+  keys.mongoURI,
+  { useNewUrlParser: true, useUnifiedTopology: true }
+);
 
 // @ts-ignore
 const port = process.env.PORT || 3000;
@@ -14,9 +25,18 @@ const app = next({ dev });
 const handle = app.getRequestHandler();
 
 app.prepare().then(() => {
+  passportService();
+
   const server = express();
 
-  passportService();
+  server.use(
+    cookieSession({
+      maxAge: 30 * 24 * 60 * 60 * 1000,
+      keys: [keys.cookieKey]
+    })
+  );
+  server.use(passport.initialize());
+  server.use(passport.session());
 
   endpoints(server);
   authRoutes(app, server);
