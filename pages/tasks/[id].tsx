@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import { NextPageContext } from "next";
 import fetch from "isomorphic-unfetch";
-import {Task} from "../../lib/interfaces";
+import { Task } from "../../lib/interfaces";
 
+import { HOSTNAME } from "../../lib/hostname.config";
 import "../../static/style.css";
-import {HOSTNAME} from "../../lib/hostname.config";
 
 interface Props {
-  task: Task
+  task: Task;
 }
 export default class extends Component<Props> {
   static async getInitialProps({ query: { id } }: NextPageContext) {

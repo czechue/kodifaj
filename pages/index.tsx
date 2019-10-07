@@ -4,10 +4,10 @@ import { Task } from "../lib/interfaces";
 import fetch from "isomorphic-unfetch";
 
 import TaskListComponent from "../components/task-list/task-list.component";
-import NavbarComponent from "../components/navbar/navbar.component";
 
 import "../static/style.css";
-import {HOSTNAME} from "../lib/hostname.config";
+import { HOSTNAME } from "../lib/hostname.config";
+import LayoutComponent from "../components/layout/layout.component";
 
 interface Props {
   tasks: Task[];
@@ -21,14 +21,9 @@ export default class extends Component<Props> {
 
   render() {
     return (
-      <div className="antialiased text-gray-900">
-        <NavbarComponent />
-        <main>
-          <div className="">
-            <TaskListComponent tasks={this.props.tasks} />
-          </div>
-        </main>
-      </div>
+      <LayoutComponent>
+        <TaskListComponent tasks={this.props.tasks} />
+      </LayoutComponent>
     );
   }
 }

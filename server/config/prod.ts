@@ -1,4 +1,4 @@
-import {Keys} from "./keys";
+import { Keys } from "./keys";
 
 export default {
   googleClientID: process.env.GOOGLE_CLIENT_ID,
