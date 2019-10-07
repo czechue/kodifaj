@@ -4,7 +4,7 @@ import classNames from "clsx";
 import MobileButtonComponent from "./mobile-button/mobile-button.component";
 import MobileLinkComponent from "./mobile-link/mobile-link.component";
 
-import "../../assets/style.css";
+import "../../static/style.css";
 
 const mobileLinkNames = ["Zadania", "Ranking", "Profil"];
 

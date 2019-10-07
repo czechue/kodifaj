@@ -1,5 +1,5 @@
 import React, { ReactElement } from "react";
-import { Task } from "../../interfaces";
+import { Task } from "../../lib/interfaces";
 import TaskItemComponent from "./task-item/task-item.component";
 
 interface TaskListProps {

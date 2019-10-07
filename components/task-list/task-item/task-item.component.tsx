@@ -1,6 +1,6 @@
 import React, { ReactElement } from "react";
 import Link from "next/link";
-import { Task } from "../../../interfaces";
+import { Task } from "../../../lib/interfaces";
 
 interface BadgeProps {
   children: string;
