@@ -1,32 +1,17 @@
-import App from "next/app";
+import App, {AppContext} from "next/app";
 import UserProvider from "../providers/user.provider";
-import { NextComponentType, NextPageContext } from "next";
 import { IncomingMessage } from "http";
 
-interface IncomingMessageExtended extends IncomingMessage {
-  session?: {
-    passport: {
-      user: string;
-    };
-  };
-}
-
-interface MyAppProps {
-  Component: NextComponentType<NextPageContext>;
-  ctx: NextPageContext;
-}
 class MyApp extends App {
-  static async getInitialProps({ Component, ctx }: MyAppProps) {
-    const { req } = ctx;
-
+  static async getInitialProps({ Component, ctx }: AppContext) {
     let pageProps: any = { user: "" };
 
     if (Component.getInitialProps) {
       pageProps = await Component.getInitialProps(ctx);
     }
 
-    if (req) {
-      const request: IncomingMessageExtended = req;
+    if (ctx.req) {
+      const request: IncomingMessageExtended = ctx.req;
 
       if (request && request.session && request.session.passport) {
         pageProps.user = request.session.passport.user;
@@ -35,17 +20,11 @@ class MyApp extends App {
     return { pageProps };
   }
 
-  constructor(props: any) {
-    super(props);
-    this.state = {
-      user: props.pageProps.user
-    };
-  }
-
   render() {
     const { Component, pageProps } = this.props;
+
     return (
-      <UserProvider userId={this.props.pageProps.user}>
+      <UserProvider userId={pageProps.user}>
         <Component {...pageProps} />
       </UserProvider>
     );
@@ -53,3 +32,11 @@ class MyApp extends App {
 }
 
 export default MyApp;
+
+interface IncomingMessageExtended extends IncomingMessage {
+  session?: {
+    passport: {
+      user: string;
+    };
+  };
+}
