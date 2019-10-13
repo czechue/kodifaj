@@ -20,7 +20,7 @@ export default function TaskItemComponent({
   task
 }: TaskItemProps): ReactElement {
   return (
-    <div className="w-1/3 px-2">
+    <div className="w-full my-4 md:px-2 md:w-1/3">
       <Link href={"/tasks/[id]"} as={`/tasks/${task.id.toString()}`}>
         <a>
           <div className="relative pb-5/6 ">

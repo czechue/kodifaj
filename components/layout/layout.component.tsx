@@ -12,7 +12,7 @@ export default function LayoutComponent({
   return (
     <div className="antialiased text-gray-900">
       <NavbarComponent user={user}/>
-      <main className="flex -mx-2 my-6 max-w-6xl ml-auto mr-auto">
+      <main className="container mx-auto py-8 px-4 md:py-12 md:px-8">
         {children}
       </main>
     </div>
