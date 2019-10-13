@@ -1,7 +1,7 @@
-import React from "react";
+import React, {ReactElement} from "react";
 
 interface MobileLinkProps {
-  children: string;
+  children: string | ReactElement;
   url: string;
 }
 
