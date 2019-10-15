@@ -30,7 +30,7 @@ export default function TaskItemComponent({
               alt={task.title}
             />
           </div>
-          <div className="relative px-4 -mt-16">
+          <div className="relative -mt-16">
             <div className="bg-white p-6 rounded-lg shadow-lg">
               <div className="text-gray-600 text-xs font-semibold uppercase tracking-widest">
                 {task.author}
@@ -66,4 +66,3 @@ export default function TaskItemComponent({
   );
 }
 
-//className="text-gray-600 text-xs font-semibold uppercase tracking-wide"
