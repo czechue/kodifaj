@@ -11,4 +11,6 @@ export interface Keys {
   googleClientSecret: string;
   mongoURI: string;
   cookieKey: string;
+  githubClientID: string;
+  githubClientSecret: string;
 }
