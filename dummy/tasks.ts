@@ -4,7 +4,7 @@ const tasks: Task[] = [
   {
     id: 1,
     title: "Nowy kurs 1",
-    author: "Tom 1",
+    author: "Czesław",
     imageUrl: '1.jpg',
     rating: '4.6',
     createdAt: '12.12.2019',
@@ -14,7 +14,7 @@ const tasks: Task[] = [
   {
     id: 2,
     title: "Nowy kurs 2",
-    author: "Tom 2",
+    author: "xxxLabomba",
     imageUrl: '2.jpg',
     rating: '4.6',
     createdAt: '12.12.2019',
@@ -24,7 +24,7 @@ const tasks: Task[] = [
   {
     id: 3,
     title: "Nowy kurs 3",
-    author: "Tom 3",
+    author: "TomGruz2000",
     imageUrl: '3.jpg',
     rating: '4.6',
     createdAt: '12.12.2019',

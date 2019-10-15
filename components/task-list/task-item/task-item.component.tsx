@@ -20,7 +20,7 @@ export default function TaskItemComponent({
   task
 }: TaskItemProps): ReactElement {
   return (
-    <div className="w-1/3 px-2">
+    <div className="w-full my-4 md:px-2 md:w-1/3">
       <Link href={"/tasks/[id]"} as={`/tasks/${task.id.toString()}`}>
         <a>
           <div className="relative pb-5/6 ">
@@ -30,7 +30,7 @@ export default function TaskItemComponent({
               alt={task.title}
             />
           </div>
-          <div className="relative px-4 -mt-16">
+          <div className="relative -mt-16">
             <div className="bg-white p-6 rounded-lg shadow-lg">
               <div className="text-gray-600 text-xs font-semibold uppercase tracking-widest">
                 {task.author}
@@ -66,4 +66,3 @@ export default function TaskItemComponent({
   );
 }
 
-//className="text-gray-600 text-xs font-semibold uppercase tracking-wide"

@@ -5,13 +5,13 @@ import MobileButtonComponent from "./mobile-button/mobile-button.component";
 import MobileLinkComponent from "./mobile-link/mobile-link.component";
 
 import "../../static/style.css";
-// import { UserContext } from "../../providers/user.provider";
 interface NavbarComponentProps {
   user: string;
 }
-export default function NavbarComponent({user}: NavbarComponentProps): ReactElement {
+export default function NavbarComponent({
+  user
+}: NavbarComponentProps): ReactElement {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  // const { user } = useContext(UserContext);
 
   const mobileLinksContainerClassName = classNames(
     "px-2 pb-2 sm:flex sm:bg-transparent sm:pb-0",
@@ -19,6 +19,24 @@ export default function NavbarComponent({user}: NavbarComponentProps): ReactElem
       block: isMobileMenuOpen,
       hidden: !isMobileMenuOpen
     }
+  );
+
+  const userLinks = (
+    <>
+      {!user && (
+        <MobileLinkComponent url="/auth/google">
+          Zaloguj z google
+        </MobileLinkComponent>
+      )}
+      {user && (
+        <MobileLinkComponent url="#">
+          <>User: {user}</>
+        </MobileLinkComponent>
+      )}
+      {user && (
+        <MobileLinkComponent url="/api/logout">Wyloguj się</MobileLinkComponent>
+      )}
+    </>
   );
 
   return (
@@ -36,13 +54,10 @@ export default function NavbarComponent({user}: NavbarComponentProps): ReactElem
           </div>
         </div>
         <div className={mobileLinksContainerClassName}>
-          <MobileLinkComponent url="#">Zadania</MobileLinkComponent>
-          <MobileLinkComponent url="/auth/google">
-            Zaloguj z google
+          <MobileLinkComponent url="/" routerLink>
+            Zadania
           </MobileLinkComponent>
-          <MobileLinkComponent url="#">
-            <>User: {user}</>
-          </MobileLinkComponent>
+          {userLinks}
         </div>
       </header>
     </div>
