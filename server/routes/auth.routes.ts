@@ -10,10 +10,25 @@ export default function authRoutes(_app: Server, server: Express) {
     })
   );
 
+  server.get(
+    "/auth/github",
+    passport.authenticate("github", {
+      scope: ["read:user", "public_repo"]
+    })
+  );
+
   // this url is with the code queryParam
   server.get(
     "/auth/google/callback",
     passport.authenticate("google"),
+    (_req: Request, res: Response) => {
+      res.redirect("/");
+    }
+  );
+
+  server.get(
+    "/auth/github/callback",
+    passport.authenticate("github"),
     (_req: Request, res: Response) => {
       res.redirect("/");
     }
