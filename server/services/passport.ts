@@ -1,10 +1,11 @@
 import passport from "passport";
 import { Profile, VerifyCallback } from "passport-google-oauth20";
-const GoogleStrategy = require("passport-google-oauth20").Strategy;
-const GitHubStrategy = require("passport-github2").Strategy;
 import keys from "../config/keys";
 import * as mongoose from "mongoose";
 import { IUser } from "../models/User";
+
+const GoogleStrategy = require("passport-google-oauth20").Strategy;
+const GitHubStrategy = require("passport-github2").Strategy;
 
 const User = mongoose.model("users");
 
@@ -65,8 +66,6 @@ export default function passportService() {
         const existingUser = await User.findOne({
           githubId: profile.id
         } as IUser);
-
-        console.log("profile", profile);
 
         if (existingUser) {
           return done(undefined, existingUser);

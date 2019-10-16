@@ -24,9 +24,14 @@ export default function NavbarComponent({
   const userLinks = (
     <>
       {!user && (
-        <MobileLinkComponent url="/auth/google">
-          Zaloguj z google
-        </MobileLinkComponent>
+        <>
+          <MobileLinkComponent url="/auth/google">
+            Zaloguj z google
+          </MobileLinkComponent>
+          <MobileLinkComponent url="/auth/github">
+            Zaloguj z githubem
+          </MobileLinkComponent>
+        </>
       )}
       {user && (
         <MobileLinkComponent url="#">
