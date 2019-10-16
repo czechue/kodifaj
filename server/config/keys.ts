@@ -9,8 +9,8 @@ export default keys;
 export interface Keys {
   googleClientID: string;
   googleClientSecret: string;
-  mongoURI: string;
-  cookieKey: string;
   githubClientID: string;
   githubClientSecret: string;
+  mongoURI: string;
+  cookieKey: string;
 }
