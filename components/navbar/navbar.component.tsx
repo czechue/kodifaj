@@ -34,7 +34,7 @@ export default function NavbarComponent({
         </>
       )}
       {user && (
-        <MobileLinkComponent url="#">
+        <MobileLinkComponent url={`/users/${user}`} routerLink>
           <>User: {user}</>
         </MobileLinkComponent>
       )}

@@ -8,3 +8,10 @@ export interface Task {
 	createdAt: string;
 	reviewCount: string;
 }
+
+export interface UserProfil {
+	_id: string;
+	login: string;
+	googleId?: string;
+	githubId?: string;
+}
