@@ -21,7 +21,7 @@ export default function NavbarComponent({
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const mobileLinksContainerClassName = classNames(
-    "px-2 pb-2 sm:flex sm:bg-transparent sm:pb-0",
+    "px-2 pb-2 sm:flex sm:items-center sm:bg-transparent sm:pb-0",
     {
       block: isMobileMenuOpen,
       hidden: !isMobileMenuOpen
@@ -32,11 +32,17 @@ export default function NavbarComponent({
     <>
       {!user && (
         <>
-          <NavigationLinkComponent url="/auth/google">
-            Zaloguj z google
-          </NavigationLinkComponent>
           <NavigationLinkComponent url="/auth/github">
-            Zaloguj z githubem
+            <button className="flex items-center">
+              <img
+                src="/static/github-icon.svg"
+                alt="github icon"
+                className="opacity-50"
+              />
+              <span className="pl-2 sm:uppercase sm:font-normal sm:text-xs">
+                Rejestracja
+              </span>
+            </button>
           </NavigationLinkComponent>
         </>
       )}
@@ -57,12 +63,11 @@ export default function NavbarComponent({
     <div className="bg-gradient-navbar">
       <header className="sm:flex sm:justify-between sm:items-center sm:max-w-6xl sm:ml-auto sm:mr-auto">
         <div className="flex items-center justify-between p-4 h-20">
-
-            <Link href="/">
-              <a>
-                <span className="text-white text-2xl">Kodifaj</span>
-              </a>
-            </Link>
+          <Link href="/">
+            <a>
+              <span className="text-white text-2xl">Kodifaj</span>
+            </a>
+          </Link>
 
           <div className="sm:hidden">
             <MobileButtonComponent
@@ -72,9 +77,20 @@ export default function NavbarComponent({
           </div>
         </div>
         <nav className={mobileLinksContainerClassName}>
-          <NavigationLinkComponent url="/" routerLink>
+          <NavigationLinkComponent classNames="sm:mr-3" url="/tasks" routerLink>
             Zadania
           </NavigationLinkComponent>
+          <NavigationLinkComponent
+            classNames="sm:mr-3"
+            url="/ranking"
+            routerLink
+          >
+            Ranking
+          </NavigationLinkComponent>
+          <NavigationLinkComponent classNames="sm:mr-3" url="/faq" routerLink>
+            Pomoc
+          </NavigationLinkComponent>
+          <span className="hidden sm:block sm:mr-3 text-white">|</span>
           {userLinks}
         </nav>
       </header>
