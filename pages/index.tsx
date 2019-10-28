@@ -13,7 +13,7 @@ import "../static/style.css";
 const HomePage: NextPage<Props> = ({ tasks }) => {
   const { user } = useContext(UserContext);
   return (
-    <LayoutComponent user={user}>
+    <LayoutComponent user={user} withHero>
       <TaskListComponent tasks={tasks} />
     </LayoutComponent>
   );

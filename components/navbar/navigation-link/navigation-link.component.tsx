@@ -7,7 +7,7 @@ interface MobileLinkProps {
   routerLink?: boolean;
 }
 
-export default function MobileLinkComponent({
+export default function NavigationLinkComponent({
   children,
   url,
   routerLink = false
