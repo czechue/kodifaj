@@ -10,8 +10,8 @@ export interface Task {
 }
 
 export interface UserProfil {
-	_id: string;
+	id: string;
+	photo: string;
 	login: string;
-	googleId?: string;
-	githubId?: string;
+	githubId: string;
 }
