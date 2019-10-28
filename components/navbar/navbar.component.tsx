@@ -7,6 +7,7 @@ import HeadingComponent from "../heading/heading.component";
 
 import "../../static/style.css";
 import Link from "next/link";
+import { User } from "../../providers/user.provider";
 
 const bgImage = {
   backgroundImage: `url(/static/Objects.svg)`,
@@ -48,7 +49,9 @@ export default function NavbarComponent({
       )}
       {user && (
         <NavigationLinkComponent url={`/users/${user}`} routerLink>
-          <>User: {user}</>
+          <div className="flex items-center">
+            <img src={user.photo} alt="user photo" className="w-6" />
+          </div>
         </NavigationLinkComponent>
       )}
       {user && (
@@ -112,6 +115,6 @@ export default function NavbarComponent({
 }
 
 interface NavbarComponentProps {
-  user: string;
+  user: User;
   withHero?: boolean;
 }
