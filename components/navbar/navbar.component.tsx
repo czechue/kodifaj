@@ -55,9 +55,26 @@ export default function NavbarComponent({
         </NavigationLinkComponent>
       )}
       {user && (
-        <NavigationLinkComponent url="/api/logout">
-          Wyloguj się
-        </NavigationLinkComponent>
+        <>
+          <NavigationLinkComponent url="/api/logout">
+            Wyloguj się
+          </NavigationLinkComponent>
+
+          <div>
+            <button className="block h-8 w-8 rounded-full overflow-hidden border-2 border-violet_primary focus:outline-none focus:border-white">
+              <img
+                className="h-full w-full object-cover"
+                src={user.photo}
+                alt="user photo"
+              />
+            </button>
+            <div className="mt-2 py-2 w-48 bg-white rounded-lg shadow-xl">
+              <a href="#" className="block px-4 py-2 text-gray-800 hover:bg-violet_primary hover:text-white">Twoje konto</a>
+              <a href="#" className="block px-4 py-2 text-gray-800 hover:bg-violet_primary hover:text-white">Dodaj zadanie</a>
+              <a href="#" className="block px-4 py-2 text-gray-800 hover:bg-violet_primary hover:text-white">Wyloguj się</a>
+            </div>
+          </div>
+        </>
       )}
     </>
   );
