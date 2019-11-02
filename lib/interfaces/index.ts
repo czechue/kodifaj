@@ -2,14 +2,15 @@ export interface Task {
   id: string;
   title: string;
   author: string;
+  repo: string;
   avatarUrl: string;
+  images: string[];
   rating: number;
   reviewCount: number;
   createdAt: string;
   technologies: string[];
   difficulty: number;
   content: string;
-  description: string;
   tips: string[];
   solutions: Solution[];
 }

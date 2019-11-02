@@ -4,8 +4,10 @@ const tasks: Task[] = [
   {
     id: '1',
     title: "Responsywna strona oparta o bootstrap 4",
+    repo: 'https://github.com/',
     author: "Czesław",
-    avatarUrl: "1.jpg",
+    avatarUrl: "/static/1.jpg",
+    images: ["/static/1.jpg", "/static/2.jpg", "/static/3.jpg"],
     rating: 4.6,
     reviewCount: 21,
     createdAt: "12.12.2019",
@@ -13,8 +15,6 @@ const tasks: Task[] = [
     difficulty: 2,
     content:
       "Do wykonania jest prosty formularz kontaktowy w html i css.",
-    description:
-      "Do wykonania jest prosty formularz kontaktowy w html i css. Nie można korzystać z bootstrapa. lorem",
     tips: [
       "Wskazówka pierwsza",
       "Inna wskasowka",
@@ -47,8 +47,10 @@ const tasks: Task[] = [
   {
     id: '2',
     title: "2 Responsywna strona oparta o bootstrap 4",
+    repo: 'https://github.com/',
     author: "Czesław",
-    avatarUrl: "2.jpg",
+    avatarUrl: "/static/2.jpg",
+    images: ["/static/1.jpg", "/static/2.jpg", "/static/3.jpg"],
     rating: 4.6,
     reviewCount: 21,
     createdAt: "12.12.2019",
@@ -56,8 +58,6 @@ const tasks: Task[] = [
     difficulty: 2,
     content:
       "Do wykonania jest prosty formularz kontaktowy w html i css.",
-    description:
-      "Do wykonania jest prosty formularz kontaktowy w html i css. Nie można korzystać z bootstrapa. lorem",
     tips: [
       "Wskazówka pierwsza",
       "Inna wskasowka",
@@ -90,8 +90,10 @@ const tasks: Task[] = [
   {
     id: '3',
     title: "3 Responsywna strona oparta o bootstrap 4",
+    repo: 'https://github.com/',
     author: "3Czesław",
-    avatarUrl: "3.jpg",
+    avatarUrl: "/static/3.jpg",
+    images: ["/static/1.jpg", "/static/2.jpg", "/static/3.jpg"],
     rating: 2.6,
     reviewCount: 12,
     createdAt: "12.12.2019",
@@ -99,8 +101,6 @@ const tasks: Task[] = [
     difficulty: 2,
     content:
       "Do wykonania jest prosty formularz kontaktowy w html i css.",
-    description:
-      "Do wykonania jest prosty formularz kontaktowy w html i css. Nie można korzystać z bootstrapa. lorem",
     tips: [
       "Wskazówka pierwsza",
       "Inna wskasowka",

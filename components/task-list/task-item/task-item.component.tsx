@@ -26,7 +26,7 @@ export default function TaskItemComponent({
           <div className="relative pb-5/6 ">
             <img
               className="absolute h-full w-full object-cover rounded-lg overflow-hidden shadow-md"
-              src={`/static/${task.imageUrl}`}
+              src={task.avatarUrl}
               alt={task.title}
             />
           </div>

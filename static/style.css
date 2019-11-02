@@ -9,4 +9,33 @@
   );
 }
 
+.bg-gradient-button {
+  background-image: linear-gradient(
+    -90deg,
+    theme("colors.pink_red"),
+    theme("colors.pink_primary")
+  );
+}
+
+.task-detail__wrapper {
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.task-detail__carousel {
+  grid-column: 1 / 3;
+  grid-row: 1;
+}
+
+.task-detail__aside {
+  grid-column: 3;
+  grid-row: 1 / 3;
+}
+
+.task-detail__content {
+  grid-column: 1 / 3;
+  grid-row: 2;
+}
+
 @tailwind utilities;
