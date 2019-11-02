@@ -8,6 +8,7 @@ import HeadingComponent from "../heading/heading.component";
 import "../../static/style.css";
 import Link from "next/link";
 import { User } from "../../providers/user.provider";
+import AccountDropdownComponent from "../account-dropdown/account-dropdown.component";
 
 const bgImage = {
   backgroundImage: `url(/static/Objects.svg)`,
@@ -22,60 +23,25 @@ export default function NavbarComponent({
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const mobileLinksContainerClassName = classNames(
-    "px-2 pb-2 sm:flex sm:items-center sm:bg-transparent sm:pb-0",
     {
       block: isMobileMenuOpen,
       hidden: !isMobileMenuOpen
-    }
+    },
+    "sm:flex"
   );
 
-  const userLinks = (
+  const navLinks = (
     <>
-      {!user && (
-        <>
-          <NavigationLinkComponent url="/auth/github">
-            <button className="flex items-center">
-              <img
-                src="/static/github-icon.svg"
-                alt="github icon"
-                className="opacity-50"
-              />
-              <span className="pl-2 sm:uppercase sm:font-normal sm:text-xs">
-                Rejestracja
-              </span>
-            </button>
-          </NavigationLinkComponent>
-        </>
-      )}
-      {user && (
-        <NavigationLinkComponent url={`/users/${user}`} routerLink>
-          <div className="flex items-center">
-            <img src={user.photo} alt="user photo" className="w-6" />
-          </div>
-        </NavigationLinkComponent>
-      )}
-      {user && (
-        <>
-          <NavigationLinkComponent url="/api/logout">
-            Wyloguj się
-          </NavigationLinkComponent>
-
-          <div>
-            <button className="block h-8 w-8 rounded-full overflow-hidden border-2 border-violet_primary focus:outline-none focus:border-white">
-              <img
-                className="h-full w-full object-cover"
-                src={user.photo}
-                alt="user photo"
-              />
-            </button>
-            <div className="mt-2 py-2 w-48 bg-white rounded-lg shadow-xl">
-              <a href="#" className="block px-4 py-2 text-gray-800 hover:bg-violet_primary hover:text-white">Twoje konto</a>
-              <a href="#" className="block px-4 py-2 text-gray-800 hover:bg-violet_primary hover:text-white">Dodaj zadanie</a>
-              <a href="#" className="block px-4 py-2 text-gray-800 hover:bg-violet_primary hover:text-white">Wyloguj się</a>
-            </div>
-          </div>
-        </>
-      )}
+      <NavigationLinkComponent classNames="sm:mr-4" url="/tasks" routerLink>
+        Zadania
+      </NavigationLinkComponent>
+      <NavigationLinkComponent classNames="sm:mr-4" url="/ranking" routerLink>
+        Ranking
+      </NavigationLinkComponent>
+      <NavigationLinkComponent classNames="sm:mr-4" url="/faq" routerLink>
+        Pomoc
+      </NavigationLinkComponent>
+      <span className="hidden sm:block sm:mr-4 text-white">|</span>
     </>
   );
 
@@ -96,24 +62,63 @@ export default function NavbarComponent({
             />
           </div>
         </div>
-        <nav className={mobileLinksContainerClassName}>
-          <NavigationLinkComponent classNames="sm:mr-3" url="/tasks" routerLink>
-            Zadania
-          </NavigationLinkComponent>
-          <NavigationLinkComponent
-            classNames="sm:mr-3"
-            url="/ranking"
-            routerLink
-          >
-            Ranking
-          </NavigationLinkComponent>
-          <NavigationLinkComponent classNames="sm:mr-3" url="/faq" routerLink>
-            Pomoc
-          </NavigationLinkComponent>
-          <span className="hidden sm:block sm:mr-3 text-white">|</span>
-          {userLinks}
-        </nav>
+
+        {!user && (
+          <nav className={mobileLinksContainerClassName}>
+            <div className="px-2 pb-2 sm:flex sm:items-center sm:bg-transparent sm:pb-0">
+              {navLinks}
+            </div>
+            <NavigationLinkComponent url="/auth/github">
+              <button className="flex items-center">
+                <img
+                  src="/static/github-icon.svg"
+                  alt="github icon"
+                  className="opacity-50"
+                />
+                <span className="pl-2 sm:uppercase sm:font-normal sm:text-xs">
+                  Rejestracja
+                </span>
+              </button>
+            </NavigationLinkComponent>
+          </nav>
+        )}
+
+        {user && (
+          <nav className={mobileLinksContainerClassName}>
+            <div className="px-2 pb-2 sm:flex sm:items-center sm:bg-transparent sm:pb-0">
+              {navLinks}
+              <AccountDropdownComponent
+                classNames="hidden sm:block sm:ml-6"
+                user={user}
+              />
+            </div>
+
+            <div className="px-4 py-5 border-t border-pink__accent sm:hidden">
+              <div className="flex items-center">
+                <img
+                  className="h-8 w-8 border-2 rounded-full object-cover"
+                  src={user.photo}
+                  alt="user photo"
+                />
+                <span className="ml-3 font-semibold text-white">{user.login}</span>
+              </div>
+
+              <div className="mt-4">
+                <a href="#" className="block text-white hover:text-violet_primary">
+                  Twoje konto
+                </a>
+                <a href="#" className="mt-2 block text-white hover:text-violet_primary">
+                  Dodaj zadanie
+                </a>
+                <a href="/api/logout" className="mt-2 block text-white hover:text-violet_primary">
+                  Wyloguj się
+                </a>
+              </div>
+            </div>
+          </nav>
+        )}
       </header>
+
       {withHero && (
         <div
           className="hidden sm:flex justify-center flex-col h-100 bg-local"
