@@ -1,17 +1,30 @@
 export interface Task {
-	id: number;
-	title: string;
-	author: string;
-	imageUrl: string;
-	rating: string;
-	technologies: string[];
-	createdAt: string;
-	reviewCount: string;
+  id: string;
+  title: string;
+  author: string;
+  avatarUrl: string;
+  rating: number;
+  reviewCount: number;
+  createdAt: string;
+  technologies: string[];
+  difficulty: number;
+  content: string;
+  description: string;
+  tips: string[];
+  solutions: Solution[];
+}
+
+interface Solution {
+  id: string;
+  taskId: string;
+  author: string;
+  createdAt: string;
+  phase: "review" | "done";
 }
 
 export interface UserProfil {
-	id: string;
-	photo: string;
-	login: string;
-	githubId: string;
+  id: string;
+  photo: string;
+  login: string;
+  githubId: string;
 }

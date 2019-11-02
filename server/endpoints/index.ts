@@ -26,7 +26,6 @@ export default function endpoints(server: Express) {
     "/api/users/:id",
     async (req: EnchancedRequest, res: Response): Promise<Response> => {
       const user = await User.findOne({ _id: req.params.id });
-      console.log(user)
       return res.send(user);
     }
   );

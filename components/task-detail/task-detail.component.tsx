@@ -1,13 +1,13 @@
 import React from "react";
 import { Task } from "../../lib/interfaces";
 
-export default function TaskDetailComponent({ imageUrl, title }: Task) {
+export default function TaskDetailComponent({ avatarUrl, title }: Task) {
   return (
     <article className="flex flex-wrap md:-mx-2">
       <div className="w-full my-4 md:px-2 md:w-2/3">
         <div className="flex justify-between">
           <button className="">Left</button>
-          <img className="ml-auto mr-auto" src={`/static/${imageUrl}`} alt="" />
+          <img className="ml-auto mr-auto" src={`/static/${avatarUrl}`} alt="" />
           <button className="">Right</button>
         </div>
       </div>

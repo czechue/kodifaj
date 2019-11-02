@@ -8,7 +8,7 @@ import HeadingComponent from "../heading/heading.component";
 import "../../static/style.css";
 import Link from "next/link";
 import { User } from "../../providers/user.provider";
-import AccountDropdownComponent from "../account-dropdown/account-dropdown.component";
+import AccountDropdownComponent from "./account-dropdown/account-dropdown.component";
 
 const bgImage = {
   backgroundImage: `url(/static/Objects.svg)`,
