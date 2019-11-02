@@ -25,10 +25,10 @@ export default function TaskDetailComponent({
         </HeadingComponent>
       </div>
       <article className="task-detail__wrapper">
-        <section className="task-detail__carousel">
+        <section className="task-detail__carousel sm:p-2">
           <CarouselComponent images={images} />
         </section>
-        <section className="task-detail__aside">
+        <section className="task-detail__aside sm:p-2">
           <AsideComponent
             createdAt={createdAt}
             author={author}
@@ -37,7 +37,7 @@ export default function TaskDetailComponent({
             repo={repo}
           />
         </section>
-        <section className="task-detail__content">
+        <section className="task-detail__content sm:p-2">
           <ContentComponent content={content} />
         </section>
       </article>
