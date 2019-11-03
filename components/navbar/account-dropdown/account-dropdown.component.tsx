@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { User } from "../../../providers/user.provider";
+import Link from "next/link";
 
 export default function AccountDropdownComponent({
   user,
@@ -37,18 +38,17 @@ export default function AccountDropdownComponent({
         <button
           onClick={() => setIsOpen(false)}
           tabIndex={-1}
-          className="fixed inset-0 w-full h-full bg-black opacity-50 cursor-default"
+          className="fixed inset-0 w-full h-full bg-black opacity-50 cursor-default z-10"
         />
       )}
 
       {isOpen && (
-        <div className="absolute right-0 mt-2 py-2 w-48 bg-white rounded-lg shadow-xl">
-          <a
-            href="#"
-            className="block px-4 py-2 text-gray-800 hover:bg-violet_primary hover:text-white"
-          >
-            Twoje konto
-          </a>
+        <div className="absolute right-0 mt-2 py-2 w-48 bg-white rounded-lg shadow-xl z-20">
+          <Link href={`/users/${user._id}`}>
+            <a className="block px-4 py-2 text-gray-800 hover:bg-violet_primary hover:text-white">
+              Twoje konto
+            </a>
+          </Link>
           <a
             href="#"
             className="block px-4 py-2 text-gray-800 hover:bg-violet_primary hover:text-white"

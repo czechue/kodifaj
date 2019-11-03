@@ -100,17 +100,29 @@ export default function NavbarComponent({
                   src={user.photo}
                   alt="user photo"
                 />
-                <span className="ml-3 font-semibold text-white">{user.login}</span>
+                <span className="ml-3 font-semibold text-white">
+                  {user.login}
+                </span>
               </div>
 
               <div className="mt-4">
-                <a href="#" className="block text-white hover:text-violet_primary">
-                  Twoje konto
-                </a>
-                <a href="#" className="mt-2 block text-white hover:text-violet_primary">
+                <Link href={`/users/${user._id}`}>
+                  <a
+                    className="block text-white hover:text-violet_primary"
+                  >
+                    Twoje konto
+                  </a>
+                </Link>
+                <a
+                  href="#"
+                  className="mt-2 block text-white hover:text-violet_primary"
+                >
                   Dodaj zadanie
                 </a>
-                <a href="/api/logout" className="mt-2 block text-white hover:text-violet_primary">
+                <a
+                  href="/api/logout"
+                  className="mt-2 block text-white hover:text-violet_primary"
+                >
                   Wyloguj się
                 </a>
               </div>
@@ -128,7 +140,7 @@ export default function NavbarComponent({
             Najlepsze zadania z web dev
           </HeadingComponent>
           <HeadingComponent color="white" font="bold" size="xlg">
-            Dla juniorów i mentorów
+            od Juniora do Mentora
           </HeadingComponent>
         </div>
       )}

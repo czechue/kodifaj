@@ -4,7 +4,7 @@ import { HOSTNAME } from "../lib/hostname.config";
 
 export const UserContext = React.createContext({
   user: {
-    id: "",
+    _id: "",
     githubId: "",
     login: "",
     photo: ""
@@ -40,7 +40,7 @@ interface UserProviderProps {
 }
 
 export interface User {
-  id: string;
+  _id: string;
   githubId: string;
   login: string;
   photo: string;

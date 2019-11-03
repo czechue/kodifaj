@@ -10,7 +10,7 @@ const CarouselButton = ({
   right?: boolean;
 }) => {
   const buttonClassNames = clsx(
-    "flex justify-center h-12 w-12 rounded bg-white opacity-75",
+    "flex justify-center h-12 w-12 rounded bg-white opacity-50 hover:opacity-75",
     {
       "ml-2": !right,
       "mr-2": right

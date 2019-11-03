@@ -44,8 +44,8 @@ export default function AsideComponent({
   return <>
       <section>
         <Title>Źródła</Title>
-        <a href={repo}>
-          <img src="/static/github-icon.svg" className="opacity-50" alt="github icon" />
+        <a  href={repo}>
+          <img src="/static/github-icon.svg" className="opacity-50 hover:opacity-100" alt="github icon" />
         </a>
       </section>
       <section className="mt-6">
