@@ -3,18 +3,21 @@ import axios from "axios";
 import { HOSTNAME } from "../lib/hostname.config";
 
 export const UserContext = React.createContext({
-  user: "",
+  user: {
+    _id: "",
+    githubId: "",
+    login: "",
+    photo: ""
+  },
   login: () => {},
   logout: () => {}
 });
 
-export default function UserProvider({ children, userId = "" }: UserProviderProps) {
-  const [user, setUser] = useState(userId);
+export default function UserProvider({ children, user }: UserProviderProps) {
+  const [userState, setUserState] = useState(user);
 
   function login() {
-
-    console.log('login');
-    setUser('user')
+    setUserState(user);
   }
 
   function logout() {
@@ -22,7 +25,7 @@ export default function UserProvider({ children, userId = "" }: UserProviderProp
   }
 
   const context = {
-    user,
+    user: userState,
     login,
     logout
   };
@@ -33,5 +36,12 @@ export default function UserProvider({ children, userId = "" }: UserProviderProp
 
 interface UserProviderProps {
   children: ReactElement;
-  userId?: string;
+  user: User;
+}
+
+export interface User {
+  _id: string;
+  githubId: string;
+  login: string;
+  photo: string;
 }

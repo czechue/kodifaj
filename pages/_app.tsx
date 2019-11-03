@@ -1,5 +1,5 @@
-import App, {AppContext} from "next/app";
-import UserProvider from "../providers/user.provider";
+import App, { AppContext } from "next/app";
+import UserProvider, { User } from "../providers/user.provider";
 import { IncomingMessage } from "http";
 
 class MyApp extends App {
@@ -14,7 +14,7 @@ class MyApp extends App {
       const request: IncomingMessageExtended = ctx.req;
 
       if (request && request.session && request.session.passport) {
-        pageProps.user = request.session.passport.user;
+        pageProps.user = request.session._ctx.user;
       }
     }
     return { pageProps };
@@ -24,7 +24,7 @@ class MyApp extends App {
     const { Component, pageProps } = this.props;
 
     return (
-      <UserProvider userId={pageProps.user}>
+      <UserProvider user={pageProps.user}>
         <Component {...pageProps} />
       </UserProvider>
     );
@@ -37,6 +37,9 @@ interface IncomingMessageExtended extends IncomingMessage {
   session?: {
     passport: {
       user: string;
+    };
+    _ctx: {
+      user: User;
     };
   };
 }

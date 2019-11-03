@@ -74,7 +74,8 @@ export default function passportService() {
         try {
           const user = await new User({
             githubId: profile.id,
-            login: profile.displayName
+            login: profile.displayName,
+            photo: profile.photos ? profile.photos[0].value : ""
           } as IUser).save();
           done(undefined, user);
         } catch (e) {

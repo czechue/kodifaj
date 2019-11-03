@@ -2,9 +2,19 @@
 
 @tailwind components;
 
+@import "styles/task-detail.css";
+
 .bg-gradient-navbar {
   background-image: linear-gradient(
     theme("colors.violet_primary"),
+    theme("colors.pink_primary")
+  );
+}
+
+.bg-gradient-button {
+  background-image: linear-gradient(
+    -90deg,
+    theme("colors.pink_red"),
     theme("colors.pink_primary")
   );
 }

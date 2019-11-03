@@ -1,5 +1,14 @@
 # Custom server with TypeScript + Nodemon example
 
+## Prod hosting on Heroku
+https://tranquil-crag-25841.herokuapp.com/
+
+## Used Tools
+[Tailwind Grid Generator](https://tailwindgrids.com/#/) - preferable when CSS Grid is not needed
+[CSS Grid](https://gridbyexample.com/) 
+[Nuka Carousel](https://github.com/FormidableLabs/nuka-carousel)
+
+
 ## How to use
 
 ### Using `create-next-app`

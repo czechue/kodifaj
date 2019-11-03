@@ -1,22 +1,46 @@
 import React from "react";
 import { Task } from "../../lib/interfaces";
+import CarouselComponent from "./carousel/carousel.component";
+import AsideComponent from "./aside/aside.component";
+import ContentComponent from "./content/content.component";
+import HeadingComponent from "../heading/heading.component";
 
-export default function TaskDetailComponent({ imageUrl, title }: Task) {
+export default function TaskDetailComponent({
+  images,
+  title,
+  content,
+  createdAt,
+  author,
+  technologies,
+  difficulty,
+  repo
+}: Task) {
+  const technologiesList = technologies.join(", ");
+
   return (
-    <article className="flex flex-wrap md:-mx-2">
-      <div className="w-full my-4 md:px-2 md:w-2/3">
-        <div className="flex justify-between">
-          <button className="">Left</button>
-          <img className="ml-auto mr-auto" src={`/static/${imageUrl}`} alt="" />
-          <button className="">Right</button>
-        </div>
+    <>
+      <div className="mb-5">
+        <HeadingComponent orientation="left" size="normal">
+          {title}
+        </HeadingComponent>
       </div>
-      <section className="w-full my-4 md:px-2 md:w-1/3">
-        <h1 className="text-xl mb-2">{title}</h1>
-        <p className="text-xs text-gray-600">Tresc</p>
-        <h6>Drugi opis</h6>
-        <div>Tresc 2</div>
-      </section>
-    </article>
+      <article className="task-detail__wrapper">
+        <section className="task-detail__carousel sm:p-2">
+          <CarouselComponent images={images} />
+        </section>
+        <section className="task-detail__aside sm:pl-12">
+          <AsideComponent
+            createdAt={createdAt}
+            author={author}
+            technologies={technologiesList}
+            difficulty={difficulty}
+            repo={repo}
+          />
+        </section>
+        <section className="task-detail__content sm:p-2">
+          <ContentComponent content={content} />
+        </section>
+      </article>
+    </>
   );
 }
