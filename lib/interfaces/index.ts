@@ -24,7 +24,7 @@ interface Solution {
 }
 
 export interface UserProfil {
-  id: string;
+  _id: string;
   photo: string;
   login: string;
   githubId: string;

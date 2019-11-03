@@ -28,7 +28,7 @@ export default function TaskDetailComponent({
         <section className="task-detail__carousel sm:p-2">
           <CarouselComponent images={images} />
         </section>
-        <section className="task-detail__aside sm:p-2">
+        <section className="task-detail__aside sm:pl-12">
           <AsideComponent
             createdAt={createdAt}
             author={author}
