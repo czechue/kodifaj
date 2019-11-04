@@ -107,18 +107,18 @@ export default function NavbarComponent({
 
               <div className="mt-4">
                 <Link href={`/users/${user._id}`}>
-                  <a
-                    className="block text-white hover:text-violet_primary"
-                  >
+                  <a className="block text-white hover:text-violet_primary">
                     Twoje konto
                   </a>
                 </Link>
-                <a
-                  href="#"
-                  className="mt-2 block text-white hover:text-violet_primary"
-                >
-                  Dodaj zadanie
-                </a>
+                <Link href="/tasks/new">
+                  <a
+                    href="#"
+                    className="mt-2 block text-white hover:text-violet_primary"
+                  >
+                    Dodaj zadanie
+                  </a>
+                </Link>
                 <a
                   href="/api/logout"
                   className="mt-2 block text-white hover:text-violet_primary"

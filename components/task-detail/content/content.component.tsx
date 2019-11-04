@@ -2,7 +2,7 @@ import React from "react";
 import HeadingComponent from "../../heading/heading.component";
 
 const Heading = ({ children }: { children: string }) => (
-  <HeadingComponent orientation="left" size="2xl" font="thin" tracking="wide">
+  <HeadingComponent CustomTag="h2" orientation="left" size="2xl" font="thin" tracking="wide">
     {children}
   </HeadingComponent>
 );

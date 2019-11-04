@@ -49,12 +49,11 @@ export default function AccountDropdownComponent({
               Twoje konto
             </a>
           </Link>
-          <a
-            href="#"
-            className="block px-4 py-2 text-gray-800 hover:bg-violet_primary hover:text-white"
-          >
-            Dodaj zadanie
-          </a>
+          <Link href="/tasks/new">
+            <a className="block px-4 py-2 text-gray-800 hover:bg-violet_primary hover:text-white">
+              Dodaj zadanie
+            </a>
+          </Link>
           <a
             href="/api/logout"
             className="block px-4 py-2 text-gray-800 hover:bg-violet_primary hover:text-white"
