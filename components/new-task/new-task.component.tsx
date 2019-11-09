@@ -1,7 +1,8 @@
 import React from "react";
+import { Form, Field } from "react-final-form";
 import HeadingComponent from "../heading/heading.component";
-import { User } from "../../providers/user.provider";
 import FormWrapperComponent from "../form-wrapper/form-wrapper.component";
+import InputComponent from "../shared/input/input.component";
 
 const Heading = ({ children }: { children: string }) => (
   <HeadingComponent
@@ -15,24 +16,72 @@ const Heading = ({ children }: { children: string }) => (
   </HeadingComponent>
 );
 
-export default function NewTaskComponent({ user }: Props) {
-  const login = user.login;
+const required = (value: string) => (value ? undefined : "Required");
 
-  function handleOnSubmit() {
-    console.log("here", login);
+export default function NewTaskComponent({ onSubmit }: NewTaskProps) {
+  function handleOnSubmit(x: NewTask) {
+    if (onSubmit) {
+      onSubmit(x);
+    }
   }
 
   return (
     <>
-      <button onClick={() => handleOnSubmit()}>Aa</button>
       <Heading>Kreator zadań</Heading>
       <FormWrapperComponent>
-        <div>Hello</div>
+        <Form
+          onSubmit={handleOnSubmit}
+          render={({ handleSubmit }) => (
+            <form onSubmit={handleSubmit}>
+              <Field
+                label="Tytuł"
+                name="title"
+                component={InputComponent}
+                validate={required}
+                placeholder="np. Super cool formularz"
+              />
+
+              <Field
+                label="Treść"
+                name="content"
+                component={InputComponent}
+                validate={required}
+                placeholder="Na czym polega zadanie?"
+                fieldType="textarea"
+              />
+
+              <Field
+                label="Wskazówki"
+                name="tips"
+                component={InputComponent}
+                validate={required}
+                placeholder="Daj przydatną wskazówkę"
+              />
+
+              <Field
+                label="Zdjęcia"
+                name="images"
+                component={InputComponent}
+                validate={required}
+                placeholder="Zdjęcie max 10kb"
+              />
+
+              <button type="submit">Submit</button>
+            </form>
+          )}
+        />
       </FormWrapperComponent>
     </>
   );
 }
 
-interface Props {
-  user: User;
+interface NewTaskProps {
+  onSubmit?: (task: NewTask) => void;
+}
+
+export interface NewTask {
+  content: string;
+  images: string;
+  tips: string;
+  title: string;
 }
