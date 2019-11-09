@@ -3,6 +3,7 @@ import tasks from "../../dummy/tasks";
 import * as mongoose from "mongoose";
 
 const User = mongoose.model("users");
+const Task = mongoose.model("tasks");
 
 export default function endpoints(server: Express) {
   server.get(
@@ -19,6 +20,28 @@ export default function endpoints(server: Express) {
 
       // pobiernie z DB
       return res.send(tasks[taskId]);
+    }
+  );
+
+  server.post(
+    "/api/tasks",
+    async (req: Request, res: Response): Promise<void> => {
+      const { content, images, tips, title } = req.body;
+
+      const task = new Task({
+        content,
+        images,
+        tips,
+        title
+      });
+
+      try {
+        console.log('task', task)
+        await task.save();
+        res.send(task);
+      } catch (err) {
+        // res.send(400, err);
+      }
     }
   );
 
