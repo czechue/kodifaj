@@ -1,30 +1,19 @@
 import React from "react";
-import {AxiosResponse} from "axios";
+import { AxiosResponse } from "axios";
 import { Form, Field } from "react-final-form";
 import { FieldArray } from "react-final-form-arrays";
 import arrayMutators from "final-form-arrays";
 
-import HeadingComponent from "../heading/heading.component";
 import FormWrapperComponent from "../form-wrapper/form-wrapper.component";
 import InputComponent from "../shared/input/input.component";
 import TipsComponent from "./tips/tips.component";
-
-const Heading = ({ children }: { children: string }) => (
-  <HeadingComponent
-    CustomTag="h2"
-    orientation="left"
-    size="2xl"
-    font="thin"
-    tracking="wide"
-  >
-    {children}
-  </HeadingComponent>
-);
+import mapFormToNewTaskFormat from "./utils/map-form-to-new-task-form.util";
+import NewTaskHeading from "./heading/heading.component";
 
 // const required = (value: string) => (value ? undefined : "Required");
 
 export default function NewTaskComponent({ onSubmit }: NewTaskProps) {
-
+  // todo: investigate why values argument doesnt work with NewTaskForm type
   async function onFormSubmit(values: any) {
     if (onSubmit) {
       onSubmit(mapFormToNewTaskFormat(values));
@@ -33,7 +22,7 @@ export default function NewTaskComponent({ onSubmit }: NewTaskProps) {
 
   return (
     <>
-      <Heading>Kreator zadań</Heading>
+      <NewTaskHeading>Kreator zadań</NewTaskHeading>
       <FormWrapperComponent>
         <Form
           onSubmit={onFormSubmit}
@@ -59,7 +48,7 @@ export default function NewTaskComponent({ onSubmit }: NewTaskProps) {
 
               <FieldArray name="tips">
                 {({ fields, meta }) => (
-                  <TipsComponent fields={fields} meta={meta}/>
+                  <TipsComponent fields={fields} meta={meta} />
                 )}
               </FieldArray>
 
@@ -79,20 +68,6 @@ export default function NewTaskComponent({ onSubmit }: NewTaskProps) {
   );
 }
 
-function mapFormToNewTaskFormat(task: NewTaskForm): NewTaskMapped {
-  return {
-    ...task,
-    tips: task.tips.length > 1 ? task.tips.map(tip => tip.tip) : []
-  };
-}
-
-export interface NewTaskMapped {
-  content: string;
-  images: string;
-  tips: string[] | [];
-  title: string;
-}
-
 interface NewTaskProps {
   onSubmit: (task: NewTaskMapped) => Promise<AxiosResponse<NewTaskMapped>>;
 }
@@ -101,6 +76,13 @@ export interface NewTaskForm {
   content: string;
   images: string;
   tips: Tip[];
+  title: string;
+}
+
+export interface NewTaskMapped {
+  content: string;
+  images: string;
+  tips: string[] | [];
   title: string;
 }
 
