@@ -12,7 +12,7 @@ export default function InfoComponent({ user }: InfoProps) {
       </span>
       <a target="_blank" href={`https://github.com/${user.login}`}>
         <img
-          src="/static/github-icon.svg"
+          src="/static/images/github-icon.svg"
           className="mt-3 opacity-50 hover:opacity-100"
           alt="github icon"
         />

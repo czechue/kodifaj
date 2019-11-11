@@ -6,7 +6,7 @@ import { UserProfil } from "../../lib/interfaces";
 import { HOSTNAME } from "../../lib/hostname.config";
 
 import { UserContext } from "../../providers/user.provider";
-import LayoutComponent from "../../components/layout/layout.component";
+import LayoutComponent from "../../components/shared/layout/layout.component";
 
 import "../../static/style.css";
 import UserDetailComponent from "../../components/user-detail/user-detail.component";

@@ -1,4 +1,4 @@
-import HeadingComponent from "../../heading/heading.component";
+import HeadingComponent from "../../shared/heading/heading.component";
 import React from "react";
 
 export default function NewTaskHeading({ children }: { children: string }) {
