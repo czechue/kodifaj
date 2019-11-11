@@ -15,7 +15,7 @@ export default function endpoints(server: Express) {
 
   server.get(
     "/api/tasks/:id",
-    (req: EnchancedRequest, res: Response): Response => {
+    (req: EnhancedRequest, res: Response): Response => {
       const taskId = Number(req.params.id) - 1;
 
       // pobiernie z DB
@@ -25,36 +25,37 @@ export default function endpoints(server: Express) {
 
   server.post(
     "/api/tasks",
-    async (req: Request, res: Response): Promise<void> => {
+    async (req: any, res: Response): Promise<void> => {
       const { content, images, tips, title } = req.body;
+      const authorId = req?.user?._id;
 
       const task = new Task({
         content,
         images,
         tips,
-        title
+        title,
+        _user: authorId
       });
 
       try {
-        console.log('task', task)
         await task.save();
         res.send(task);
       } catch (err) {
-        // res.send(400, err);
+        res.send( err);
       }
     }
   );
 
   server.get(
     "/api/users/:id",
-    async (req: EnchancedRequest, res: Response): Promise<Response> => {
+    async (req: EnhancedRequest, res: Response): Promise<Response> => {
       const user = await User.findOne({ _id: req.params.id });
       return res.send(user);
     }
   );
 }
 
-interface EnchancedRequest extends Request {
+interface EnhancedRequest extends Request {
   params: {
     id: string;
   };

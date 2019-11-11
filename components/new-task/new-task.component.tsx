@@ -1,8 +1,13 @@
 import React from "react";
+import {AxiosResponse} from "axios";
 import { Form, Field } from "react-final-form";
+import { FieldArray } from "react-final-form-arrays";
+import arrayMutators from "final-form-arrays";
+
 import HeadingComponent from "../heading/heading.component";
 import FormWrapperComponent from "../form-wrapper/form-wrapper.component";
 import InputComponent from "../shared/input/input.component";
+import TipsComponent from "./tips/tips.component";
 
 const Heading = ({ children }: { children: string }) => (
   <HeadingComponent
@@ -16,12 +21,13 @@ const Heading = ({ children }: { children: string }) => (
   </HeadingComponent>
 );
 
-const required = (value: string) => (value ? undefined : "Required");
+// const required = (value: string) => (value ? undefined : "Required");
 
 export default function NewTaskComponent({ onSubmit }: NewTaskProps) {
-  function handleOnSubmit(x: NewTask) {
+
+  async function onFormSubmit(values: any) {
     if (onSubmit) {
-      onSubmit(x);
+      onSubmit(mapFormToNewTaskFormat(values));
     }
   }
 
@@ -30,39 +36,37 @@ export default function NewTaskComponent({ onSubmit }: NewTaskProps) {
       <Heading>Kreator zadań</Heading>
       <FormWrapperComponent>
         <Form
-          onSubmit={handleOnSubmit}
+          onSubmit={onFormSubmit}
+          mutators={{
+            ...arrayMutators
+          }}
           render={({ handleSubmit }) => (
             <form onSubmit={handleSubmit}>
               <Field
-                label="Tytuł"
                 name="title"
+                label="Tytuł"
                 component={InputComponent}
-                validate={required}
                 placeholder="np. Super cool formularz"
               />
 
               <Field
-                label="Treść"
                 name="content"
+                label="Treść"
                 component={InputComponent}
-                validate={required}
                 placeholder="Na czym polega zadanie?"
                 fieldType="textarea"
               />
 
-              <Field
-                label="Wskazówki"
-                name="tips"
-                component={InputComponent}
-                validate={required}
-                placeholder="Daj przydatną wskazówkę"
-              />
+              <FieldArray name="tips">
+                {({ fields, meta }) => (
+                  <TipsComponent fields={fields} meta={meta}/>
+                )}
+              </FieldArray>
 
               <Field
                 label="Zdjęcia"
                 name="images"
                 component={InputComponent}
-                validate={required}
                 placeholder="Zdjęcie max 10kb"
               />
 
@@ -75,13 +79,31 @@ export default function NewTaskComponent({ onSubmit }: NewTaskProps) {
   );
 }
 
-interface NewTaskProps {
-  onSubmit?: (task: NewTask) => void;
+function mapFormToNewTaskFormat(task: NewTaskForm): NewTaskMapped {
+  return {
+    ...task,
+    tips: task.tips.length > 1 ? task.tips.map(tip => tip.tip) : []
+  };
 }
 
-export interface NewTask {
+export interface NewTaskMapped {
   content: string;
   images: string;
-  tips: string;
+  tips: string[] | [];
   title: string;
+}
+
+interface NewTaskProps {
+  onSubmit: (task: NewTaskMapped) => Promise<AxiosResponse<NewTaskMapped>>;
+}
+
+export interface NewTaskForm {
+  content: string;
+  images: string;
+  tips: Tip[];
+  title: string;
+}
+
+interface Tip {
+  tip: string;
 }
