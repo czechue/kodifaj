@@ -4,7 +4,7 @@ import { Form, Field } from "react-final-form";
 import { FieldArray } from "react-final-form-arrays";
 import arrayMutators from "final-form-arrays";
 
-import FormWrapperComponent from "../form-wrapper/form-wrapper.component";
+import FormWrapperComponent from "../shared/form-wrapper/form-wrapper.component";
 import InputComponent from "../shared/input/input.component";
 import TipsComponent from "./tips/tips.component";
 import mapFormToNewTaskFormat from "./utils/map-form-to-new-task-form.util";

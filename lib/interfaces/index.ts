@@ -21,6 +21,9 @@ interface Solution {
   author: string;
   createdAt: string;
   phase: "review" | "done";
+  comment: string;
+  demoUrl: string;
+  repo: string;
 }
 
 export interface UserProfil {
