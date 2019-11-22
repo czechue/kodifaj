@@ -3,7 +3,7 @@ import { Task } from "../../lib/interfaces";
 import CarouselComponent from "./carousel/carousel.component";
 import AsideComponent from "./aside/aside.component";
 import ContentComponent from "./content/content.component";
-import HeadingComponent from "../heading/heading.component";
+import HeadingComponent from "../shared/heading/heading.component";
 
 export default function TaskDetailComponent({
   images,

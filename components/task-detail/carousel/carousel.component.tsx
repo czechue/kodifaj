@@ -22,8 +22,8 @@ const CarouselButton = ({
       <img
         src={
           right
-            ? "/static/chevron-thin-right.svg"
-            : "/static/chevron-thin-left.svg"
+            ? "/static/images/chevron-thin-right.svg"
+            : "/static/images/chevron-thin-left.svg"
         }
         className="h-8"
         alt="carousel button"

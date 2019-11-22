@@ -53,7 +53,7 @@ export default function AsideComponent({
         <Title>Źródła</Title>
         <a href={repo}>
           <img
-            src="/static/github-icon.svg"
+            src="/static/images/github-icon.svg"
             className="mt-3 opacity-50 hover:opacity-100"
             alt="github icon"
           />
@@ -77,18 +77,18 @@ export default function AsideComponent({
       <section className="mt-6">
         <Title>Potrzebujesz pomocy?</Title>
         <div className="mt-3">
-          <HelpLink href="/faq" image="/static/help.svg">
+          <HelpLink href="/faq" image="/static/images/help.svg">
             Jak zacząć?
           </HelpLink>
 
         </div>
         <div className="mt-2">
-          <HelpLink href="#" image="/static/lock.svg">
+          <HelpLink href="#" image="/static/images/lock.svg">
             Wskazówki
           </HelpLink>
         </div>
         <div className="mt-2">
-          <HelpLink href="#" image="/static/lock.svg">
+          <HelpLink href="#" image="/static/images/lock.svg">
             Rozwiązania
           </HelpLink>
         </div>

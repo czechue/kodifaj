@@ -20,6 +20,7 @@ export default function UserProvider({ children, user }: UserProviderProps) {
     setUserState(user);
   }
 
+  // todo: use this logout function instead of href
   function logout() {
     axios.get(`${HOSTNAME}/api/logout`);
   }

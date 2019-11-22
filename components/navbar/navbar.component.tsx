@@ -3,18 +3,12 @@ import classNames from "clsx";
 
 import MobileButtonComponent from "./mobile-button/mobile-button.component";
 import NavigationLinkComponent from "./navigation-link/navigation-link.component";
-import HeadingComponent from "../heading/heading.component";
 
 import "../../static/style.css";
 import Link from "next/link";
 import { User } from "../../providers/user.provider";
 import AccountDropdownComponent from "./account-dropdown/account-dropdown.component";
-
-const bgImage = {
-  backgroundImage: `url(/static/Objects.svg)`,
-  backgroundPosition: "bottom",
-  backgroundRepeat: "no-repeat"
-};
+import HeroComponent from "./hero/hero.component";
 
 export default function NavbarComponent({
   user,
@@ -71,7 +65,7 @@ export default function NavbarComponent({
             <NavigationLinkComponent url="/auth/github">
               <button className="flex items-center">
                 <img
-                  src="/static/github-icon.svg"
+                  src="/static/images/github-icon.svg"
                   alt="github icon"
                   className="opacity-50"
                 />
@@ -107,18 +101,18 @@ export default function NavbarComponent({
 
               <div className="mt-4">
                 <Link href={`/users/${user._id}`}>
-                  <a
-                    className="block text-white hover:text-violet_primary"
-                  >
+                  <a className="block text-white hover:text-violet_primary">
                     Twoje konto
                   </a>
                 </Link>
-                <a
-                  href="#"
-                  className="mt-2 block text-white hover:text-violet_primary"
-                >
-                  Dodaj zadanie
-                </a>
+                <Link href="/tasks/new">
+                  <a
+                    href="#"
+                    className="mt-2 block text-white hover:text-violet_primary"
+                  >
+                    Dodaj zadanie
+                  </a>
+                </Link>
                 <a
                   href="/api/logout"
                   className="mt-2 block text-white hover:text-violet_primary"
@@ -131,19 +125,7 @@ export default function NavbarComponent({
         )}
       </header>
 
-      {withHero && (
-        <div
-          className="hidden sm:flex justify-center flex-col h-100 bg-local"
-          style={bgImage}
-        >
-          <HeadingComponent color="white" size="normal" classNames="opacity-50">
-            Najlepsze zadania z web dev
-          </HeadingComponent>
-          <HeadingComponent color="white" font="bold" size="xlg">
-            od Juniora do Mentora
-          </HeadingComponent>
-        </div>
-      )}
+      {withHero && <HeroComponent/>}
     </div>
   );
 }

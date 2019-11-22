@@ -3,6 +3,7 @@ import tasks from "../../dummy/tasks";
 import * as mongoose from "mongoose";
 
 const User = mongoose.model("users");
+const Task = mongoose.model("tasks");
 
 export default function endpoints(server: Express) {
   server.get(
@@ -14,7 +15,7 @@ export default function endpoints(server: Express) {
 
   server.get(
     "/api/tasks/:id",
-    (req: EnchancedRequest, res: Response): Response => {
+    (req: EnhancedRequest, res: Response): Response => {
       const taskId = Number(req.params.id) - 1;
 
       // pobiernie z DB
@@ -22,16 +23,39 @@ export default function endpoints(server: Express) {
     }
   );
 
+  server.post(
+    "/api/tasks",
+    async (req: any, res: Response): Promise<void> => {
+      const { content, images, tips, title } = req.body;
+      const authorId = req?.user?._id;
+
+      const task = new Task({
+        content,
+        images,
+        tips,
+        title,
+        _user: authorId
+      });
+
+      try {
+        await task.save();
+        res.send(task);
+      } catch (err) {
+        res.send( err);
+      }
+    }
+  );
+
   server.get(
     "/api/users/:id",
-    async (req: EnchancedRequest, res: Response): Promise<Response> => {
+    async (req: EnhancedRequest, res: Response): Promise<Response> => {
       const user = await User.findOne({ _id: req.params.id });
       return res.send(user);
     }
   );
 }
 
-interface EnchancedRequest extends Request {
+interface EnhancedRequest extends Request {
   params: {
     id: string;
   };

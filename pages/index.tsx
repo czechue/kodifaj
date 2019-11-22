@@ -4,7 +4,7 @@ import { NextPage } from "next";
 import { HOSTNAME } from "../lib/hostname.config";
 
 import TaskListComponent from "../components/task-list/task-list.component";
-import LayoutComponent from "../components/layout/layout.component";
+import LayoutComponent from "../components/shared/layout/layout.component";
 import { UserContext } from "../providers/user.provider";
 import { Task } from "../lib/interfaces";
 

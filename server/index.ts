@@ -3,10 +3,12 @@ import express, { Request, Response } from "express";
 import mongoose from "mongoose";
 import keys from "./config/keys";
 import passport from "passport";
+import bodyParser from "body-parser";
 import cookieSession from "cookie-session";
 
 // MODELS:
 import "./models/User";
+import "./models/Task";
 
 import passportService from "./services/passport";
 import tasksRoutes from "./routes/tasks.routes";
@@ -29,6 +31,7 @@ app.prepare().then(() => {
 
   const server = express();
 
+  server.use(bodyParser.json());
   server.use(
     cookieSession({
       maxAge: 30 * 24 * 60 * 60 * 1000,

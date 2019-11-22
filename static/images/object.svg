@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="280" height="324" viewBox="0 0 280 324">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="imageMask" width="280" height="324" transform="translate(0 285)" fill="none"/>
+    </clipPath>
+    <linearGradient id="linear-gradient" x1="-0.25" y1="0.5" x2="1.25" y2="0.5" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#451acf"/>
+      <stop offset="1" stop-color="#f3859a"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="-0.25" y1="0.5" x2="1.25" y2="0.5" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#562fd2" stop-opacity="0.439"/>
+      <stop offset="0.248" stop-color="#f59589"/>
+      <stop offset="0.251" stop-color="#f79688"/>
+      <stop offset="1" stop-color="#f3859a"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-3" x1="-0.25" y1="0.5" x2="1.25" y2="0.5" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#f78ca0"/>
+      <stop offset="1" stop-color="#63c"/>
+    </linearGradient>
+  </defs>
+  <g id="Objects" transform="translate(0 -285)" clip-path="url(#clip-path)">
+    <g id="Objects-2" data-name="Objects" transform="translate(-831 293.906)">
+      <path id="Shape_3" data-name="Shape 3" d="M334,1000.268c119.323,28.29,239.062,13.259,319.453-25.343C703.685,950.8,790.969,858.687,893.609,877c20.391,2.274,100.84,55.389,156.652,39.431,61.556-17.6,149.146-80.778,211.031-80.778,87.359,0,151.262,57.6,222.934,57.6,47.157,0,114.48-35.021,182.608-2.71C1723.01,917.188,1784,908.978,1784,908.978v216.1H334Z" transform="translate(-334 -826.393)" opacity="0.4" fill="url(#linear-gradient)"/>
+      <g id="Shape_2" data-name="Shape 2" transform="translate(0 0)" opacity="0.6">
+        <path id="Shape_2-2" data-name="Shape 2" d="M334,931.021s127.671,35.268,293.776,10.155c90.073-13.618,85.85-79.613,188.8-81.242,86.806-1.374,143.55,105.18,254.505,75.439,49.99-13.4,123.235-73.874,169.922-92.849,163.767-66.558,238.28,90.813,386.088,72.405C1717.513,903.67,1784,933.6,1784,933.6v191.1H334Z" transform="translate(-334 -826.012)" fill="#d75193"/>
+        <path id="Gradient_Overlay" data-name="Gradient Overlay" d="M0,105.009s127.671,35.268,293.776,10.155c90.073-13.618,85.85-79.613,188.8-81.242,86.806-1.374,143.55,105.18,254.505,75.439,49.99-13.4,123.235-73.874,169.922-92.849,163.767-66.558,238.28,90.813,386.088,72.405C1383.513,77.658,1450,107.587,1450,107.587v191.1H0Z" fill="url(#linear-gradient-2)"/>
+      </g>
+      <path id="Shape_1" data-name="Shape 1" d="M1784,1002.031c-119.323,28.29-242.93,19.3-317.187-41.3-45.479-37.114-94.622-76.558-278.672-26.839-65.16,17.6-92.834-40.316-193.333-51.5-146.265-24.04-208.815,158.494-357.214,192.224s-303.594,8.7-303.594,8.7v43.522H1784Z" transform="translate(-334 -828.156)" opacity="0.302" fill="url(#linear-gradient-3)"/>
+    </g>
+  </g>
+</svg>

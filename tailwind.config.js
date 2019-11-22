@@ -5,6 +5,7 @@ module.exports = {
         pink__accent: "#FB9494",
         pink_primary: "#F78CA0",
         pink_red: "#FE9A8B",
+        pink_bg: '#F6F4FD',
         violet_primary: "#6633CC"
       },
       spacing: {
@@ -35,6 +36,7 @@ module.exports = {
         "10/12": "83.333333%",
         "11/12": "91.666667%",
         "100": "25rem",
+        "240": "60rem",
         full: "100%",
         screen: "100vw"
       }
@@ -42,7 +44,7 @@ module.exports = {
   },
   variants: {
     opacity: ["group-hover", "hover"],
-    textColor: ["group-hover", "hover"]
+    textColor: ["group-hover", "hover"],
   },
   plugins: []
 };
