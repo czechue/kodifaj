@@ -12,7 +12,7 @@ export interface ITask extends Document {
 const taskSchema: Schema = new Schema({
   content: String,
   createdAt: { type: Date, default: Date.now },
-  images: String,
+  images: [String],
   tips: [String],
   title: String,
   _user: { type: Schema.Types.ObjectId, ref: 'users' }

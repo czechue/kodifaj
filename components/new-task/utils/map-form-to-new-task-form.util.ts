@@ -1,8 +1,11 @@
-import {NewTaskForm, NewTaskMapped} from "../new-task.component";
+import { NewTaskForm, NewTaskMapped } from "../new-task.component";
 
-export default function mapFormToNewTaskFormat(task: NewTaskForm): NewTaskMapped {
-	return {
-		...task,
-		tips: task.tips.length > 1 ? task.tips.map(tip => tip.tip) : []
-	};
+export default function mapFormToNewTaskFormat(
+  task: NewTaskForm
+): NewTaskMapped {
+  return {
+    ...task,
+    tips: task.tips.length ? task.tips.map(tip => tip.tip) : [],
+    images: task.images.length ? task.images.map(image => image.image) : []
+  };
 }
