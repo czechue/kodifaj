@@ -1,5 +1,5 @@
 import React from "react";
-import { UserProfil } from "../../lib/interfaces";
+import { UserProfil } from "../../lib/types/user";
 import InfoComponent from "./info/info.component";
 import HeadingComponent from "../shared/heading/heading.component";
 

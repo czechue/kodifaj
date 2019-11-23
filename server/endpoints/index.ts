@@ -8,7 +8,7 @@ export default function endpoints(server: Express) {
   server.get(
     "/api/tasks",
     async (_req: Request, res: Response): Promise<Response> => {
-      const tasks = await Task.find();
+      const tasks = await Task.find().populate('_user', 'login');
       return res.send(tasks)
     }
   );
@@ -17,7 +17,7 @@ export default function endpoints(server: Express) {
     "/api/tasks/:id",
     async (req: EnhancedRequest, res: Response): Promise<Response> => {
       const taskId = req.params.id;
-      const task = await Task.findById(taskId);
+      const task = await Task.findById(taskId).populate('_user');
       return res.send(task);
     }
   );
@@ -25,7 +25,7 @@ export default function endpoints(server: Express) {
   server.post(
     "/api/tasks",
     async (req: any, res: Response): Promise<void> => {
-      const { content, images, tips, title } = req.body;
+      const { content, images, tips, title, tags } = req.body;
       const authorId = req?.user?._id;
 
       const task = new Task({
@@ -33,6 +33,8 @@ export default function endpoints(server: Express) {
         images,
         tips,
         title,
+        tags,
+        reviewCount: 1,
         _user: authorId
       });
 

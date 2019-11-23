@@ -1,5 +1,5 @@
 import React from "react";
-import { Task } from "../../lib/interfaces";
+import { Task } from "../../lib/types/task";
 import CarouselComponent from "./carousel/carousel.component";
 import AsideComponent from "./aside/aside.component";
 import ContentComponent from "./content/content.component";
@@ -10,12 +10,12 @@ export default function TaskDetailComponent({
   title,
   content,
   createdAt,
-  author,
-  // difficulty,
-  // technologies
+  _user,
+  difficulty,
+  tags,
   repo
 }: Task) {
-  // const technologiesList = technologies.join(", ");
+  console.log('login', _user.login)
 
   return (
     <>
@@ -31,9 +31,9 @@ export default function TaskDetailComponent({
         <section className="task-detail__aside sm:pl-12">
           <AsideComponent
             createdAt={createdAt}
-            author={author}
-            technologies={"react, html"}
-            difficulty={2}
+            author={_user.login}
+            tags={tags}
+            difficulty={difficulty}
             repo={repo}
           />
         </section>

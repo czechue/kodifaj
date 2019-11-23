@@ -53,6 +53,13 @@ export default function NewTaskComponent({ onSubmit }: NewTaskProps) {
                 placeholder="https://github.com/kodifaj"
               />
 
+              <Field
+                name="tags"
+                label="Tagi"
+                component={InputComponent}
+                placeholder="html, js, css"
+              />
+
               <FieldArray name="tips">
                 {({ fields, meta }) => (
                   <FieldArrayComponent
@@ -95,6 +102,7 @@ export interface NewTaskForm {
   images: Image[];
   tips: Tip[];
   title: string;
+  tags: string;
 }
 
 export interface NewTaskMapped {
@@ -102,6 +110,7 @@ export interface NewTaskMapped {
   images: string[] | [];
   tips: string[] | [];
   title: string;
+  tags: string[] | [];
 }
 
 interface Tip {

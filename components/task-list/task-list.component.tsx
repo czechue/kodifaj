@@ -1,7 +1,7 @@
 import React, { ReactElement } from "react";
-import { Task } from "../../lib/interfaces";
 import TaskItemComponent from "./task-item/task-item.component";
 import HeadingComponent from "../shared/heading/heading.component";
+import {Task} from "../../lib/types/task";
 
 interface TaskListProps {
   tasks: Task[];
