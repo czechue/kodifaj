@@ -11,11 +11,11 @@ export default function TaskDetailComponent({
   content,
   createdAt,
   author,
-  technologies,
-  difficulty,
+  // difficulty,
+  // technologies
   repo
 }: Task) {
-  const technologiesList = technologies.join(", ");
+  // const technologiesList = technologies.join(", ");
 
   return (
     <>
@@ -32,8 +32,8 @@ export default function TaskDetailComponent({
           <AsideComponent
             createdAt={createdAt}
             author={author}
-            technologies={technologiesList}
-            difficulty={difficulty}
+            technologies={"react, html"}
+            difficulty={2}
             repo={repo}
           />
         </section>

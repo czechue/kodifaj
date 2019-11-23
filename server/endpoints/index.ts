@@ -1,5 +1,4 @@
 import { Express, Request, Response } from "express";
-import tasks from "../../dummy/tasks";
 import * as mongoose from "mongoose";
 
 const User = mongoose.model("users");
@@ -8,18 +7,18 @@ const Task = mongoose.model("tasks");
 export default function endpoints(server: Express) {
   server.get(
     "/api/tasks",
-    (_req: Request, res: Response): Response => {
-      return res.send(tasks);
+    async (_req: Request, res: Response): Promise<Response> => {
+      const tasks = await Task.find();
+      return res.send(tasks)
     }
   );
 
   server.get(
     "/api/tasks/:id",
-    (req: EnhancedRequest, res: Response): Response => {
-      const taskId = Number(req.params.id) - 1;
-
-      // pobiernie z DB
-      return res.send(tasks[taskId]);
+    async (req: EnhancedRequest, res: Response): Promise<Response> => {
+      const taskId = req.params.id;
+      const task = await Task.findById(taskId);
+      return res.send(task);
     }
   );
 

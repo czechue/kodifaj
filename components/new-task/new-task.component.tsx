@@ -46,6 +46,13 @@ export default function NewTaskComponent({ onSubmit }: NewTaskProps) {
                 fieldType="textarea"
               />
 
+              <Field
+                name="repo"
+                label="Link do zadania na Github"
+                component={InputComponent}
+                placeholder="https://github.com/kodifaj"
+              />
+
               <FieldArray name="tips">
                 {({ fields, meta }) => (
                   <FieldArrayComponent
