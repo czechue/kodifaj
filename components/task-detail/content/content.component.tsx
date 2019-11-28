@@ -2,6 +2,7 @@ import React from "react";
 import HeadingComponent from "../../shared/heading/heading.component";
 import SolutionFormComponent from "../solution-form/solution-form.component";
 import { Solution } from "../../../lib/types/solution";
+import SolutionsComponent from "../solutions/solutions.component";
 
 const Heading = ({ children }: { children: string }) => (
   <HeadingComponent
@@ -10,6 +11,7 @@ const Heading = ({ children }: { children: string }) => (
     size="2xl"
     font="thin"
     tracking="wide"
+    classNames="mb-2"
   >
     {children}
   </HeadingComponent>
@@ -29,9 +31,7 @@ export default function ContentComponent({
 
       <section className="mt-6">
         <Heading>Twoje rozwiązanie</Heading>
-        <div className="bg-pink_bg w-full p-4">
-          <SolutionFormComponent onSubmit={onSubmit} />
-        </div>
+        <SolutionFormComponent onSubmit={onSubmit} />
       </section>
 
       <section className="mt-6">
@@ -41,13 +41,7 @@ export default function ContentComponent({
 
       <section className="mt-6">
         <Heading>Rozwiązania</Heading>
-        {solutions.length &&
-          solutions.map(solution => (
-            <>
-              <div>repo: {solution.repo}</div>
-              <div>author: {solution.userId}</div>
-            </>
-          ))}
+        <SolutionsComponent solutions={solutions} />
       </section>
     </>
   );

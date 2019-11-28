@@ -1,10 +1,12 @@
+import {UserProfil} from "./user";
+
 export interface Solution {
-	id: string;
-	taskId: string;
-	userId: string;
-	createdAt: string;
-	phase: "review" | "done";
 	comment: string;
-	demoUrl: string;
+	createdAt: string;
+	demo: string;
+	phase: "review" | "done";
 	repo: string;
+	_id: string;
+	_task: string;
+	_user: UserProfil;
 }

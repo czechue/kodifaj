@@ -5,6 +5,7 @@ import { Task } from "../../../lib/types/task";
 interface BadgeProps {
   children: string;
 }
+
 function BadgeComponent({ children }: BadgeProps) {
   return (
     <span className="inline-block mr-1 bg-pink-200 text-pink-700 text-xs px-1 rounded">
@@ -16,6 +17,7 @@ function BadgeComponent({ children }: BadgeProps) {
 interface TaskItemProps {
   task: Task;
 }
+
 export default function TaskItemComponent({
   task
 }: TaskItemProps): ReactElement {

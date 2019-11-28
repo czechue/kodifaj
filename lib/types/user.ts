@@ -1,6 +1,6 @@
 export interface UserProfil {
-  _id: string;
-  photo: string;
-  login: string;
   githubId: string;
+  login: string;
+  photo: string;
+  _id: string;
 }

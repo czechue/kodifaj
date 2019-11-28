@@ -19,7 +19,7 @@ export default function endpoints(server: Express) {
     async (req: EnhancedRequest, res: Response): Promise<Response> => {
       const taskId = req?.params?.id;
       const task = Task.findById(taskId).populate("_user");
-      const solutions = Solution.find({ _task: taskId });
+      const solutions = Solution.find({ _task: taskId }).populate("_user");
 
       return Promise.all([task, solutions])
       .then(([taskRes, solutionsRes]: any) => {
