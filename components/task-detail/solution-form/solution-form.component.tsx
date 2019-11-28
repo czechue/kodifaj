@@ -1,25 +1,23 @@
-import React from "react";
+import React, { ReactElement } from "react";
 import { Form, Field } from "react-final-form";
 import InputComponent from "../../shared/input/input.component";
 
-export default function SolutionComponent() {
-  function onSubmit() {
-    console.log("lol");
-  }
-
+export default function SolutionFormComponent({
+  onSubmit
+}: SolutionFormProps): ReactElement {
   return (
     <Form
       onSubmit={onSubmit}
       render={({ handleSubmit }) => (
         <form onSubmit={handleSubmit}>
           <Field
-            name="repo-link"
+            name="repo"
             label="Link do repo"
             component={InputComponent}
             placeholder="https://github.com/czechue/zadanie1"
           />
           <Field
-            name="demo-link"
+            name="demo"
             label="Link do wersji live"
             component={InputComponent}
             placeholder="https://zadanie1.github.io"
@@ -43,4 +41,8 @@ export default function SolutionComponent() {
       )}
     />
   );
+}
+
+interface SolutionFormProps {
+  onSubmit: (value: any) => void;
 }

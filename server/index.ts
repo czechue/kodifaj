@@ -9,6 +9,7 @@ import cookieSession from "cookie-session";
 // MODELS:
 import "./models/User";
 import "./models/Task";
+import "./models/Solution";
 
 import passportService from "./services/passport";
 import tasksRoutes from "./routes/tasks.routes";

@@ -1,7 +1,7 @@
 export interface Solution {
 	id: string;
 	taskId: string;
-	author: string;
+	userId: string;
 	createdAt: string;
 	phase: "review" | "done";
 	comment: string;
