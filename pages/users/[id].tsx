@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { NextPage, NextPageContext } from "next";
 import fetch from "isomorphic-unfetch";
 
-import { UserProfil } from "../../lib/interfaces";
+import { UserProfil } from "../../lib/types/user";
 import { HOSTNAME } from "../../lib/hostname.config";
 
 import { UserContext } from "../../providers/user.provider";

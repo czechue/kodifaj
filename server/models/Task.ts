@@ -1,21 +1,13 @@
-import mongoose, { Schema, Document } from "mongoose";
-
-export interface ITask extends Document {
-  content: string;
-  createdAt: string;
-  images: string;
-  tips: string;
-  title: string;
-  _user: string;
-}
+import mongoose, { Schema } from "mongoose";
 
 const taskSchema: Schema = new Schema({
   content: String,
   createdAt: { type: Date, default: Date.now },
-  images: String,
+  images: [String],
   tips: [String],
+  tags: [String],
   title: String,
   _user: { type: Schema.Types.ObjectId, ref: 'users' }
 });
 
-mongoose.model<ITask>("tasks", taskSchema);
+mongoose.model("tasks", taskSchema);

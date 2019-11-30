@@ -1,7 +1,7 @@
 import React, { ReactElement } from "react";
-import { Task } from "../../lib/interfaces";
 import TaskItemComponent from "./task-item/task-item.component";
 import HeadingComponent from "../shared/heading/heading.component";
+import {Task} from "../../lib/types/task";
 
 interface TaskListProps {
   tasks: Task[];
@@ -19,7 +19,7 @@ export default function TaskListComponent({
       </div>
       <div className="flex flex-wrap md:-mx-2">
         {tasks.map(task => (
-          <TaskItemComponent key={task.id} task={task} />
+          <TaskItemComponent key={task._id} task={task} />
         ))}
       </div>
     </>

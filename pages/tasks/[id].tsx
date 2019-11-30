@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { NextPage, NextPageContext } from "next";
 import fetch from "isomorphic-unfetch";
 
-import { Task } from "../../lib/interfaces";
+import { Task } from "../../lib/types/task";
 import { HOSTNAME } from "../../lib/hostname.config";
 
 import { UserContext } from "../../providers/user.provider";
@@ -24,6 +24,7 @@ const TaskPage: NextPage<Props> = ({ task }) => {
 TaskPage.getInitialProps = async ({ query: { id } }: NextPageContext) => {
   const res = await fetch(`${HOSTNAME}/api/tasks/${id}`);
   const task = await res.json();
+  console.log('task', task)
   return { task };
 };
 

@@ -1,6 +1,8 @@
 import React from "react";
 import HeadingComponent from "../../shared/heading/heading.component";
-import SolutionComponent from "../solution/solution.component";
+import SolutionFormComponent from "../solution-form/solution-form.component";
+import { Solution } from "../../../lib/types/solution";
+import SolutionsComponent from "../solutions/solutions.component";
 
 const Heading = ({ children }: { children: string }) => (
   <HeadingComponent
@@ -9,12 +11,17 @@ const Heading = ({ children }: { children: string }) => (
     size="2xl"
     font="thin"
     tracking="wide"
+    classNames="mb-2"
   >
     {children}
   </HeadingComponent>
 );
 
-export default function ContentComponent({ content }: ContentProps) {
+export default function ContentComponent({
+  content,
+  solutions = [],
+  onSubmit
+}: ContentProps) {
   return (
     <>
       <section>
@@ -24,14 +31,17 @@ export default function ContentComponent({ content }: ContentProps) {
 
       <section className="mt-6">
         <Heading>Twoje rozwiązanie</Heading>
-        <div className="bg-pink_bg w-full p-4">
-          <SolutionComponent />
-        </div>
+        <SolutionFormComponent onSubmit={onSubmit} />
       </section>
 
       <section className="mt-6">
         <Heading>Wskazówki</Heading>
         <p>{content}</p>
+      </section>
+
+      <section className="mt-6">
+        <Heading>Rozwiązania</Heading>
+        <SolutionsComponent solutions={solutions} />
       </section>
     </>
   );
@@ -39,4 +49,6 @@ export default function ContentComponent({ content }: ContentProps) {
 
 interface ContentProps {
   content: string;
+  solutions: Solution[];
+  onSubmit: (value: any) => void;
 }

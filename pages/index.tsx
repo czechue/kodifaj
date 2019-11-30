@@ -5,8 +5,8 @@ import { HOSTNAME } from "../lib/hostname.config";
 
 import TaskListComponent from "../components/task-list/task-list.component";
 import LayoutComponent from "../components/shared/layout/layout.component";
+import { Task } from "../lib/types/task";
 import { UserContext } from "../providers/user.provider";
-import { Task } from "../lib/interfaces";
 
 import "../static/style.css";
 
@@ -23,6 +23,7 @@ const HomePage: NextPage<Props> = ({ tasks }) => {
 HomePage.getInitialProps = async () => {
   const res = await fetch(`${HOSTNAME}/api/tasks`);
   const tasks = await res.json();
+  console.log("tasks", tasks);
   return { tasks };
 };
 

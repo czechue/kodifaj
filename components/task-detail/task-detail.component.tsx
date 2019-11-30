@@ -1,5 +1,6 @@
 import React from "react";
-import { Task } from "../../lib/interfaces";
+import axios from "axios";
+import { Task } from "../../lib/types/task";
 import CarouselComponent from "./carousel/carousel.component";
 import AsideComponent from "./aside/aside.component";
 import ContentComponent from "./content/content.component";
@@ -10,12 +11,23 @@ export default function TaskDetailComponent({
   title,
   content,
   createdAt,
-  author,
-  technologies,
+  _user,
   difficulty,
-  repo
+  tags,
+  repo,
+  solutions,
+  _id
 }: Task) {
-  const technologiesList = technologies.join(", ");
+
+  const handleOnSubmitSolution = ({ repo, demo, comment }: any) => {
+    axios.post("/api/solutions", {
+      repo,
+      demo,
+      comment,
+      taskId: _id,
+      phase: "review"
+    });
+  };
 
   return (
     <>
@@ -31,14 +43,18 @@ export default function TaskDetailComponent({
         <section className="task-detail__aside sm:pl-12">
           <AsideComponent
             createdAt={createdAt}
-            author={author}
-            technologies={technologiesList}
+            author={_user.login}
+            tags={tags}
             difficulty={difficulty}
             repo={repo}
           />
         </section>
         <section className="task-detail__content sm:p-2">
-          <ContentComponent content={content} />
+          <ContentComponent
+            content={content}
+            solutions={solutions}
+            onSubmit={handleOnSubmitSolution}
+          />
         </section>
       </article>
     </>

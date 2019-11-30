@@ -6,9 +6,9 @@ import arrayMutators from "final-form-arrays";
 
 import FormWrapperComponent from "../shared/form-wrapper/form-wrapper.component";
 import InputComponent from "../shared/input/input.component";
-import TipsComponent from "./tips/tips.component";
 import mapFormToNewTaskFormat from "./utils/map-form-to-new-task-form.util";
 import NewTaskHeading from "./heading/heading.component";
+import FieldArrayComponent from "./field-array/field-array.component";
 
 // const required = (value: string) => (value ? undefined : "Required");
 
@@ -46,18 +46,43 @@ export default function NewTaskComponent({ onSubmit }: NewTaskProps) {
                 fieldType="textarea"
               />
 
+              <Field
+                name="repo"
+                label="Link do zadania na Github"
+                component={InputComponent}
+                placeholder="https://github.com/kodifaj"
+              />
+
+              <Field
+                name="tags"
+                label="Tagi"
+                component={InputComponent}
+                placeholder="html, js, css"
+              />
+
               <FieldArray name="tips">
                 {({ fields, meta }) => (
-                  <TipsComponent fields={fields} meta={meta} />
+                  <FieldArrayComponent
+                    fields={fields}
+                    meta={meta}
+                    recordName="tip"
+                    label="Wskazówki"
+                    placeholder="Nowa wskazówka"
+                  />
                 )}
               </FieldArray>
 
-              <Field
-                label="Zdjęcia"
-                name="images"
-                component={InputComponent}
-                placeholder="Zdjęcie max 10kb"
-              />
+              <FieldArray name="images">
+                {({ fields, meta }) => (
+                  <FieldArrayComponent
+                    fields={fields}
+                    meta={meta}
+                    recordName="image"
+                    label="Obrazy"
+                    placeholder="Nowy obraz max 10kb"
+                  />
+                )}
+              </FieldArray>
 
               <button type="submit">Submit</button>
             </form>
@@ -74,18 +99,24 @@ interface NewTaskProps {
 
 export interface NewTaskForm {
   content: string;
-  images: string;
+  images: Image[];
   tips: Tip[];
   title: string;
+  tags: string;
 }
 
 export interface NewTaskMapped {
   content: string;
-  images: string;
+  images: string[] | [];
   tips: string[] | [];
   title: string;
+  tags: string[] | [];
 }
 
 interface Tip {
   tip: string;
+}
+
+interface Image {
+  image: string;
 }

@@ -42,11 +42,11 @@ interface LabeledValueProps {
 export default function AsideComponent({
   createdAt,
   author,
-  technologies,
+  tags,
   difficulty,
   repo
 }: TaskAsideProps) {
-  const difficultyVal = `${difficulty.toString()} / 5`;
+  const difficultyVal = difficulty ? `${difficulty.toString()} / 5` : "3/5";
   return (
     <>
       <section>
@@ -68,7 +68,7 @@ export default function AsideComponent({
           <LabeledValue value={author} label="Autor" />
         </div>
         <div className="mt-2">
-          <LabeledValue value={technologies} label="Tagi" />
+          <LabeledValue value={tags.join(", ")} label="Tagi" />
         </div>
         <div className="mt-2">
           <LabeledValue value={difficultyVal} label="Skala trudności" />
@@ -80,7 +80,6 @@ export default function AsideComponent({
           <HelpLink href="/faq" image="/static/images/help.svg">
             Jak zacząć?
           </HelpLink>
-
         </div>
         <div className="mt-2">
           <HelpLink href="#" image="/static/images/lock.svg">
@@ -100,7 +99,7 @@ export default function AsideComponent({
 interface TaskAsideProps {
   createdAt: string;
   author: string;
-  technologies: string;
-  difficulty: number;
+  tags: string[];
+  difficulty?: number;
   repo: string;
 }

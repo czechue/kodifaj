@@ -1,4 +1,4 @@
-import { UserProfil } from "../lib/interfaces";
+import { UserProfil } from "../lib/types/user";
 
 const users: UserProfil[] = [
   {
