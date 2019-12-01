@@ -8,12 +8,11 @@ const Solution = mongoose.model("solutions");
 export default function endpoints(server: Express) {
   server.get(
     "/api/tasks",
-    async (_req: Request, res: Response, next: any): Promise<Response> => {
+    async (_req: Request, res: Response, next: any): Promise<Response | void> => {
       try {
         const tasks = await Task.find().populate("_user", "login");
         return res.send(tasks);
       } catch (e) {
-        console.log('catch /api/tasks', e);
         return next(e)
       }
     }
@@ -21,7 +20,7 @@ export default function endpoints(server: Express) {
 
   server.get(
     "/api/tasks/:id",
-    async (req: EnhancedRequest, res: Response, next: any): Promise<Response> => {
+    async (req: EnhancedRequest, res: Response, next: any): Promise<Response | void> => {
       const taskId = req?.params?.id;
       const task = Task.findById(taskId).populate("_user");
       const solutions = Solution.find({ _task: taskId }).populate("_user");
@@ -39,7 +38,7 @@ export default function endpoints(server: Express) {
 
   server.post(
     "/api/tasks",
-    async (req: any, res: Response): Promise<void> => {
+    async (req: any, res: Response, next: any): Promise<Response | void> => {
       const { content, images, tips, title, tags } = req.body;
       const authorId = req?.user?._id;
 
@@ -57,14 +56,14 @@ export default function endpoints(server: Express) {
         await task.save();
         res.send(task);
       } catch (err) {
-        res.send(err);
+        next(err);
       }
     }
   );
 
   server.post(
     "/api/solutions",
-    async (req: any, res: Response): Promise<void> => {
+    async (req: any, res: Response, next: any): Promise<Response | void> => {
       const { repo, demo, comment, taskId, phase } = req.body;
       const authorId = req?.user?._id;
 
@@ -81,16 +80,20 @@ export default function endpoints(server: Express) {
         await solution.save();
         res.send(solution);
       } catch (err) {
-        res.send(err);
+        next(err)
       }
     }
   );
 
   server.get(
     "/api/users/:id",
-    async (req: EnhancedRequest, res: Response): Promise<Response> => {
-      const user = await User.findOne({ _id: req.params.id });
-      return res.send(user);
+    async (req: EnhancedRequest, res: Response, next: any): Promise<Response | void> => {
+      try {
+        const user = await User.findOne({ _id: req.params.id });
+        return res.send(user);
+      } catch (err) {
+        next(err)
+      }
     }
   );
 }

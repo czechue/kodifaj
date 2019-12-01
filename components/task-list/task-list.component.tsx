@@ -4,11 +4,15 @@ import HeadingComponent from "../shared/heading/heading.component";
 import {Task} from "../../lib/types/task";
 
 interface TaskListProps {
-  tasks: Task[];
+  tasks?: Task[];
 }
 export default function TaskListComponent({
   tasks
-}: TaskListProps): ReactElement {
+}: TaskListProps): ReactElement | null {
+  if (!tasks) {
+    return null;
+  }
+
   return (
     <>
       <div className="mb-4">
@@ -18,7 +22,7 @@ export default function TaskListComponent({
         <HeadingComponent CustomTag="h2">Najnowsze Zadania</HeadingComponent>
       </div>
       <div className="flex flex-wrap md:-mx-2">
-        {tasks.map(task => (
+        {tasks.length && tasks.map(task => (
           <TaskItemComponent key={task._id} task={task} />
         ))}
       </div>

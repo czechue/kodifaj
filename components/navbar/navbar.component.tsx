@@ -4,7 +4,7 @@ import classNames from "clsx";
 import MobileButtonComponent from "./mobile-button/mobile-button.component";
 import NavigationLinkComponent from "./navigation-link/navigation-link.component";
 
-import "../../static/style.css";
+import "../../public/static/style.css";
 import Link from "next/link";
 import { User } from "../../providers/user.provider";
 import AccountDropdownComponent from "./account-dropdown/account-dropdown.component";
