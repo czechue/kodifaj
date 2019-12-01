@@ -13,6 +13,7 @@ export default function endpoints(server: Express) {
         const tasks = await Task.find().populate("_user", "login");
         return res.send(tasks);
       } catch (e) {
+        console.log('catch /api/tasks', e);
         return next(e)
       }
     }
