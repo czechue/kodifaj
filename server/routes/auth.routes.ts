@@ -1,8 +1,10 @@
-import { Express, Request, Response } from "express";
+import { Request, Response } from "express";
 import passport from "passport";
 import Server from "next/dist/next-server/server/next-server";
+// import {INestApplication} from "@nestjs/common";
 
-export default function authRoutes(_app: Server, server: Express) {
+// todo: INestApplication
+export default function authRoutes(_app: Server, server: any) {
   server.get(
     "/auth/google",
     passport.authenticate("google", {

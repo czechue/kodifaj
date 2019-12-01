@@ -1,11 +1,13 @@
-import { Express, Request, Response } from "express";
+import {  Request, Response } from "express";
 import * as mongoose from "mongoose";
+// import {INestApplication} from "@nestjs/common";
 
 const User = mongoose.model("users");
 const Task = mongoose.model("tasks");
 const Solution = mongoose.model("solutions");
 
-export default function endpoints(server: Express) {
+// todo: INestApplication
+export default function endpoints(server: any) {
   server.get(
     "/api/tasks",
     async (_req: Request, res: Response, next: any): Promise<Response> => {
