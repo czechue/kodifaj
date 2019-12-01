@@ -4,6 +4,7 @@ dev.ts
 
 # next.js build output
 .next
+.env
 
 # production server output
 dist
