@@ -23,9 +23,14 @@ const TaskPage: NextPage<Props> = ({ task }) => {
 
 TaskPage.getInitialProps = async ({ query: { id } }: NextPageContext) => {
   const res = await fetch(`${HOSTNAME}/api/tasks/${id}`);
-  const task = await res.json();
-  console.log('task', task)
-  return { task };
+  try {
+    const task = await res.json();
+    return { task };
+  } catch (e) {
+    return {task: {}}
+  }
+
+
 };
 
 export default TaskPage;

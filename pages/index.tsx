@@ -22,8 +22,12 @@ const HomePage: NextPage<Props> = ({ tasks }) => {
 
 HomePage.getInitialProps = async () => {
   const res = await fetch(`${HOSTNAME}/api/tasks`);
-  const tasks = await res.json();
-  return { tasks };
+  try {
+    const tasks = await res.json();
+    return { tasks };
+  } catch (e) {
+    return {tasks: []}
+  }
 };
 
 export default HomePage;

@@ -46,6 +46,10 @@ app.prepare().then(() => {
   authRoutes(app, server);
   tasksRoutes(app, server);
 
+  server.use((err: any, _req: Request, res: Response, _next: any) => {
+    res.status(422).send({ error: err.message });
+  });
+
   server.all("*", (req: Request, res: Response) => {
     return handle(req, res);
   });
