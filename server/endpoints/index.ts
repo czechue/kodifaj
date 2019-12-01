@@ -20,7 +20,7 @@ export default function endpoints(server: Express) {
 
   server.get(
     "/api/tasks/:id",
-    async (req: EnhancedRequest, res: Response): Promise<Response> => {
+    async (req: EnhancedRequest, res: Response, next: any): Promise<Response> => {
       const taskId = req?.params?.id;
       const task = Task.findById(taskId).populate("_user");
       const solutions = Solution.find({ _task: taskId }).populate("_user");
@@ -32,9 +32,7 @@ export default function endpoints(server: Express) {
           solutions: solutionsRes
         });
       })
-      .catch(e => {
-        return res.send(e)
-      })
+      .catch(next)
     }
   );
 
