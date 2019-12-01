@@ -9,8 +9,12 @@ export default function endpoints(server: Express) {
   server.get(
     "/api/tasks",
     async (_req: Request, res: Response): Promise<Response> => {
-      const tasks = await Task.find().populate("_user", "login");
-      return res.send(tasks);
+      try {
+        const tasks = await Task.find().populate("_user", "login");
+        return res.send(tasks);
+      } catch (e) {
+        return res.send(e)
+      }
     }
   );
 
@@ -27,7 +31,10 @@ export default function endpoints(server: Express) {
           ...taskRes?._doc,
           solutions: solutionsRes
         });
-      });
+      })
+      .catch(e => {
+        return res.send(e)
+      })
     }
   );
 

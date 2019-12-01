@@ -23,7 +23,6 @@ const HomePage: NextPage<Props> = ({ tasks }) => {
 HomePage.getInitialProps = async () => {
   const res = await fetch(`${HOSTNAME}/api/tasks`);
   const tasks = await res.json();
-  console.log("tasks", tasks);
   return { tasks };
 };
 
