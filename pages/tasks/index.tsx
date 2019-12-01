@@ -8,7 +8,7 @@ import LayoutComponent from "../../components/shared/layout/layout.component";
 import { Task } from "../../lib/types/task";
 import { UserContext } from "../../providers/user.provider";
 
-import "../../static/style.css";
+import "../../public/static/style.css";
 
 const HomePage: NextPage<Props> = ({ tasks }) => {
   const { user } = useContext(UserContext);

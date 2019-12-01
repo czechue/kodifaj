@@ -8,7 +8,7 @@ import { HOSTNAME } from "../../lib/hostname.config";
 import { UserContext } from "../../providers/user.provider";
 import LayoutComponent from "../../components/shared/layout/layout.component";
 
-import "../../static/style.css";
+import "../../public/static/style.css";
 import TaskDetailComponent from "../../components/task-detail/task-detail.component";
 
 const TaskPage: NextPage<Props> = ({ task }) => {
@@ -27,6 +27,7 @@ TaskPage.getInitialProps = async ({ query: { id } }: NextPageContext) => {
     const task = await res.json();
     return { task };
   } catch (e) {
+    console.log(e);
     return {task: {}}
   }
 

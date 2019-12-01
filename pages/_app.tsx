@@ -1,6 +1,7 @@
 import App, { AppContext } from "next/app";
 import UserProvider, { User } from "../providers/user.provider";
 import { IncomingMessage } from "http";
+import ErrorBoundary from "../components/error-boundary/error-boundary.component";
 
 class MyApp extends App {
   static async getInitialProps({ Component, ctx }: AppContext) {
@@ -24,9 +25,11 @@ class MyApp extends App {
     const { Component, pageProps } = this.props;
 
     return (
-      <UserProvider user={pageProps.user}>
-        <Component {...pageProps} />
-      </UserProvider>
+      <ErrorBoundary>
+        <UserProvider user={pageProps.user}>
+          <Component {...pageProps} />
+        </UserProvider>
+      </ErrorBoundary>
     );
   }
 }
