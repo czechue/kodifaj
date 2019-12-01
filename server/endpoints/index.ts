@@ -8,12 +8,12 @@ const Solution = mongoose.model("solutions");
 export default function endpoints(server: Express) {
   server.get(
     "/api/tasks",
-    async (_req: Request, res: Response): Promise<Response> => {
+    async (_req: Request, res: Response, next: any): Promise<Response> => {
       try {
         const tasks = await Task.find().populate("_user", "login");
         return res.send(tasks);
       } catch (e) {
-        return res.send(e)
+        return next(e)
       }
     }
   );
