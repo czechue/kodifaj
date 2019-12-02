@@ -2,13 +2,13 @@ import React, { useContext } from "react";
 import { NextPage, NextPageContext } from "next";
 import fetch from "isomorphic-unfetch";
 
-import { UserProfil } from "../../lib/types/user";
-import { HOSTNAME } from "../../lib/hostname.config";
+import { UserProfil } from "../../../lib/types/user";
+import { HOSTNAME } from "../../../lib/hostname.config";
 
-import { UserContext } from "../../providers/user.provider";
-import LayoutComponent from "../../components/shared/layout/layout.component";
+import { UserContext } from "../../../providers/user.provider";
+import LayoutComponent from "../../../components/shared/layout/layout.component";
 
-import "../../static/style.css";
+import "../../../static/style.css";
 import UserDetailComponent from "../../components/user-detail/user-detail.component";
 
 const UserPage: NextPage<Props> = ({ userProfile }) => {

@@ -1,10 +1,18 @@
-import { Controller, Get, Query, Render } from '@nestjs/common';
+import { Controller, Get, Param, Render } from "@nestjs/common";
 
 @Controller()
 export class AppController {
-	@Render('Index')
-	@Get()
-	public index(@Query('name') name?: string) {
-		return { name };
-	}
+  @Render("index")
+  @Get()
+  public index() {}
+
+  @Render("tasks")
+  @Get('tasks')
+  public tasks() {}
+
+  @Render("tasks/[id]")
+  @Get('tasks/:id')
+  public task(@Param() id?: string) {
+    return {id}
+  }
 }

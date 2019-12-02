@@ -1,14 +1,14 @@
 import React, { useContext } from "react";
 import fetch from "isomorphic-unfetch";
 import { NextPage } from "next";
-import { HOSTNAME } from "../lib/hostname.config";
+import { HOSTNAME } from "../../../lib/hostname.config";
 
-import TaskListComponent from "../components/task-list/task-list.component";
-import LayoutComponent from "../components/shared/layout/layout.component";
-import { Task } from "../lib/types/task";
-import { UserContext } from "../providers/user.provider";
+import TaskListComponent from "../../../components/task-list/task-list.component";
+import LayoutComponent from "../../../components/shared/layout/layout.component";
+import { Task } from "../../../lib/types/task";
+import { UserContext } from "../../../providers/user.provider";
 
-import "../static/style.css";
+import "../../../static/style.css";
 
 const HomePage: NextPage<Props> = ({ tasks }) => {
   const { user } = useContext(UserContext);
