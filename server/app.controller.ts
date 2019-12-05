@@ -7,12 +7,12 @@ export class AppController {
   public index() {}
 
   @Render("tasks")
-  @Get('tasks')
+  @Get("tasks")
   public tasks() {}
 
   @Render("tasks/[id]")
-  @Get('tasks/:id')
+  @Get("tasks/:id")
   public task(@Param() id?: string) {
-    return {id}
+    return { id };
   }
 }

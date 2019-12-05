@@ -1,15 +1,15 @@
 import React, { useContext } from "react";
 import { NextPage, NextPageContext } from "next";
 import fetch from "isomorphic-unfetch";
-
 import { Task } from "../../../lib/types/task";
-import { HOSTNAME } from "../../../lib/hostname.config";
 
 import { UserContext } from "../../../providers/user.provider";
+import { HOSTNAME } from "../../../lib/hostname.config";
+
 import LayoutComponent from "../../../components/shared/layout/layout.component";
+import TaskDetailComponent from "../../../components/task-detail/task-detail.component";
 
 import "../../../static/style.css";
-import TaskDetailComponent from "../../../components/task-detail/task-detail.component";
 
 const TaskPage: NextPage<Props> = ({ task }) => {
   const { user } = useContext(UserContext);
@@ -29,8 +29,6 @@ TaskPage.getInitialProps = async ({ query: { id } }: NextPageContext) => {
   } catch (e) {
     return {task: {}}
   }
-
-
 };
 
 export default TaskPage;
