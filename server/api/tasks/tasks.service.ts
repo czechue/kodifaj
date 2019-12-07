@@ -1,23 +1,20 @@
 import { Injectable } from "@nestjs/common";
 import { InjectModel } from "@nestjs/mongoose";
-import { Document, Model } from "mongoose";
-import * as mongoose from "mongoose";
+import { Model } from "mongoose";
+import { Task } from "./interfaces/task.interface";
 
 @Injectable()
 export class TasksService {
   constructor(@InjectModel("Task") private readonly taskModel: Model<Task>) {}
 
   async findAll(): Promise<Task[]> {
-    return await this.taskModel.find().exec();
+    return await this.taskModel
+      .find()
+      .populate("_user", "login")
+      .exec();
   }
-}
 
-export interface Task extends Document {
-  content: string;
-  createdAt: string;
-  images: string[];
-  tips: string[];
-  tags: string[];
-  title: string;
-  _user: { type: mongoose.Schema.Types.ObjectId; ref: "users" };
+  async findOne(id: string): Promise<Task | null> {
+    return await this.taskModel.findOne({ _id: id });
+  }
 }

@@ -7,7 +7,7 @@ import { AppModule } from "./application.module";
 import mongoose from "mongoose";
 import keys from "./config/keys";
 import passport from "passport";
-import bodyParser from "body-parser";
+// import bodyParser from "body-parser";
 import cookieSession from "cookie-session";
 
 // MODELS:
@@ -37,7 +37,7 @@ async function bootstrap() {
 
   const server = await NestFactory.create(AppModule);
 
-  server.use(bodyParser.json());
+  // server.use(bodyParser.json());
   server.use(
     cookieSession({
       maxAge: 30 * 24 * 60 * 60 * 1000,

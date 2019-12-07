@@ -4,6 +4,9 @@ import { AppController } from "./app.controller";
 import { MongooseModule } from "@nestjs/mongoose";
 import keys from "./config/keys";
 import { TasksModule } from "./api/tasks/tasks.module";
+import { UsersModule } from "./api/users/users.module";
+import { TasksController } from "./tasks.controller";
+import { UsersController } from "./users.controller";
 
 @Module({
   imports: [
@@ -12,8 +15,9 @@ import { TasksModule } from "./api/tasks/tasks.module";
       useNewUrlParser: true,
       useUnifiedTopology: true
     }),
-    TasksModule
+    TasksModule,
+    UsersModule
   ],
-  controllers: [AppController]
+  controllers: [AppController, TasksController, UsersController]
 })
 export class AppModule {}
