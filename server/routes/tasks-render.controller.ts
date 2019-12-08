@@ -1,7 +1,7 @@
 import {Controller, Get, Param, Render} from "@nestjs/common";
 
 @Controller('tasks')
-export class TasksController {
+export class TasksRenderController {
 	@Render("tasks")
 	@Get()
 	public tasks() {}

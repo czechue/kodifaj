@@ -1,7 +1,7 @@
 import { Controller, Get, Param, Render } from "@nestjs/common";
 
 @Controller("users")
-export class UsersController {
+export class UsersRenderController {
   @Render("users")
   @Get()
   public users() {}

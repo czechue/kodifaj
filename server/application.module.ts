@@ -8,9 +8,9 @@ import { TasksModule } from "./api/tasks/tasks.module";
 import { UsersModule } from "./api/users/users.module";
 import { SolutionsModule } from "./api/solutions/solutions.module";
 
-import { AppController } from "./app.controller";
-import { TasksController } from "./tasks.controller";
-import { UsersController } from "./users.controller";
+import { HomeRenderController } from "./routes/home-render.controller";
+import { TasksRenderController } from "./routes/tasks-render.controller";
+import { UsersRenderController } from "./routes/users-render.controller";
 
 @Module({
   imports: [
@@ -25,9 +25,9 @@ import { UsersController } from "./users.controller";
     TasksModule
   ],
   controllers: [
-    AppController,
-    TasksController,
-    UsersController,
+    HomeRenderController,
+    TasksRenderController,
+    UsersRenderController,
   ]
 })
 export class AppModule {}

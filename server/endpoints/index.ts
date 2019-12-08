@@ -1,43 +1,41 @@
-import {  Request, Response } from "express";
+import {   Response } from "express";
 import * as mongoose from "mongoose";
 // import {INestApplication} from "@nestjs/common";
 
-const User = mongoose.model("users");
 const Task = mongoose.model("tasks");
-const Solution = mongoose.model("solutions");
 
 // todo: INestApplication
 export default function endpoints(server: any) {
-  server.get(
-    "/api/tasks",
-    async (_req: Request, res: Response, next: any): Promise<Response> => {
-      try {
-        const tasks = await Task.find().populate("_user", "login");
-        return res.send(tasks);
-      } catch (e) {
-        console.log('catch /api/tasks', e);
-        return next(e)
-      }
-    }
-  );
+  // server.get(
+  //   "/api/tasks",
+  //   async (_req: Request, res: Response, next: any): Promise<Response> => {
+  //     try {
+  //       const tasks = await Task.find().populate("_user", "login");
+  //       return res.send(tasks);
+  //     } catch (e) {
+  //       console.log('catch /api/tasks', e);
+  //       return next(e)
+  //     }
+  //   }
+  // );
 
-  server.get(
-    "/api/tasks/:id",
-    async (req: EnhancedRequest, res: Response, next: any): Promise<Response> => {
-      const taskId = req?.params?.id;
-      const task = Task.findById(taskId).populate("_user");
-      const solutions = Solution.find({ _task: taskId }).populate("_user");
-
-      return Promise.all([task, solutions])
-      .then(([taskRes, solutionsRes]: any) => {
-        return res.send({
-          ...taskRes?._doc,
-          solutions: solutionsRes
-        });
-      })
-      .catch(next)
-    }
-  );
+  // server.get(
+  //   "/api/tasks/:id",
+  //   async (req: EnhancedRequest, res: Response, next: any): Promise<Response> => {
+  //     const taskId = req?.params?.id;
+  //     const task = Task.findById(taskId).populate("_user");
+  //     const solutions = Solution.find({ _task: taskId }).populate("_user");
+  //
+  //     return Promise.all([task, solutions])
+  //     .then(([taskRes, solutionsRes]: any) => {
+  //       return res.send({
+  //         ...taskRes?._doc,
+  //         solutions: solutionsRes
+  //       });
+  //     })
+  //     .catch(next)
+  //   }
+  // );
 
   server.post(
     "/api/tasks",
@@ -64,41 +62,41 @@ export default function endpoints(server: any) {
     }
   );
 
-  server.post(
-    "/api/solutions",
-    async (req: any, res: Response): Promise<void> => {
-      const { repo, demo, comment, taskId, phase } = req.body;
-      const authorId = req?.user?._id;
+  // server.post(
+  //   "/api/solutions",
+  //   async (req: any, res: Response): Promise<void> => {
+  //     const { repo, demo, comment, taskId, phase } = req.body;
+  //     const authorId = req?.user?._id;
+  //
+  //     const solution = new Solution({
+  //       repo,
+  //       demo,
+  //       comment,
+  //       phase,
+  //       _task: taskId,
+  //       _user: authorId
+  //     });
+  //
+  //     try {
+  //       await solution.save();
+  //       res.send(solution);
+  //     } catch (err) {
+  //       res.send(err);
+  //     }
+  //   }
+  // );
 
-      const solution = new Solution({
-        repo,
-        demo,
-        comment,
-        phase,
-        _task: taskId,
-        _user: authorId
-      });
-
-      try {
-        await solution.save();
-        res.send(solution);
-      } catch (err) {
-        res.send(err);
-      }
-    }
-  );
-
-  server.get(
-    "/api/users/:id",
-    async (req: EnhancedRequest, res: Response): Promise<Response> => {
-      const user = await User.findOne({ _id: req.params.id });
-      return res.send(user);
-    }
-  );
+  // server.get(
+  //   "/api/users/:id",
+  //   async (req: EnhancedRequest, res: Response): Promise<Response> => {
+  //     const user = await User.findOne({ _id: req.params.id });
+  //     return res.send(user);
+  //   }
+  // );
 }
 
-interface EnhancedRequest extends Request {
-  params: {
-    id: string;
-  };
-}
+// interface EnhancedRequest extends Request {
+//   params: {
+//     id: string;
+//   };
+// }
