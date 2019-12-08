@@ -8,7 +8,7 @@ export class TasksController {
 
 	@Render("tasks/[id]")
 	@Get(":id")
-	public task(@Param() id: string) {
+	public task(@Param("id") id: string) {
 		return { id };
 	}
 

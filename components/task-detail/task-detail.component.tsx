@@ -15,7 +15,7 @@ export default function TaskDetailComponent({
   difficulty,
   tags,
   repo,
-  solutions,
+  _solutions,
   _id
 }: Task) {
 
@@ -52,7 +52,7 @@ export default function TaskDetailComponent({
         <section className="task-detail__content sm:p-2">
           <ContentComponent
             content={content}
-            solutions={solutions}
+            solutions={_solutions}
             onSubmit={handleOnSubmitSolution}
           />
         </section>

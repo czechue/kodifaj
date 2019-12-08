@@ -9,6 +9,7 @@ import { SolutionSchema } from "./schemas/solutions.schema";
     MongooseModule.forFeature([{ name: "Solution", schema: SolutionSchema }])
   ],
   controllers: [SolutionsController],
-  providers: [SolutionsService]
+  providers: [SolutionsService],
+  exports: [SolutionsService]
 })
 export class SolutionsModule {}

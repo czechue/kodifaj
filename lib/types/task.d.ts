@@ -16,5 +16,5 @@ export interface Task {
   difficulty: number;
   content: string;
   tips: string[];
-  solutions: Solution[];
+  _solutions: Solution[];
 }
