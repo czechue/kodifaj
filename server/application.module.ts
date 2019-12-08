@@ -17,7 +17,8 @@ import { UsersController } from "./users.controller";
     RenderModule,
     MongooseModule.forRoot(keys.mongoURI, {
       useNewUrlParser: true,
-      useUnifiedTopology: true
+      useUnifiedTopology: true,
+      useFindAndModify: false
     }),
     UsersModule,
     SolutionsModule,

@@ -12,7 +12,7 @@ export class TasksController {
   }
 
   @Get(":id")
-  findOne(@Param("id") id: string): Promise<Task> {
+  findOne(@Param("id") id: string): Promise<Task | null> {
     return this.tasksService.findOne(id);
   }
 }
