@@ -15,6 +15,8 @@ export class TasksService {
   }
 
   async findOne(id: string): Promise<Task | null> {
-    return await this.taskModel.findOne({ _id: id });
+    const task = await this.taskModel.findOne({ _id: id });
+    // const solution =
+    return task;
   }
 }

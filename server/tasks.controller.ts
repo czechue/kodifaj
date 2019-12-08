@@ -9,7 +9,6 @@ export class TasksController {
 	@Render("tasks/[id]")
 	@Get(":id")
 	public task(@Param() id: string) {
-		console.log(id)
 		return { id };
 	}
 

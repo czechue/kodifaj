@@ -9,7 +9,6 @@ export class UsersController {
 	@Render("users/[id]")
 	@Get(":id")
 	public user(@Param('id') id: string) {
-	  console.log('query id', id);
 	  return { id };
 	}
 }

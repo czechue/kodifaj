@@ -4,26 +4,26 @@ import next from "next";
 import "reflect-metadata";
 import { AppModule } from "./application.module";
 
-import mongoose from "mongoose";
+// import mongoose from "mongoose";
 import keys from "./config/keys";
-import passport from "passport";
+// import passport from "passport";
 // import bodyParser from "body-parser";
 import cookieSession from "cookie-session";
 
 // MODELS:
-import "./models/User";
-import "./models/Task";
-import "./models/Solution";
+// import "./models/User";
+// import "./models/Task";
+// import "./models/Solution";
 
-import passportService from "./services/passport";
+// import passportService from "./services/passport";
 // import tasksRoutes from "./routes/tasks.routes";
 // import endpoints from "./endpoints";
 // import authRoutes from "./routes/auth.routes";
 
-mongoose.connect(
-  keys.mongoURI,
-  { useNewUrlParser: true, useUnifiedTopology: true }
-);
+// mongoose.connect(
+//   keys.mongoURI,
+//   { useNewUrlParser: true, useUnifiedTopology: true }
+// );
 
 // @ts-ignore
 const port = process.env.PORT || 3000;
@@ -33,7 +33,7 @@ async function bootstrap() {
   const app = next({ dev });
 
   await app.prepare();
-  await passportService();
+  // await passportService();
 
   const server = await NestFactory.create(AppModule);
 
@@ -44,8 +44,8 @@ async function bootstrap() {
       keys: [keys.cookieKey]
     })
   );
-  server.use(passport.initialize());
-  server.use(passport.session());
+  // server.use(passport.initialize());
+  // server.use(passport.session());
 
   // endpoints(server);
   // authRoutes(app, server);
