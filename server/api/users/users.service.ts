@@ -7,8 +7,20 @@ import { User } from "./interfaces/user.interface";
 export class UsersService {
   constructor(@InjectModel("User") private readonly userModel: Model<User>) {}
 
-  async findOne(id: string): Promise<User | null> {
-    console.log("UsersService id", id);
-    return await this.userModel.findOne({ _id: id });
+  async findOne(filter: FindOne): Promise<User | null> {
+    return await this.userModel.findOne(filter);
   }
+
+  async create(profile: any): Promise<User> {
+    const newUser = await new this.userModel({
+      githubId: profile.id,
+      login: profile.displayName,
+      photo: profile.photos ? profile.photos[0].value : ""
+    });
+    return newUser.save();
+  }
+}
+
+interface FindOne {
+  [key: string]: string;
 }

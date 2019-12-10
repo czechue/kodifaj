@@ -114,7 +114,7 @@ export default function NavbarComponent({
                   </a>
                 </Link>
                 <a
-                  href="/api/logout"
+                  href="/auth/logout"
                   className="mt-2 block text-white hover:text-violet_primary"
                 >
                   Wyloguj się
