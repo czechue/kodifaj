@@ -2,12 +2,12 @@ import { Controller, Get, Param, Render } from "@nestjs/common";
 
 @Controller("users")
 export class UsersRenderController {
-  @Render("users")
   @Get()
+  @Render("users")
   public users() {}
 
-  @Render("users/[id]")
   @Get(":id")
+  @Render("users/[id]")
   public user(@Param("id") id: string) {
     return { id };
   }
