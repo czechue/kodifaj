@@ -1,0 +1,65 @@
+{
+  "mini-css-extract-plugin node_modules/css-loader/index.js??ref--5-1!node_modules/postcss-loader/src/index.js??ref--5-2!public/static/style.css": [
+    {
+      "modules": {
+        "byIdentifier": {},
+        "usedIds": {}
+      },
+      "chunks": {
+        "byName": {
+          "mini-css-extract-plugin": 0
+        },
+        "bySource": {},
+        "usedIds": [
+          0
+        ]
+      }
+    }
+  ],
+  "modules": {
+    "byIdentifier": {
+      "css node_modules/css-loader/index.js??ref--5-1!node_modules/postcss-loader/src/index.js??ref--5-2!public/static/styles/task-detail.css 0": 0,
+      "css node_modules/css-loader/index.js??ref--5-1!node_modules/postcss-loader/src/index.js??ref--5-2!public/static/style.css 0": 1
+    },
+    "usedIds": {
+      "0": 0,
+      "1": 1
+    }
+  },
+  "chunks": {
+    "byName": {
+      "static/runtime/webpack.js": 0,
+      "commons": 1,
+      "static/nKr-XTsZbaHSMvbTmKDg9/pages/_app.js": 2,
+      "static/nKr-XTsZbaHSMvbTmKDg9/pages/_error.js": 3,
+      "static/nKr-XTsZbaHSMvbTmKDg9/pages/views.js": 4,
+      "static/nKr-XTsZbaHSMvbTmKDg9/pages/views/tasks.js": 5,
+      "static/nKr-XTsZbaHSMvbTmKDg9/pages/views/tasks/[id].js": 6,
+      "static/nKr-XTsZbaHSMvbTmKDg9/pages/views/tasks/new.js": 7,
+      "static/nKr-XTsZbaHSMvbTmKDg9/pages/views/users/[id].js": 8,
+      "static/runtime/main.js": 9,
+      "static/runtime/polyfills.js": 10,
+      "static/2Oo1BgoElnHCvEJx6jFgT/pages/_app.js": 11,
+      "static/2Oo1BgoElnHCvEJx6jFgT/pages/_error.js": 12,
+      "static/2Oo1BgoElnHCvEJx6jFgT/pages/views.js": 13,
+      "static/2Oo1BgoElnHCvEJx6jFgT/pages/views/tasks.js": 14,
+      "static/2Oo1BgoElnHCvEJx6jFgT/pages/views/tasks/[id].js": 15,
+      "static/2Oo1BgoElnHCvEJx6jFgT/pages/views/tasks/new.js": 16,
+      "static/2Oo1BgoElnHCvEJx6jFgT/pages/views/users/[id].js": 17
+    },
+    "bySource": {},
+    "usedIds": [
+      0,
+      1,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      9
+    ]
+  }
+}
