@@ -1,0 +1,1 @@
+{"ast":null,"code":"export var HOSTNAME = process.env.NODE_ENV === \"production\" ? \"https://kodifaj.pl\" : \"http://localhost:3000\";","map":null,"metadata":{},"sourceType":"module"}
