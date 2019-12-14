@@ -1,5 +1,5 @@
-import { Document } from "mongoose";
-import { Solution } from "../../solutions/interfaces/solutions.interface";
+import { Document } from 'mongoose';
+import { Solution } from '../../solutions/interfaces/solutions.interface';
 
 export interface Task extends Document {
   _id: string;

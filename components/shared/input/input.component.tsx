@@ -1,18 +1,18 @@
-import React, { ReactElement } from "react";
-import { FieldRenderProps } from "react-final-form";
-import clsx from "clsx";
+import React, { ReactElement } from 'react';
+import { FieldRenderProps } from 'react-final-form';
+import clsx from 'clsx';
 
 export default function InputComponent(
-  props: InputComponentProps
+  props: InputComponentProps,
 ): ReactElement {
   const { input, placeholder, label, fieldType, inputButton = null } = props;
-  const Component = fieldType ? fieldType : "input";
+  const Component = fieldType ? fieldType : 'input';
 
   const inputClassNames = clsx(
-    "appearance-none block w-full bg-white text-gray-700 rounded-l py-3 px-4 leading-tight border-transparent border focus:outline-none focus:border-violet_primary",
+    'appearance-none block w-full bg-white text-gray-700 rounded-l py-3 px-4 leading-tight border-transparent border focus:outline-none focus:border-violet_primary',
     {
-      "rounded-r": !inputButton
-    }
+      'rounded-r': !inputButton,
+    },
   );
 
   return (
@@ -39,6 +39,6 @@ export interface InputComponentProps
   extends FieldRenderProps<string, HTMLElement> {
   label?: string;
   placeholder?: string;
-  fieldType?: "textarea" | "input";
+  fieldType?: 'textarea' | 'input';
   inputButton?: ReactElement;
 }

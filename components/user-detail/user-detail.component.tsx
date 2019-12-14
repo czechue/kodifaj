@@ -1,7 +1,7 @@
-import React from "react";
-import { UserProfil } from "../../lib/types/user";
-import InfoComponent from "./info/info.component";
-import HeadingComponent from "../shared/heading/heading.component";
+import React from 'react';
+import { UserProfil } from '../../lib/types/user';
+import InfoComponent from './info/info.component';
+import HeadingComponent from '../shared/heading/heading.component';
 
 const Heading = ({ children }: { children: string }) => (
   <HeadingComponent orientation="left" size="2xl" font="thin" tracking="wide">

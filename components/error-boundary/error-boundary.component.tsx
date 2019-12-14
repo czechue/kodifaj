@@ -1,4 +1,4 @@
-import React, { ReactElement } from "react";
+import React, { ReactElement } from 'react';
 
 export default class ErrorBoundary extends React.Component<Props, State> {
   state = { hasError: false };

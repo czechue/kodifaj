@@ -25,20 +25,20 @@ let AuthController = class AuthController {
         // @ts-ignore
         req.logout();
         req.logout();
-        res.redirect("/");
+        res.redirect('/');
     }
 };
 __decorate([
     public_guard_1.Public(),
-    common_1.UseGuards(passport_1.AuthGuard("github")),
-    common_1.Get("github"),
+    common_1.UseGuards(passport_1.AuthGuard('github')),
+    common_1.Get('github'),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", Promise)
 ], AuthController.prototype, "githubLogin", null);
 __decorate([
     public_guard_1.Public(),
-    common_1.Get("/github/callback"),
+    common_1.Get('/github/callback'),
     common_1.UseGuards(github_guard_1.GithubGuard),
     common_1.Redirect('/'),
     __metadata("design:type", Function),
@@ -48,14 +48,14 @@ __decorate([
 __decorate([
     public_guard_1.Public(),
     common_1.HttpCode(204),
-    common_1.Get("/logout"),
+    common_1.Get('/logout'),
     __param(0, common_1.Req()), __param(1, common_1.Res()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object, Object]),
     __metadata("design:returntype", void 0)
 ], AuthController.prototype, "logout", null);
 AuthController = __decorate([
-    common_1.Controller("auth")
+    common_1.Controller('auth')
 ], AuthController);
 exports.AuthController = AuthController;
 //# sourceMappingURL=auth.controller.js.map

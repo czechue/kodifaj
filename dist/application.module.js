@@ -29,18 +29,18 @@ AppModule = __decorate([
             mongoose_1.MongooseModule.forRoot(keys_1.default.mongoURI, {
                 useNewUrlParser: true,
                 useUnifiedTopology: true,
-                useFindAndModify: false
+                useFindAndModify: false,
             }),
             users_module_1.UsersModule,
             solutions_module_1.SolutionsModule,
             tasks_module_1.TasksModule,
-            auth_module_1.AuthModule
+            auth_module_1.AuthModule,
         ],
         controllers: [
             home_render_controller_1.HomeRenderController,
             tasks_render_controller_1.TasksRenderController,
-            users_render_controller_1.UsersRenderController
-        ]
+            users_render_controller_1.UsersRenderController,
+        ],
     })
 ], AppModule);
 exports.AppModule = AppModule;

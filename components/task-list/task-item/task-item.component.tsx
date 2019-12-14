@@ -1,6 +1,6 @@
-import React, { ReactElement } from "react";
-import Link from "next/link";
-import { Task } from "../../../lib/types/task";
+import React, { ReactElement } from 'react';
+import Link from 'next/link';
+import { Task } from '../../../lib/types/task';
 
 interface BadgeProps {
   children: string;
@@ -19,11 +19,11 @@ interface TaskItemProps {
 }
 
 export default function TaskItemComponent({
-  task
+  task,
 }: TaskItemProps): ReactElement {
   return (
     <div className="w-full my-4 md:px-2 md:w-1/3">
-      <Link href={"/tasks/[id]"} as={`/tasks/${task._id.toString()}`}>
+      <Link href={'/tasks/[id]'} as={`/tasks/${task._id.toString()}`}>
         <a>
           <div className="relative pb-5/6 ">
             <img
@@ -57,7 +57,7 @@ export default function TaskItemComponent({
                   >
                     <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
                   </svg>
-                ))}{" "}
+                ))}{' '}
                 {task.reviewCount && (
                   <span className="text-xs text-gray-600 ml-2">
                     ({task.reviewCount} głosów)

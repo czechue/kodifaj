@@ -1,15 +1,15 @@
-import { Injectable } from "@nestjs/common";
-import { Model } from "mongoose";
-import { InjectModel } from "@nestjs/mongoose";
-import { Solution } from "./interfaces/solutions.interface";
-import { CreateSolutionDto } from "./dto/create-solution.dto";
-import { Task } from "../tasks/interfaces/task.interface";
+import { Injectable } from '@nestjs/common';
+import { Model } from 'mongoose';
+import { InjectModel } from '@nestjs/mongoose';
+import { Solution } from './interfaces/solutions.interface';
+import { CreateSolutionDto } from './dto/create-solution.dto';
+import { Task } from '../tasks/interfaces/task.interface';
 
 @Injectable()
 export class SolutionsService {
   constructor(
-    @InjectModel("Solution") private readonly solutionModel: Model<Solution>,
-    @InjectModel("Task") private readonly taskModel: Model<Task>
+    @InjectModel('Solution') private readonly solutionModel: Model<Solution>,
+    @InjectModel('Task') private readonly taskModel: Model<Task>,
   ) {}
 
   async findOne(id: string): Promise<Solution | null> {
@@ -21,7 +21,7 @@ export class SolutionsService {
 
     try {
       await this.taskModel.findByIdAndUpdate(solution.taskId, {
-        $push: { _solutions: createdSolution._id }
+        $push: { _solutions: createdSolution._id },
       });
       return createdSolution.save();
     } catch (e) {

@@ -1,22 +1,22 @@
-import { Body, Controller, Get, Param, Post, Req } from "@nestjs/common";
-import { SolutionsService } from "./solutions.service";
-import { Solution } from "./interfaces/solutions.interface";
-import { CreateSolutionBodyDto } from "./dto/create-solution.dto";
-import { RequestWithUser } from "../common/interfaces/requestWithUser.interface";
+import { Body, Controller, Get, Param, Post, Req } from '@nestjs/common';
+import { SolutionsService } from './solutions.service';
+import { Solution } from './interfaces/solutions.interface';
+import { CreateSolutionBodyDto } from './dto/create-solution.dto';
+import { RequestWithUser } from '../common/interfaces/requestWithUser.interface';
 
-@Controller("api/solutions")
+@Controller('api/solutions')
 export class SolutionsController {
   constructor(private readonly solutionsService: SolutionsService) {}
 
-  @Get(":id")
-  findOne(@Param("id") id: string): Promise<Solution | null> {
+  @Get(':id')
+  findOne(@Param('id') id: string): Promise<Solution | null> {
     return this.solutionsService.findOne(id);
   }
 
-  @Post("")
+  @Post('')
   create(
     @Body() createSolutionBodyDto: CreateSolutionBodyDto,
-    @Req() req: RequestWithUser
+    @Req() req: RequestWithUser,
   ) {
     // todo: use middleware or smth to allow this endpoint only to specific users
     const authorId = req?.user?._id;
@@ -25,7 +25,7 @@ export class SolutionsController {
       const createSolutionDto = {
         ...createSolutionBodyDto,
         _task: createSolutionBodyDto.taskId,
-        _user: authorId
+        _user: authorId,
       };
 
       this.solutionsService.create(createSolutionDto);

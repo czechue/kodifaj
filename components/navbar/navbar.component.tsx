@@ -1,27 +1,27 @@
-import React, { ReactElement, useState } from "react";
-import classNames from "clsx";
+import React, { ReactElement, useState } from 'react';
+import classNames from 'clsx';
 
-import MobileButtonComponent from "./mobile-button/mobile-button.component";
-import NavigationLinkComponent from "./navigation-link/navigation-link.component";
+import MobileButtonComponent from './mobile-button/mobile-button.component';
+import NavigationLinkComponent from './navigation-link/navigation-link.component';
 
-import "../../public/static/style.css";
-import Link from "next/link";
-import { User } from "../../providers/user.provider";
-import AccountDropdownComponent from "./account-dropdown/account-dropdown.component";
-import HeroComponent from "./hero/hero.component";
+import '../../public/static/style.css';
+import Link from 'next/link';
+import { User } from '../../providers/user.provider';
+import AccountDropdownComponent from './account-dropdown/account-dropdown.component';
+import HeroComponent from './hero/hero.component';
 
 export default function NavbarComponent({
   user,
-  withHero = false
+  withHero = false,
 }: NavbarComponentProps): ReactElement {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const mobileLinksContainerClassName = classNames(
     {
       block: isMobileMenuOpen,
-      hidden: !isMobileMenuOpen
+      hidden: !isMobileMenuOpen,
     },
-    "sm:flex"
+    'sm:flex',
   );
 
   const navLinks = (
@@ -125,7 +125,7 @@ export default function NavbarComponent({
         )}
       </header>
 
-      {withHero && <HeroComponent/>}
+      {withHero && <HeroComponent />}
     </div>
   );
 }

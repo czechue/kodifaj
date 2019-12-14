@@ -65,7 +65,6 @@
   "lint-staged": {
     "**.{ts,tsx}": [
       "prettier --write",
-      "npm run build",
       "git add"
     ]
   },
@@ -73,5 +72,10 @@
     "hooks": {
       "pre-commit": "lint-staged"
     }
+  },
+  "prettier": {
+    "singleQuote": true,
+    "trailingComma": "all",
+    "tabWidth": 2
   }
 }

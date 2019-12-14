@@ -15,7 +15,7 @@ let HomeRenderController = class HomeRenderController {
 };
 __decorate([
     common_1.Get(),
-    common_1.Render("index"),
+    common_1.Render('index'),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)

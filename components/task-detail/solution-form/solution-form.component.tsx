@@ -1,9 +1,9 @@
-import React, { ReactElement } from "react";
-import { Form, Field } from "react-final-form";
-import InputComponent from "../../shared/input/input.component";
+import React, { ReactElement } from 'react';
+import { Form, Field } from 'react-final-form';
+import InputComponent from '../../shared/input/input.component';
 
 export default function SolutionFormComponent({
-  onSubmit
+  onSubmit,
 }: SolutionFormProps): ReactElement {
   return (
     <div className="bg-pink_bg w-full rounded p-4">

@@ -1,6 +1,6 @@
-import React, { ReactElement } from "react";
-import NavbarComponent from "../../navbar/navbar.component";
-import {User} from "../../../providers/user.provider";
+import React, { ReactElement } from 'react';
+import NavbarComponent from '../../navbar/navbar.component';
+import { User } from '../../../providers/user.provider';
 
 interface LayoutProps {
   children: ReactElement | ReactElement[];
@@ -10,7 +10,7 @@ interface LayoutProps {
 export default function LayoutComponent({
   user,
   withHero,
-  children
+  children,
 }: LayoutProps): ReactElement {
   return (
     <div className="antialiased text-gray-900">

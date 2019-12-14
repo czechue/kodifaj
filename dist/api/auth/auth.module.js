@@ -20,11 +20,11 @@ AuthModule = __decorate([
         imports: [
             users_module_1.UsersModule,
             passport_1.PassportModule.register({
-                defaultStrategy: "session"
-            })
+                defaultStrategy: 'session',
+            }),
         ],
         providers: [auth_service_1.AuthService, github_strategy_1.GithubStrategy, session_serializer_1.SessionSerializer],
-        controllers: [auth_controller_1.AuthController]
+        controllers: [auth_controller_1.AuthController],
     })
 ], AuthModule);
 exports.AuthModule = AuthModule;

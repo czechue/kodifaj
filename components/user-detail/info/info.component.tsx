@@ -1,5 +1,5 @@
-import React from "react";
-import { UserProfil } from "../../../lib/types/user";
+import React from 'react';
+import { UserProfil } from '../../../lib/types/user';
 
 export default function InfoComponent({ user }: InfoProps) {
   return (

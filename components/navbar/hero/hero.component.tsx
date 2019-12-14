@@ -1,10 +1,10 @@
-import HeadingComponent from "../../shared/heading/heading.component";
-import React from "react";
+import HeadingComponent from '../../shared/heading/heading.component';
+import React from 'react';
 
 const bgImage = {
   backgroundImage: `url(/static/images/Objects.svg)`,
-  backgroundPosition: "bottom",
-  backgroundRepeat: "no-repeat"
+  backgroundPosition: 'bottom',
+  backgroundRepeat: 'no-repeat',
 };
 
 export default function HeroComponent() {

@@ -1,5 +1,5 @@
-import React, { ReactElement } from "react";
-import Link from "next/link";
+import React, { ReactElement } from 'react';
+import Link from 'next/link';
 
 interface MobileLinkProps {
   children: string | ReactElement;
@@ -12,7 +12,7 @@ export default function NavigationLinkComponent({
   children,
   url,
   routerLink = false,
-  classNames = ""
+  classNames = '',
 }: MobileLinkProps) {
   const className = `block mb-1 px-2 py-1 text-gray-200 font-semibold hover:bg-violet_primary sm:uppercase sm:font-normal sm:text-xs sm:mb-0 ${classNames}`;
 

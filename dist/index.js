@@ -14,13 +14,13 @@ const keys_1 = __importDefault(require("./config/keys"));
 // @ts-ignore
 const port = process.env.PORT || 3000;
 async function bootstrap() {
-    const dev = process.env.NODE_ENV !== "production";
+    const dev = process.env.NODE_ENV !== 'production';
     const app = next_1.default({ dev });
     await app.prepare();
     const server = await core_1.NestFactory.create(application_module_1.AppModule);
     server.use(cookie_session_1.default({
         maxAge: 30 * 24 * 60 * 60 * 1000,
-        keys: [keys_1.default.cookieKey]
+        keys: [keys_1.default.cookieKey],
     }));
     server.use(passport_1.default.initialize());
     server.use(passport_1.default.session());

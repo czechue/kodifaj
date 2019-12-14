@@ -17,19 +17,19 @@ const passport_github2_1 = require("passport-github2");
 const common_1 = require("@nestjs/common");
 const keys_1 = __importDefault(require("../../config/keys"));
 const users_service_1 = require("../users/users.service");
-let GithubStrategy = class GithubStrategy extends passport_1.PassportStrategy(passport_github2_1.Strategy, "github") {
+let GithubStrategy = class GithubStrategy extends passport_1.PassportStrategy(passport_github2_1.Strategy, 'github') {
     constructor(usersService) {
         super({
             clientID: keys_1.default.githubClientID,
             clientSecret: keys_1.default.githubClientSecret,
-            callbackURL: "/auth/github/callback",
-            scope: `profile email`
+            callbackURL: '/auth/github/callback',
+            scope: `profile email`,
         });
         this.usersService = usersService;
     }
     async validate(_accessToken, _refreshToken, profile) {
         const existingUser = await this.usersService.findOne({
-            githubId: profile.id
+            githubId: profile.id,
         });
         if (existingUser) {
             return existingUser;

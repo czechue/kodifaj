@@ -1,10 +1,10 @@
-import React from "react";
-import axios from "axios";
-import { Task } from "../../lib/types/task";
-import CarouselComponent from "./carousel/carousel.component";
-import AsideComponent from "./aside/aside.component";
-import ContentComponent from "./content/content.component";
-import HeadingComponent from "../shared/heading/heading.component";
+import React from 'react';
+import axios from 'axios';
+import { Task } from '../../lib/types/task';
+import CarouselComponent from './carousel/carousel.component';
+import AsideComponent from './aside/aside.component';
+import ContentComponent from './content/content.component';
+import HeadingComponent from '../shared/heading/heading.component';
 
 export default function TaskDetailComponent({
   images,
@@ -16,16 +16,15 @@ export default function TaskDetailComponent({
   tags,
   repo,
   _solutions,
-  _id
+  _id,
 }: Task) {
-
   const handleOnSubmitSolution = ({ repo, demo, comment }: any) => {
-    axios.post("/api/solutions", {
+    axios.post('/api/solutions', {
       repo,
       demo,
       comment,
       taskId: _id,
-      phase: "review"
+      phase: 'review',
     });
   };
 

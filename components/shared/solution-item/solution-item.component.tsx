@@ -1,5 +1,5 @@
-import { Solution } from "../../../lib/types/solution";
-import React, { ReactElement } from "react";
+import { Solution } from '../../../lib/types/solution';
+import React, { ReactElement } from 'react';
 
 interface BadgeProps {
   children: string;
@@ -25,7 +25,7 @@ function LinkComponent({ children, url }: { children: string; url: string }) {
 }
 
 export default function SolutionItemComponent({
-  solution
+  solution,
 }: SolutionProps): ReactElement {
   return (
     <section className="w-full h-48 p-2 rounded text-sm shadow hover:shadow-md">

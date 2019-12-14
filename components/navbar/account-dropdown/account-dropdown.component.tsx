@@ -1,24 +1,24 @@
-import React, { useCallback, useEffect, useState } from "react";
-import { User } from "../../../providers/user.provider";
-import Link from "next/link";
+import React, { useCallback, useEffect, useState } from 'react';
+import { User } from '../../../providers/user.provider';
+import Link from 'next/link';
 
 export default function AccountDropdownComponent({
   user,
-  classNames
+  classNames,
 }: AccountDropdownInterface) {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleEscape = useCallback((event: KeyboardEvent) => {
-    if (event.key === "Escape" || event.key === "Esc") {
+    if (event.key === 'Escape' || event.key === 'Esc') {
       setIsOpen(false);
     }
   }, []);
 
   useEffect(() => {
-    document.addEventListener("keydown", handleEscape);
+    document.addEventListener('keydown', handleEscape);
 
     return () => {
-      document.removeEventListener("keydown", handleEscape, false);
+      document.removeEventListener('keydown', handleEscape, false);
     };
   }, []);
 

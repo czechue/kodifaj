@@ -21,21 +21,21 @@ let UsersRenderController = class UsersRenderController {
 };
 __decorate([
     common_1.Get(),
-    common_1.Render("users"),
+    common_1.Render('users'),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
 ], UsersRenderController.prototype, "users", null);
 __decorate([
-    common_1.Get(":id"),
-    common_1.Render("users/[id]"),
-    __param(0, common_1.Param("id")),
+    common_1.Get(':id'),
+    common_1.Render('users/[id]'),
+    __param(0, common_1.Param('id')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
 ], UsersRenderController.prototype, "user", null);
 UsersRenderController = __decorate([
-    common_1.Controller("users")
+    common_1.Controller('users')
 ], UsersRenderController);
 exports.UsersRenderController = UsersRenderController;
 //# sourceMappingURL=users-render.controller.js.map

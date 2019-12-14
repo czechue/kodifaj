@@ -1,20 +1,20 @@
-import React, { Component } from "react";
-import Carousel from "nuka-carousel";
-import clsx from "clsx";
+import React, { Component } from 'react';
+import Carousel from 'nuka-carousel';
+import clsx from 'clsx';
 
 const CarouselButton = ({
   slide,
-  right = false
+  right = false,
 }: {
   slide: () => void;
   right?: boolean;
 }) => {
   const buttonClassNames = clsx(
-    "flex justify-center h-12 w-12 rounded bg-white opacity-50 hover:opacity-75",
+    'flex justify-center h-12 w-12 rounded bg-white opacity-50 hover:opacity-75',
     {
-      "ml-2": !right,
-      "mr-2": right
-    }
+      'ml-2': !right,
+      'mr-2': right,
+    },
   );
 
   return (
@@ -22,8 +22,8 @@ const CarouselButton = ({
       <img
         src={
           right
-            ? "/static/images/chevron-thin-right.svg"
-            : "/static/images/chevron-thin-left.svg"
+            ? '/static/images/chevron-thin-right.svg'
+            : '/static/images/chevron-thin-left.svg'
         }
         className="h-8"
         alt="carousel button"
@@ -48,9 +48,9 @@ export default class CarouselComponent extends Component<CarouselProps> {
           <CarouselButton slide={nextSlide} right />
         )}
         renderBottomCenterControls={null}
-        heightMode={"max"}
+        heightMode={'max'}
         slidesToShow={1.5}
-        cellAlign={"center"}
+        cellAlign={'center'}
         cellSpacing={8}
         wrapAround
       >

@@ -26,14 +26,14 @@ let UsersService = class UsersService {
         const newUser = await new this.userModel({
             githubId: profile.id,
             login: profile.displayName,
-            photo: profile.photos ? profile.photos[0].value : ""
+            photo: profile.photos ? profile.photos[0].value : '',
         });
         return newUser.save();
     }
 };
 UsersService = __decorate([
     common_1.Injectable(),
-    __param(0, mongoose_1.InjectModel("User")),
+    __param(0, mongoose_1.InjectModel('User')),
     __metadata("design:paramtypes", [mongoose_2.Model])
 ], UsersService);
 exports.UsersService = UsersService;

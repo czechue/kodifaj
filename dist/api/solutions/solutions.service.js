@@ -27,7 +27,7 @@ let SolutionsService = class SolutionsService {
         const createdSolution = new this.solutionModel(solution);
         try {
             await this.taskModel.findByIdAndUpdate(solution.taskId, {
-                $push: { _solutions: createdSolution._id }
+                $push: { _solutions: createdSolution._id },
             });
             return createdSolution.save();
         }
@@ -38,8 +38,8 @@ let SolutionsService = class SolutionsService {
 };
 SolutionsService = __decorate([
     common_1.Injectable(),
-    __param(0, mongoose_2.InjectModel("Solution")),
-    __param(1, mongoose_2.InjectModel("Task")),
+    __param(0, mongoose_2.InjectModel('Solution')),
+    __param(1, mongoose_2.InjectModel('Task')),
     __metadata("design:paramtypes", [mongoose_1.Model,
         mongoose_1.Model])
 ], SolutionsService);

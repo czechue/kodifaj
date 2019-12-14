@@ -19,12 +19,12 @@ SolutionsModule = __decorate([
     common_1.Module({
         imports: [
             mongoose_1.MongooseModule.forFeature([
-                { name: "Solution", schema: solutions_schema_1.SolutionSchema },
-                { name: "Task", schema: task_schema_1.TaskSchema }
-            ])
+                { name: 'Solution', schema: solutions_schema_1.SolutionSchema },
+                { name: 'Task', schema: task_schema_1.TaskSchema },
+            ]),
         ],
         controllers: [solutions_controller_1.SolutionsController],
-        providers: [solutions_service_1.SolutionsService, tasks_service_1.TasksService]
+        providers: [solutions_service_1.SolutionsService, tasks_service_1.TasksService],
     })
 ], SolutionsModule);
 exports.SolutionsModule = SolutionsModule;

@@ -150,7 +150,7 @@ class ErrorBoundary extends react__WEBPACK_IMPORTED_MODULE_1___default.a.Compone
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HOSTNAME", function() { return HOSTNAME; });
-const HOSTNAME =  false ? undefined : "http://localhost:3000";
+const HOSTNAME = false ? undefined : "http://localhost:3000";
 
 /***/ }),
 
@@ -645,7 +645,7 @@ class MyApp extends next_app__WEBPACK_IMPORTED_MODULE_1___default.a {
     ctx
   }) {
     let pageProps = {
-      user: ""
+      user: ''
     };
 
     if (Component.getInitialProps) {
@@ -703,10 +703,10 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 const UserContext = react__WEBPACK_IMPORTED_MODULE_0___default.a.createContext({
   user: {
-    _id: "",
-    githubId: "",
-    login: "",
-    photo: ""
+    _id: '',
+    githubId: '',
+    login: '',
+    photo: ''
   },
   login: () => {},
   logout: () => {}

@@ -16,6 +16,6 @@ exports.TaskSchema = new mongoose.Schema({
     tags: [String],
     title: String,
     _user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
-    _solutions: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Solution' }]
+    _solutions: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Solution' }],
 });
 //# sourceMappingURL=task.schema.js.map

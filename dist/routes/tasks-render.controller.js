@@ -15,36 +15,35 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const common_1 = require("@nestjs/common");
 let TasksRenderController = class TasksRenderController {
     tasks() { }
-    createTask() {
-    }
+    createTask() { }
     task(id) {
         return { id };
     }
 };
 __decorate([
     common_1.Get(),
-    common_1.Render("tasks"),
+    common_1.Render('tasks'),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
 ], TasksRenderController.prototype, "tasks", null);
 __decorate([
-    common_1.Get("new"),
-    common_1.Render("tasks/new"),
+    common_1.Get('new'),
+    common_1.Render('tasks/new'),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
 ], TasksRenderController.prototype, "createTask", null);
 __decorate([
-    common_1.Get(":id"),
-    common_1.Render("tasks/[id]"),
-    __param(0, common_1.Param("id")),
+    common_1.Get(':id'),
+    common_1.Render('tasks/[id]'),
+    __param(0, common_1.Param('id')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
 ], TasksRenderController.prototype, "task", null);
 TasksRenderController = __decorate([
-    common_1.Controller("tasks")
+    common_1.Controller('tasks')
 ], TasksRenderController);
 exports.TasksRenderController = TasksRenderController;
 //# sourceMappingURL=tasks-render.controller.js.map

@@ -1,4 +1,4 @@
-import React, { ReactElement } from "react";
+import React, { ReactElement } from 'react';
 
 export default function FormWrapperComponent({ children }: FormWrapperProps) {
   return (
@@ -11,7 +11,7 @@ export default function FormWrapperComponent({ children }: FormWrapperProps) {
           src="/static/images/object.svg"
           alt="object"
           className="absolute right-0 min-w-full"
-          style={{ top: "50px" }}
+          style={{ top: '50px' }}
         />
       </div>
     </div>
