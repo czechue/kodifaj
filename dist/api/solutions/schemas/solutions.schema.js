@@ -14,7 +14,7 @@ exports.SolutionSchema = new mongoose.Schema({
     comment: String,
     phase: String,
     createdAt: { type: Date, default: Date.now },
-    _task: { type: mongoose.Schema.Types.ObjectId, ref: "Task" },
-    _user: { type: mongoose.Schema.Types.ObjectId, ref: "User" }
+    _task: { type: mongoose.Schema.Types.ObjectId, ref: 'Task' },
+    _user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
 });
 //# sourceMappingURL=solutions.schema.js.map

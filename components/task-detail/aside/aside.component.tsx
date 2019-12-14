@@ -1,5 +1,5 @@
-import React from "react";
-import Link from "next/link";
+import React from 'react';
+import Link from 'next/link';
 
 const Title = ({ children }: { children: string }) => (
   <span className="block mb-2 text-sm font-semibold tracking-wider text-violet_primary">
@@ -44,9 +44,9 @@ export default function AsideComponent({
   author,
   tags,
   difficulty,
-  repo
+  repo,
 }: TaskAsideProps) {
-  const difficultyVal = difficulty ? `${difficulty.toString()} / 5` : "3/5";
+  const difficultyVal = difficulty ? `${difficulty.toString()} / 5` : '3/5';
   return (
     <>
       <section>
@@ -68,7 +68,7 @@ export default function AsideComponent({
           <LabeledValue value={author} label="Autor" />
         </div>
         <div className="mt-2">
-          <LabeledValue value={tags.join(", ")} label="Tagi" />
+          <LabeledValue value={tags.join(', ')} label="Tagi" />
         </div>
         <div className="mt-2">
           <LabeledValue value={difficultyVal} label="Skala trudności" />

@@ -1,15 +1,15 @@
-import React, { useContext } from "react";
-import fetch from "isomorphic-unfetch";
-import { NextPage } from "next";
-import { HOSTNAME } from "../../../lib/hostname.config";
+import React, { useContext } from 'react';
+import fetch from 'isomorphic-unfetch';
+import { NextPage } from 'next';
+import { HOSTNAME } from '../../../lib/hostname.config';
 
-import { Task } from "../../../lib/types/task";
-import { UserContext } from "../../../providers/user.provider";
+import { Task } from '../../../lib/types/task';
+import { UserContext } from '../../../providers/user.provider';
 
-import TaskListComponent from "../../../components/task-list/task-list.component";
-import LayoutComponent from "../../../components/shared/layout/layout.component";
+import TaskListComponent from '../../../components/task-list/task-list.component';
+import LayoutComponent from '../../../components/shared/layout/layout.component';
 
-import "../../../public/static/style.css";
+import '../../../public/static/style.css';
 
 const HomePage: NextPage<Props> = ({ tasks }) => {
   const { user } = useContext(UserContext);
@@ -27,7 +27,7 @@ HomePage.getInitialProps = async () => {
     const tasks = await res.json();
     return { tasks };
   } catch (e) {
-    return {tasks: []}
+    return { tasks: [] };
   }
 };
 

@@ -1,20 +1,18 @@
-import { Controller, Get, Param, Render } from "@nestjs/common";
+import { Controller, Get, Param, Render } from '@nestjs/common';
 
-@Controller("tasks")
+@Controller('tasks')
 export class TasksRenderController {
   @Get()
-  @Render("tasks")
+  @Render('tasks')
   public tasks() {}
 
-  @Get("new")
-  @Render("tasks/new")
-  public createTask() {
+  @Get('new')
+  @Render('tasks/new')
+  public createTask() {}
 
-  }
-
-  @Get(":id")
-  @Render("tasks/[id]")
-  public task(@Param("id") id: string) {
+  @Get(':id')
+  @Render('tasks/[id]')
+  public task(@Param('id') id: string) {
     return { id };
   }
 }

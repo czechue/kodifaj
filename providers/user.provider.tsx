@@ -1,16 +1,16 @@
-import React, { ReactElement, useState } from "react";
-import axios from "axios";
-import { HOSTNAME } from "../lib/hostname.config";
+import React, { ReactElement, useState } from 'react';
+import axios from 'axios';
+import { HOSTNAME } from '../lib/hostname.config';
 
 export const UserContext = React.createContext({
   user: {
-    _id: "",
-    githubId: "",
-    login: "",
-    photo: ""
+    _id: '',
+    githubId: '',
+    login: '',
+    photo: '',
   },
   login: () => {},
-  logout: () => {}
+  logout: () => {},
 });
 
 export default function UserProvider({ children, user }: UserProviderProps) {
@@ -28,7 +28,7 @@ export default function UserProvider({ children, user }: UserProviderProps) {
   const context = {
     user: userState,
     login,
-    logout
+    logout,
   };
   return (
     <UserContext.Provider value={context}>{children}</UserContext.Provider>

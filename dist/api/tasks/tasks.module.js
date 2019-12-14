@@ -15,13 +15,9 @@ let TasksModule = class TasksModule {
 };
 TasksModule = __decorate([
     common_1.Module({
-        imports: [
-            mongoose_1.MongooseModule.forFeature([
-                { name: "Task", schema: task_schema_1.TaskSchema },
-            ])
-        ],
+        imports: [mongoose_1.MongooseModule.forFeature([{ name: 'Task', schema: task_schema_1.TaskSchema }])],
         controllers: [tasks_controller_1.TasksController],
-        providers: [tasks_service_1.TasksService]
+        providers: [tasks_service_1.TasksService],
     })
 ], TasksModule);
 exports.TasksModule = TasksModule;

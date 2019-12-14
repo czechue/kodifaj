@@ -1,17 +1,17 @@
-import { Module } from "@nestjs/common";
-import { RenderModule } from "nest-next";
-import { MongooseModule } from "@nestjs/mongoose";
+import { Module } from '@nestjs/common';
+import { RenderModule } from 'nest-next';
+import { MongooseModule } from '@nestjs/mongoose';
 
-import keys from "./config/keys";
+import keys from './config/keys';
 
-import { TasksModule } from "./api/tasks/tasks.module";
-import { UsersModule } from "./api/users/users.module";
-import { SolutionsModule } from "./api/solutions/solutions.module";
+import { TasksModule } from './api/tasks/tasks.module';
+import { UsersModule } from './api/users/users.module';
+import { SolutionsModule } from './api/solutions/solutions.module';
 
-import { HomeRenderController } from "./routes/home-render.controller";
-import { TasksRenderController } from "./routes/tasks-render.controller";
-import { UsersRenderController } from "./routes/users-render.controller";
-import { AuthModule } from "./api/auth/auth.module";
+import { HomeRenderController } from './routes/home-render.controller';
+import { TasksRenderController } from './routes/tasks-render.controller';
+import { UsersRenderController } from './routes/users-render.controller';
+import { AuthModule } from './api/auth/auth.module';
 
 @Module({
   imports: [
@@ -19,17 +19,17 @@ import { AuthModule } from "./api/auth/auth.module";
     MongooseModule.forRoot(keys.mongoURI, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
-      useFindAndModify: false
+      useFindAndModify: false,
     }),
     UsersModule,
     SolutionsModule,
     TasksModule,
-    AuthModule
+    AuthModule,
   ],
   controllers: [
     HomeRenderController,
     TasksRenderController,
-    UsersRenderController
-  ]
+    UsersRenderController,
+  ],
 })
 export class AppModule {}

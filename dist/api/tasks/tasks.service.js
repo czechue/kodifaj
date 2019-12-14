@@ -22,14 +22,14 @@ let TasksService = class TasksService {
     async findAll() {
         return await this.taskModel
             .find()
-            .populate("_user", "login")
+            .populate('_user', 'login')
             .exec();
     }
     async findOne(id) {
         return await this.taskModel
             .findById(id)
-            .populate("_user")
-            .populate({ path: "_solutions", model: "Solution", populate: "_user" });
+            .populate('_user')
+            .populate({ path: '_solutions', model: 'Solution', populate: '_user' });
     }
     async create(task) {
         const createdTask = new this.taskModel(task);
@@ -38,13 +38,13 @@ let TasksService = class TasksService {
             return createdTask;
         }
         catch (e) {
-            console.log("error");
+            console.log('error');
         }
     }
 };
 TasksService = __decorate([
     common_1.Injectable(),
-    __param(0, mongoose_1.InjectModel("Task")),
+    __param(0, mongoose_1.InjectModel('Task')),
     __metadata("design:paramtypes", [mongoose_2.Model])
 ], TasksService);
 exports.TasksService = TasksService;

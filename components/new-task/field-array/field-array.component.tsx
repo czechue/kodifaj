@@ -1,13 +1,13 @@
-import { Field } from "react-final-form";
-import InputComponent from "../../shared/input/input.component";
-import { FieldArrayRenderProps } from "react-final-form-arrays";
-import React from "react";
+import { Field } from 'react-final-form';
+import InputComponent from '../../shared/input/input.component';
+import { FieldArrayRenderProps } from 'react-final-form-arrays';
+import React from 'react';
 
 export default function FieldArrayComponent({
   recordName,
   label,
   fields,
-  placeholder
+  placeholder,
 }: FieldArrayComponent) {
   return (
     <div className="mb-4">
@@ -36,7 +36,7 @@ export default function FieldArrayComponent({
       <button
         className="mt-1 h-8 px-2 rounded bg-gradient-button text-white text-white text-xs font-semibold"
         type="button"
-        onClick={() => fields.push({ [recordName]: "" })}
+        onClick={() => fields.push({ [recordName]: '' })}
       >
         Dodaj
       </button>

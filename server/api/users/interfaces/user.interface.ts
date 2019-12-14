@@ -1,9 +1,9 @@
-import {Document} from "mongoose";
+import { Document } from 'mongoose';
 
 export interface User extends Document {
-	_id: string;
-	login: string;
-	googleId?: string;
-	githubId?: string;
-	photo?: string;
+  _id: string;
+  login: string;
+  googleId?: string;
+  githubId?: string;
+  photo?: string;
 }

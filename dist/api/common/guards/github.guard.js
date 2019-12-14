@@ -8,7 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 const common_1 = require("@nestjs/common");
 const passport_1 = require("@nestjs/passport");
-let GithubGuard = class GithubGuard extends passport_1.AuthGuard("github") {
+let GithubGuard = class GithubGuard extends passport_1.AuthGuard('github') {
     async canActivate(context) {
         const result = (await super.canActivate(context));
         const request = context.switchToHttp().getRequest();

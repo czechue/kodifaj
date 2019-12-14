@@ -1,11 +1,11 @@
-import App, { AppContext } from "next/app";
-import UserProvider, { User } from "../providers/user.provider";
-import { IncomingMessage } from "http";
-import ErrorBoundary from "../components/error-boundary/error-boundary.component";
+import App, { AppContext } from 'next/app';
+import UserProvider, { User } from '../providers/user.provider';
+import { IncomingMessage } from 'http';
+import ErrorBoundary from '../components/error-boundary/error-boundary.component';
 
 class MyApp extends App {
   static async getInitialProps({ Component, ctx }: AppContext) {
-    let pageProps: any = { user: "" };
+    let pageProps: any = { user: '' };
 
     if (Component.getInitialProps) {
       pageProps = await Component.getInitialProps(ctx);

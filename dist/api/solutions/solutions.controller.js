@@ -33,14 +33,14 @@ let SolutionsController = class SolutionsController {
     }
 };
 __decorate([
-    common_1.Get(":id"),
-    __param(0, common_1.Param("id")),
+    common_1.Get(':id'),
+    __param(0, common_1.Param('id')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", Promise)
 ], SolutionsController.prototype, "findOne", null);
 __decorate([
-    common_1.Post(""),
+    common_1.Post(''),
     __param(0, common_1.Body()),
     __param(1, common_1.Req()),
     __metadata("design:type", Function),
@@ -48,7 +48,7 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], SolutionsController.prototype, "create", null);
 SolutionsController = __decorate([
-    common_1.Controller("api/solutions"),
+    common_1.Controller('api/solutions'),
     __metadata("design:paramtypes", [solutions_service_1.SolutionsService])
 ], SolutionsController);
 exports.SolutionsController = SolutionsController;

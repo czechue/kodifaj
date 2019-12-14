@@ -1,13 +1,13 @@
-import { NextPage } from "next";
-import axios from "axios";
-import React, { useContext } from "react";
-import { UserContext } from "../../../providers/user.provider";
-import LayoutComponent from "../../../components/shared/layout/layout.component";
+import { NextPage } from 'next';
+import axios from 'axios';
+import React, { useContext } from 'react';
+import { UserContext } from '../../../providers/user.provider';
+import LayoutComponent from '../../../components/shared/layout/layout.component';
 import NewTaskComponent, {
-  NewTaskMapped
-} from "../../../components/new-task/new-task.component";
+  NewTaskMapped,
+} from '../../../components/new-task/new-task.component';
 
-import { HOSTNAME } from "../../../lib/hostname.config";
+import { HOSTNAME } from '../../../lib/hostname.config';
 
 const TaskNewPage: NextPage = () => {
   const { user } = useContext(UserContext);

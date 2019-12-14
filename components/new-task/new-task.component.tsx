@@ -1,14 +1,14 @@
-import React from "react";
-import { AxiosResponse } from "axios";
-import { Form, Field } from "react-final-form";
-import { FieldArray } from "react-final-form-arrays";
-import arrayMutators from "final-form-arrays";
+import React from 'react';
+import { AxiosResponse } from 'axios';
+import { Form, Field } from 'react-final-form';
+import { FieldArray } from 'react-final-form-arrays';
+import arrayMutators from 'final-form-arrays';
 
-import FormWrapperComponent from "../shared/form-wrapper/form-wrapper.component";
-import InputComponent from "../shared/input/input.component";
-import mapFormToNewTaskFormat from "./utils/map-form-to-new-task-form.util";
-import NewTaskHeading from "./heading/heading.component";
-import FieldArrayComponent from "./field-array/field-array.component";
+import FormWrapperComponent from '../shared/form-wrapper/form-wrapper.component';
+import InputComponent from '../shared/input/input.component';
+import mapFormToNewTaskFormat from './utils/map-form-to-new-task-form.util';
+import NewTaskHeading from './heading/heading.component';
+import FieldArrayComponent from './field-array/field-array.component';
 
 // const required = (value: string) => (value ? undefined : "Required");
 
@@ -27,7 +27,7 @@ export default function NewTaskComponent({ onSubmit }: NewTaskProps) {
         <Form
           onSubmit={onFormSubmit}
           mutators={{
-            ...arrayMutators
+            ...arrayMutators,
           }}
           render={({ handleSubmit }) => (
             <form onSubmit={handleSubmit}>

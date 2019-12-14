@@ -1,9 +1,9 @@
-import React, { ReactElement } from "react";
-import { Solution } from "../../../lib/types/solution";
-import SolutionItemComponent from "../../shared/solution-item/solution-item.component";
+import React, { ReactElement } from 'react';
+import { Solution } from '../../../lib/types/solution';
+import SolutionItemComponent from '../../shared/solution-item/solution-item.component';
 
 export default function SolutionsComponent({
-  solutions
+  solutions,
 }: SolutionsProps): ReactElement | null {
   if (!solutions.length) {
     return null;

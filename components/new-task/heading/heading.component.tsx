@@ -1,5 +1,5 @@
-import HeadingComponent from "../../shared/heading/heading.component";
-import React from "react";
+import HeadingComponent from '../../shared/heading/heading.component';
+import React from 'react';
 
 export default function NewTaskHeading({ children }: { children: string }) {
   return (

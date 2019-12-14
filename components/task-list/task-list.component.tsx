@@ -1,13 +1,13 @@
-import React, { ReactElement } from "react";
-import TaskItemComponent from "./task-item/task-item.component";
-import HeadingComponent from "../shared/heading/heading.component";
-import {Task} from "../../lib/types/task";
+import React, { ReactElement } from 'react';
+import TaskItemComponent from './task-item/task-item.component';
+import HeadingComponent from '../shared/heading/heading.component';
+import { Task } from '../../lib/types/task';
 
 interface TaskListProps {
   tasks?: Task[];
 }
 export default function TaskListComponent({
-  tasks
+  tasks,
 }: TaskListProps): ReactElement | null {
   if (!tasks) {
     return null;
@@ -22,9 +22,8 @@ export default function TaskListComponent({
         <HeadingComponent CustomTag="h2">Najnowsze Zadania</HeadingComponent>
       </div>
       <div className="flex flex-wrap md:-mx-2">
-        {tasks.length && tasks.map(task => (
-          <TaskItemComponent key={task._id} task={task} />
-        ))}
+        {tasks.length &&
+          tasks.map(task => <TaskItemComponent key={task._id} task={task} />)}
       </div>
     </>
   );
