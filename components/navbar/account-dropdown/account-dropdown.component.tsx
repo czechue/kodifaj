@@ -55,7 +55,7 @@ export default function AccountDropdownComponent({
             </a>
           </Link>
           <a
-            href="/api/logout"
+            href="/auth/logout"
             className="block px-4 py-2 text-gray-800 hover:bg-violet_primary hover:text-white"
           >
             Wyloguj się

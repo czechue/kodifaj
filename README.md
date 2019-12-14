@@ -1,5 +1,8 @@
 # Custom server with TypeScript + Nodemon example
 
+## google auth example:
+https://github.com/cj-wang/mean-start-2/blob/master/server/src/api/auth/auth.controller.ts
+
 ## Prod hosting on Heroku
 https://tranquil-crag-25841.herokuapp.com/
 
