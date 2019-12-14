@@ -9,7 +9,7 @@ import { HOSTNAME } from "../../../lib/hostname.config";
 import LayoutComponent from "../../../components/shared/layout/layout.component";
 import TaskDetailComponent from "../../../components/task-detail/task-detail.component";
 
-import "../../../static/style.css";
+import "../../../public/static/style.css";
 
 const TaskPage: NextPage<Props> = ({ task }) => {
   const { user } = useContext(UserContext);
