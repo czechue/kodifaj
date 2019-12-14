@@ -9,7 +9,7 @@ import { UserContext } from "../../../providers/user.provider";
 import TaskListComponent from "../../../components/task-list/task-list.component";
 import LayoutComponent from "../../../components/shared/layout/layout.component";
 
-import "../../../static/style.css";
+import "../../../public/static/style.css";
 
 const HomePage: NextPage<Props> = ({ tasks }) => {
   const { user } = useContext(UserContext);
