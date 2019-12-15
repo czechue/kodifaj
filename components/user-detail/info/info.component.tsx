@@ -1,5 +1,5 @@
 import React from 'react';
-import { UserProfil } from '../../../lib/types/user';
+import { User } from '../../../lib/types/user';
 
 export default function InfoComponent({ user }: InfoProps) {
   return (
@@ -23,5 +23,5 @@ export default function InfoComponent({ user }: InfoProps) {
 }
 
 interface InfoProps {
-  user: UserProfil;
+  user: User;
 }

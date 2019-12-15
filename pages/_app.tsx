@@ -1,6 +1,7 @@
 import App, { AppContext } from 'next/app';
-import UserProvider, { User } from '../components/providers/user.provider';
 import { IncomingMessage } from 'http';
+import { User } from '../lib/types/user';
+import UserProvider from '../components/providers/user.provider';
 import ErrorBoundary from '../components/error-boundary/error-boundary.component';
 
 class MyApp extends App {
