@@ -1,8 +1,8 @@
 import { Controller, Get, Render } from '@nestjs/common';
 
-@Controller()
+@Controller('')
 export class HomeRenderController {
-  @Get()
-  @Render('index')
+  @Get('')
+  @Render('Index')
   public index() {}
 }

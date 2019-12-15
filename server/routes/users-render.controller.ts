@@ -2,7 +2,7 @@ import { Controller, Get, Param, Render } from '@nestjs/common';
 
 @Controller('users')
 export class UsersRenderController {
-  @Get()
+  @Get('')
   @Render('users')
   public users() {}
 

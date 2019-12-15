@@ -11,6 +11,13 @@ export class UsersService {
     return await this.userModel.findOne(filter);
   }
 
+  async findOneWithDetails(filter: FindOne): Promise<User | null> {
+    return await this.userModel
+      .findOne(filter)
+      .populate('_tasks')
+      .populate('_solutions');
+  }
+
   async create(profile: any): Promise<User> {
     const newUser = await new this.userModel({
       githubId: profile.id,

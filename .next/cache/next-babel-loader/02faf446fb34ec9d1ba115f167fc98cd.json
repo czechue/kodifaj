@@ -1,0 +1,1 @@
+{"ast":null,"code":"import './tasks/index';","map":{"version":3,"sources":["/Users/michal.lester/Documents/ML/kodifaj/pages/views/index.tsx"],"names":[],"mappings":"AAAA,OAAO,eAAP","sourcesContent":["import './tasks/index';\n"]},"metadata":{},"sourceType":"module"}

@@ -1,0 +1,4 @@
+.flex-list__container:after {
+    content: "";
+    flex: auto;
+}

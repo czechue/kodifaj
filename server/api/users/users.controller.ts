@@ -8,6 +8,6 @@ export class UsersController {
 
   @Get(':id')
   findOne(@Param('id') id: string): Promise<User | null> {
-    return this.usersService.findOne({ _id: id });
+    return this.usersService.findOneWithDetails({ _id: id });
   }
 }

@@ -21,6 +21,7 @@ export default function ContentComponent({
   content,
   solutions = [],
   onSubmit,
+  loading,
 }: ContentProps) {
   return (
     <>
@@ -31,7 +32,7 @@ export default function ContentComponent({
 
       <section className="mt-6">
         <Heading>Twoje rozwiązanie</Heading>
-        <SolutionFormComponent onSubmit={onSubmit} />
+        <SolutionFormComponent loading={loading} onSubmit={onSubmit} />
       </section>
 
       <section className="mt-6">
@@ -51,4 +52,5 @@ interface ContentProps {
   content: string;
   solutions: Solution[];
   onSubmit: (value: any) => void;
+  loading: boolean;
 }

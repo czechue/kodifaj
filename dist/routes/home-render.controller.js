@@ -14,14 +14,14 @@ let HomeRenderController = class HomeRenderController {
     index() { }
 };
 __decorate([
-    common_1.Get(),
-    common_1.Render('index'),
+    common_1.Get(''),
+    common_1.Render('Index'),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
 ], HomeRenderController.prototype, "index", null);
 HomeRenderController = __decorate([
-    common_1.Controller()
+    common_1.Controller('')
 ], HomeRenderController);
 exports.HomeRenderController = HomeRenderController;
 //# sourceMappingURL=home-render.controller.js.map

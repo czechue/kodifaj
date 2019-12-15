@@ -17,7 +17,9 @@ export default function UserDetailComponent({ user }: UserDetailProps) {
       </div>
       <div className="my-1 px-1 w-full overflow-hidden sm:w-3/4 sm:order-first">
         <Heading>Twoje rozwiązania</Heading>
+        <pre>{JSON.stringify(user._solutions, null, 2)}</pre>
         <Heading>Twoje zadania</Heading>
+        <pre>{JSON.stringify(user._tasks, null, 2)}</pre>
       </div>
     </div>
   );

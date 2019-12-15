@@ -5,4 +5,6 @@ export const UserSchema = new mongoose.Schema({
   githubId: String,
   login: String,
   photo: String,
+  _solutions: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Solution' }],
+  _tasks: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Task' }],
 });

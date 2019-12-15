@@ -22,6 +22,12 @@ let UsersService = class UsersService {
     async findOne(filter) {
         return await this.userModel.findOne(filter);
     }
+    async findOneWithDetails(filter) {
+        return await this.userModel
+            .findOne(filter)
+            .populate('_tasks')
+            .populate('_solutions');
+    }
     async create(profile) {
         const newUser = await new this.userModel({
             githubId: profile.id,
