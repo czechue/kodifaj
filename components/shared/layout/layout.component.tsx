@@ -1,12 +1,7 @@
 import React, { ReactElement } from 'react';
 import NavbarComponent from '../../navbar/navbar.component';
-import { User } from '../../providers/user.provider';
+import { User } from '../../../lib/types/user';
 
-interface LayoutProps {
-  children: ReactElement | ReactElement[];
-  withHero?: boolean;
-  user: User;
-}
 export default function LayoutComponent({
   user,
   withHero,
@@ -20,4 +15,10 @@ export default function LayoutComponent({
       </main>
     </div>
   );
+}
+
+interface LayoutProps {
+  children: ReactElement | ReactElement[];
+  withHero?: boolean;
+  user: User;
 }

@@ -1,6 +1,7 @@
 import React, { ReactElement, useState } from 'react';
 import axios from 'axios';
 import { HOSTNAME } from '../../lib/hostname.config';
+import { User } from '../../lib/types/user';
 
 export const UserContext = React.createContext({
   user: {
@@ -38,11 +39,4 @@ export default function UserProvider({ children, user }: UserProviderProps) {
 interface UserProviderProps {
   children: ReactElement;
   user: User;
-}
-
-export interface User {
-  _id: string;
-  githubId: string;
-  login: string;
-  photo: string;
 }

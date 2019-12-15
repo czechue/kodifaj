@@ -1,6 +1,6 @@
 // todo: User is declared also in user.provider.tsx - make it more precise
 
-export interface UserProfil {
+export interface User {
   githubId: string;
   login: string;
   photo: string;

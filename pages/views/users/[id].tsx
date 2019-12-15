@@ -2,7 +2,6 @@ import React, { useContext } from 'react';
 import { NextPage, NextPageContext } from 'next';
 import fetch from 'isomorphic-unfetch';
 
-import { UserProfil } from '../../../lib/types/user';
 import { HOSTNAME } from '../../../lib/hostname.config';
 
 import { UserContext } from '../../../components/providers/user.provider';
@@ -10,6 +9,7 @@ import LayoutComponent from '../../../components/shared/layout/layout.component'
 
 import '../../../public/static/style.css';
 import UserDetailComponent from '../../../components/user-detail/user-detail.component';
+import { UserProps } from '../../../lib/types/props';
 
 const UserPage: NextPage<Props> = ({ userProfile }) => {
   const { user } = useContext(UserContext);
@@ -30,5 +30,5 @@ UserPage.getInitialProps = async ({ query: { id } }: NextPageContext) => {
 export default UserPage;
 
 interface Props {
-  userProfile: UserProfil;
+  userProfile: UserProps;
 }
