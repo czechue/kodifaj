@@ -6,7 +6,7 @@ import NavigationLinkComponent from './navigation-link/navigation-link.component
 
 import '../../public/static/style.css';
 import Link from 'next/link';
-import { User } from '../../providers/user.provider';
+import { User } from '../providers/user.provider';
 import AccountDropdownComponent from './account-dropdown/account-dropdown.component';
 import HeroComponent from './hero/hero.component';
 

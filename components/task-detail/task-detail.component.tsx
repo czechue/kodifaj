@@ -1,10 +1,10 @@
 import React from 'react';
-import axios from 'axios';
 import { Task } from '../../lib/types/task';
 import CarouselComponent from './carousel/carousel.component';
 import AsideComponent from './aside/aside.component';
 import ContentComponent from './content/content.component';
 import HeadingComponent from '../shared/heading/heading.component';
+import addSolution, { AddSolutionFormData } from './utils/add-solution.util';
 
 export default function TaskDetailComponent({
   images,
@@ -17,15 +17,17 @@ export default function TaskDetailComponent({
   repo,
   _solutions,
   _id,
-}: Task) {
-  const handleOnSubmitSolution = ({ repo, demo, comment }: any) => {
-    axios.post('/api/solutions', {
-      repo,
-      demo,
-      comment,
-      taskId: _id,
-      phase: 'review',
-    });
+  updateTaskData,
+}: TaskDetailProps) {
+  // todo: add error handling
+  const handleOnSubmitSolution = ({
+    repo,
+    demo,
+    comment,
+  }: AddSolutionFormData) => {
+    addSolution({ repo, demo, comment, taskId: _id })
+      .then(() => updateTaskData())
+      .catch(e => console.log('Error Adding Solution', e));
   };
 
   return (
@@ -58,4 +60,8 @@ export default function TaskDetailComponent({
       </article>
     </>
   );
+}
+
+interface TaskDetailProps extends Task {
+  updateTaskData: () => void;
 }

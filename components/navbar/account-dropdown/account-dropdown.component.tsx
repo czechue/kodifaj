@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { User } from '../../../providers/user.provider';
+import { User } from '../../providers/user.provider';
 import Link from 'next/link';
 
 export default function AccountDropdownComponent({

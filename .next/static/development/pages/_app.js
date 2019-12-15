@@ -83,6 +83,65 @@ function (_React$Component) {
 
 /***/ }),
 
+/***/ "./components/providers/user.provider.tsx":
+/*!************************************************!*\
+  !*** ./components/providers/user.provider.tsx ***!
+  \************************************************/
+/*! exports provided: UserContext, default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UserContext", function() { return UserContext; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return UserProvider; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _lib_hostname_config__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../lib/hostname.config */ "./lib/hostname.config.ts");
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+
+var UserContext = react__WEBPACK_IMPORTED_MODULE_0___default.a.createContext({
+  user: {
+    _id: '',
+    githubId: '',
+    login: '',
+    photo: ''
+  },
+  login: function login() {},
+  logout: function logout() {}
+});
+function UserProvider(_ref) {
+  var children = _ref.children,
+      user = _ref.user;
+
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(user),
+      userState = _useState[0],
+      setUserState = _useState[1];
+
+  function login() {
+    setUserState(user);
+  } // todo: use this logout function instead of href
+
+
+  function logout() {
+    axios__WEBPACK_IMPORTED_MODULE_1___default.a.get("".concat(_lib_hostname_config__WEBPACK_IMPORTED_MODULE_2__["HOSTNAME"], "/api/logout"));
+  }
+
+  var context = {
+    user: userState,
+    login: login,
+    logout: logout
+  };
+  return __jsx(UserContext.Provider, {
+    value: context
+  }, children);
+}
+
+/***/ }),
+
 /***/ "./lib/hostname.config.ts":
 /*!********************************!*\
   !*** ./lib/hostname.config.ts ***!
@@ -6929,7 +6988,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_6__);
 /* harmony import */ var next_app__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! next/app */ "./node_modules/next/app.js");
 /* harmony import */ var next_app__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(next_app__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var _providers_user_provider__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../providers/user.provider */ "./providers/user.provider.tsx");
+/* harmony import */ var _components_providers_user_provider__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../components/providers/user.provider */ "./components/providers/user.provider.tsx");
 /* harmony import */ var _components_error_boundary_error_boundary_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../components/error-boundary/error-boundary.component */ "./components/error-boundary/error-boundary.component.tsx");
 
 
@@ -6960,7 +7019,7 @@ function (_App) {
       var _this$props = this.props,
           Component = _this$props.Component,
           pageProps = _this$props.pageProps;
-      return __jsx(_components_error_boundary_error_boundary_component__WEBPACK_IMPORTED_MODULE_9__["default"], null, __jsx(_providers_user_provider__WEBPACK_IMPORTED_MODULE_8__["default"], {
+      return __jsx(_components_error_boundary_error_boundary_component__WEBPACK_IMPORTED_MODULE_9__["default"], null, __jsx(_components_providers_user_provider__WEBPACK_IMPORTED_MODULE_8__["default"], {
         user: pageProps.user
       }, __jsx(Component, pageProps)));
     }
@@ -7014,65 +7073,6 @@ function (_App) {
 }(next_app__WEBPACK_IMPORTED_MODULE_7___default.a);
 
 /* harmony default export */ __webpack_exports__["default"] = (MyApp);
-
-/***/ }),
-
-/***/ "./providers/user.provider.tsx":
-/*!*************************************!*\
-  !*** ./providers/user.provider.tsx ***!
-  \*************************************/
-/*! exports provided: UserContext, default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UserContext", function() { return UserContext; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return UserProvider; });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _lib_hostname_config__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../lib/hostname.config */ "./lib/hostname.config.ts");
-var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
-
-
-
-var UserContext = react__WEBPACK_IMPORTED_MODULE_0___default.a.createContext({
-  user: {
-    _id: '',
-    githubId: '',
-    login: '',
-    photo: ''
-  },
-  login: function login() {},
-  logout: function logout() {}
-});
-function UserProvider(_ref) {
-  var children = _ref.children,
-      user = _ref.user;
-
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(user),
-      userState = _useState[0],
-      setUserState = _useState[1];
-
-  function login() {
-    setUserState(user);
-  } // todo: use this logout function instead of href
-
-
-  function logout() {
-    axios__WEBPACK_IMPORTED_MODULE_1___default.a.get("".concat(_lib_hostname_config__WEBPACK_IMPORTED_MODULE_2__["HOSTNAME"], "/api/logout"));
-  }
-
-  var context = {
-    user: userState,
-    login: login,
-    logout: logout
-  };
-  return __jsx(UserContext.Provider, {
-    value: context
-  }, children);
-}
 
 /***/ }),
 

@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react';
 import NavbarComponent from '../../navbar/navbar.component';
-import { User } from '../../../providers/user.provider';
+import { User } from '../../providers/user.provider';
 
 interface LayoutProps {
   children: ReactElement | ReactElement[];
