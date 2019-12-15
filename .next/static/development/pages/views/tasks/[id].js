@@ -921,12 +921,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return TaskDetailComponent; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _carousel_carousel_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./carousel/carousel.component */ "./components/task-detail/carousel/carousel.component.tsx");
-/* harmony import */ var _aside_aside_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./aside/aside.component */ "./components/task-detail/aside/aside.component.tsx");
-/* harmony import */ var _content_content_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./content/content.component */ "./components/task-detail/content/content.component.tsx");
-/* harmony import */ var _shared_heading_heading_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../shared/heading/heading.component */ "./components/shared/heading/heading.component.tsx");
+/* harmony import */ var _carousel_carousel_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./carousel/carousel.component */ "./components/task-detail/carousel/carousel.component.tsx");
+/* harmony import */ var _aside_aside_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./aside/aside.component */ "./components/task-detail/aside/aside.component.tsx");
+/* harmony import */ var _content_content_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./content/content.component */ "./components/task-detail/content/content.component.tsx");
+/* harmony import */ var _shared_heading_heading_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../shared/heading/heading.component */ "./components/shared/heading/heading.component.tsx");
+/* harmony import */ var _utils_add_solution_util__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./utils/add-solution.util */ "./components/task-detail/utils/add-solution.util.ts");
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -947,35 +946,37 @@ function TaskDetailComponent(_ref) {
       _id = _ref._id,
       updateTaskData = _ref.updateTaskData;
 
+  // todo: add error handling
   var handleOnSubmitSolution = function handleOnSubmitSolution(_ref2) {
     var repo = _ref2.repo,
         demo = _ref2.demo,
         comment = _ref2.comment;
-    axios__WEBPACK_IMPORTED_MODULE_1___default.a.post('/api/solutions', {
+    Object(_utils_add_solution_util__WEBPACK_IMPORTED_MODULE_5__["default"])({
       repo: repo,
       demo: demo,
       comment: comment,
-      taskId: _id,
-      phase: 'review'
+      taskId: _id
     }).then(function () {
       return updateTaskData();
+    })["catch"](function (e) {
+      return console.log('Error Adding Solution', e);
     });
   };
 
   return __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx("div", {
     className: "mb-5"
-  }, __jsx(_shared_heading_heading_component__WEBPACK_IMPORTED_MODULE_5__["default"], {
+  }, __jsx(_shared_heading_heading_component__WEBPACK_IMPORTED_MODULE_4__["default"], {
     orientation: "left",
     size: "normal"
   }, title)), __jsx("article", {
     className: "task-detail__wrapper"
   }, __jsx("section", {
     className: "task-detail__carousel sm:p-2"
-  }, __jsx(_carousel_carousel_component__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  }, __jsx(_carousel_carousel_component__WEBPACK_IMPORTED_MODULE_1__["default"], {
     images: images
   })), __jsx("section", {
     className: "task-detail__aside sm:pl-12"
-  }, __jsx(_aside_aside_component__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  }, __jsx(_aside_aside_component__WEBPACK_IMPORTED_MODULE_2__["default"], {
     createdAt: createdAt,
     author: _user.login,
     tags: tags,
@@ -983,11 +984,40 @@ function TaskDetailComponent(_ref) {
     repo: repo
   })), __jsx("section", {
     className: "task-detail__content sm:p-2"
-  }, __jsx(_content_content_component__WEBPACK_IMPORTED_MODULE_4__["default"], {
+  }, __jsx(_content_content_component__WEBPACK_IMPORTED_MODULE_3__["default"], {
     content: content,
     solutions: _solutions,
     onSubmit: handleOnSubmitSolution
   }))));
+}
+
+/***/ }),
+
+/***/ "./components/task-detail/utils/add-solution.util.ts":
+/*!***********************************************************!*\
+  !*** ./components/task-detail/utils/add-solution.util.ts ***!
+  \***********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return addSolution; });
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+
+function addSolution(_ref) {
+  var repo = _ref.repo,
+      demo = _ref.demo,
+      comment = _ref.comment,
+      taskId = _ref.taskId;
+  return axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/api/solutions', {
+    repo: repo,
+    demo: demo,
+    comment: comment,
+    taskId: taskId,
+    phase: 'review'
+  });
 }
 
 /***/ }),
@@ -18577,7 +18607,7 @@ TaskPage.getInitialProps = function _callee(_ref2) {
 
 /***/ }),
 
-/***/ 4:
+/***/ 3:
 /*!***********************************************************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2Fviews%2Ftasks%2F%5Bid%5D&absolutePagePath=%2FUsers%2Fmichal.lester%2FDocuments%2FML%2Fkodifaj%2Fpages%2Fviews%2Ftasks%2F%5Bid%5D.tsx ***!
   \***********************************************************************************************************************************************************************************/
@@ -18600,5 +18630,5 @@ module.exports = dll_ef0ff7c60362f24a921f;
 
 /***/ })
 
-},[[4,"static/runtime/webpack.js","styles"]]]);
+},[[3,"static/runtime/webpack.js","styles"]]]);
 //# sourceMappingURL=[id].js.map
