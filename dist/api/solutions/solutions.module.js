@@ -13,6 +13,8 @@ const solutions_service_1 = require("./solutions.service");
 const solutions_schema_1 = require("./schemas/solutions.schema");
 const task_schema_1 = require("../tasks/schemas/task.schema");
 const tasks_service_1 = require("../tasks/tasks.service");
+const user_schema_1 = require("../users/schemas/user.schema");
+const users_service_1 = require("../users/users.service");
 let SolutionsModule = class SolutionsModule {
 };
 SolutionsModule = __decorate([
@@ -21,10 +23,11 @@ SolutionsModule = __decorate([
             mongoose_1.MongooseModule.forFeature([
                 { name: 'Solution', schema: solutions_schema_1.SolutionSchema },
                 { name: 'Task', schema: task_schema_1.TaskSchema },
+                { name: 'User', schema: user_schema_1.UserSchema },
             ]),
         ],
         controllers: [solutions_controller_1.SolutionsController],
-        providers: [solutions_service_1.SolutionsService, tasks_service_1.TasksService],
+        providers: [solutions_service_1.SolutionsService, tasks_service_1.TasksService, users_service_1.UsersService],
     })
 ], SolutionsModule);
 exports.SolutionsModule = SolutionsModule;

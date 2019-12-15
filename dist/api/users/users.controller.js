@@ -19,7 +19,7 @@ let UsersController = class UsersController {
         this.usersService = usersService;
     }
     findOne(id) {
-        return this.usersService.findOne({ _id: id });
+        return this.usersService.findOneWithDetails({ _id: id });
     }
 };
 __decorate([

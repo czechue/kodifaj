@@ -1,4 +1,6 @@
-import axios from 'axios';
+import axios, { AxiosResponse } from 'axios';
+import { Solution } from '../../../lib/types/solution';
+import { HOSTNAME } from '../../../lib/hostname.config';
 
 export default function addSolution({
   repo,
@@ -6,17 +8,21 @@ export default function addSolution({
   comment,
   taskId,
 }: AddNewSolution) {
-  return axios.post('/api/solutions', {
-    repo,
-    demo,
-    comment,
-    taskId,
-    phase: 'review',
-  });
+  return axios.post<AddNewSolution, AxiosResponse<Solution[]>>(
+    `${HOSTNAME}/api/solutions`,
+    {
+      repo,
+      demo,
+      comment,
+      taskId,
+      phase: 'review',
+    },
+  );
 }
 
 interface AddNewSolution extends AddSolutionFormData {
   taskId: string;
+  phase?: string;
 }
 
 export interface AddSolutionFormData {

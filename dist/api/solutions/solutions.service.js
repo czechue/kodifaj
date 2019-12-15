@@ -16,9 +16,10 @@ const common_1 = require("@nestjs/common");
 const mongoose_1 = require("mongoose");
 const mongoose_2 = require("@nestjs/mongoose");
 let SolutionsService = class SolutionsService {
-    constructor(solutionModel, taskModel) {
+    constructor(solutionModel, taskModel, userModel) {
         this.solutionModel = solutionModel;
         this.taskModel = taskModel;
+        this.userModel = userModel;
     }
     async findOne(id) {
         return await this.solutionModel.findOne({ _id: id });
@@ -29,7 +30,13 @@ let SolutionsService = class SolutionsService {
             await this.taskModel.findByIdAndUpdate(solution.taskId, {
                 $push: { _solutions: createdSolution._id },
             });
-            return createdSolution.save();
+            await this.userModel.findByIdAndUpdate(solution._user, {
+                $push: { _solutions: createdSolution._id },
+            });
+            await createdSolution.save();
+            return await this.solutionModel
+                .find({ _task: solution.taskId })
+                .populate('_user');
         }
         catch (e) {
             return console.log(e);
@@ -40,7 +47,9 @@ SolutionsService = __decorate([
     common_1.Injectable(),
     __param(0, mongoose_2.InjectModel('Solution')),
     __param(1, mongoose_2.InjectModel('Task')),
+    __param(2, mongoose_2.InjectModel('User')),
     __metadata("design:paramtypes", [mongoose_1.Model,
+        mongoose_1.Model,
         mongoose_1.Model])
 ], SolutionsService);
 exports.SolutionsService = SolutionsService;

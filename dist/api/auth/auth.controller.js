@@ -38,7 +38,7 @@ __decorate([
 ], AuthController.prototype, "githubLogin", null);
 __decorate([
     public_guard_1.Public(),
-    common_1.Get('/github/callback'),
+    common_1.Get('github/callback'),
     common_1.UseGuards(github_guard_1.GithubGuard),
     common_1.Redirect('/'),
     __metadata("design:type", Function),
@@ -48,7 +48,7 @@ __decorate([
 __decorate([
     public_guard_1.Public(),
     common_1.HttpCode(204),
-    common_1.Get('/logout'),
+    common_1.Get('logout'),
     __param(0, common_1.Req()), __param(1, common_1.Res()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object, Object]),

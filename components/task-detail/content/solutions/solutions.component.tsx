@@ -11,7 +11,7 @@ export default function SolutionsComponent({
 
   return (
     <article>
-      <div className="w-full flex justify-between flex-wrap">
+      <div className="w-full flex justify-between flex-wrap flex-list__container">
         {solutions.map(solution => (
           <div key={solution._id} className="w-1/3 px-2 mb-2 lg:w-1/4">
             <SolutionItemComponent solution={solution} />

@@ -22,14 +22,14 @@ export class AuthController {
   }
 
   @Public()
-  @Get('/github/callback')
+  @Get('github/callback')
   @UseGuards(GithubGuard)
   @Redirect('/')
   public githubLoginCallback(): void {}
 
   @Public()
   @HttpCode(204)
-  @Get('/logout')
+  @Get('logout')
   public logout(@Req() req: Request, @Res() res: Response): void {
     // @ts-ignore
     req.logout();

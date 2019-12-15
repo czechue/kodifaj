@@ -28,7 +28,7 @@ let SolutionsController = class SolutionsController {
         const authorId = (_b = (_a = req) === null || _a === void 0 ? void 0 : _a.user) === null || _b === void 0 ? void 0 : _b._id;
         if (authorId) {
             const createSolutionDto = Object.assign(Object.assign({}, createSolutionBodyDto), { _task: createSolutionBodyDto.taskId, _user: authorId });
-            this.solutionsService.create(createSolutionDto);
+            return this.solutionsService.create(createSolutionDto);
         }
     }
 };
@@ -45,7 +45,7 @@ __decorate([
     __param(1, common_1.Req()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [create_solution_dto_1.CreateSolutionBodyDto, Object]),
-    __metadata("design:returntype", void 0)
+    __metadata("design:returntype", Object)
 ], SolutionsController.prototype, "create", null);
 SolutionsController = __decorate([
     common_1.Controller('api/solutions'),

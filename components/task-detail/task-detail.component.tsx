@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Task } from '../../lib/types/task';
 import CarouselComponent from './carousel/carousel.component';
 import AsideComponent from './aside/aside.component';
 import ContentComponent from './content/content.component';
 import HeadingComponent from '../shared/heading/heading.component';
 import addSolution, { AddSolutionFormData } from './utils/add-solution.util';
+import { Solution } from '../../lib/types/solution';
 
 export default function TaskDetailComponent({
   images,
@@ -17,18 +18,22 @@ export default function TaskDetailComponent({
   repo,
   _solutions,
   _id,
-  updateTaskData,
+  updateSolutions,
 }: TaskDetailProps) {
-  // todo: add error handling
-  const handleOnSubmitSolution = ({
+  const [loading, setLoading] = useState(false);
+
+  function handleOnSubmitSolution({
     repo,
     demo,
     comment,
-  }: AddSolutionFormData) => {
+  }: AddSolutionFormData) {
+    setLoading(true);
     addSolution({ repo, demo, comment, taskId: _id })
-      .then(() => updateTaskData())
-      .catch(e => console.log('Error Adding Solution', e));
-  };
+      .then(({ data }) => {
+        updateSolutions(data);
+      })
+      .finally(() => setLoading(false));
+  }
 
   return (
     <>
@@ -55,6 +60,7 @@ export default function TaskDetailComponent({
             content={content}
             solutions={_solutions}
             onSubmit={handleOnSubmitSolution}
+            loading={loading}
           />
         </section>
       </article>
@@ -63,5 +69,5 @@ export default function TaskDetailComponent({
 }
 
 interface TaskDetailProps extends Task {
-  updateTaskData: () => void;
+  updateSolutions: (solutions: Solution[]) => void;
 }

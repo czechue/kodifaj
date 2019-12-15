@@ -21,7 +21,7 @@ let TasksRenderController = class TasksRenderController {
     }
 };
 __decorate([
-    common_1.Get(),
+    common_1.Get(''),
     common_1.Render('tasks'),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),

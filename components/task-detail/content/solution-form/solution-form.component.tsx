@@ -4,6 +4,7 @@ import InputComponent from '../../../shared/input/input.component';
 
 export default function SolutionFormComponent({
   onSubmit,
+  loading,
 }: SolutionFormProps): ReactElement {
   return (
     <div className="bg-pink_bg w-full rounded p-4">
@@ -33,9 +34,10 @@ export default function SolutionFormComponent({
             <div className="w-full flex justify-end mt-5">
               <button
                 type="submit"
+                disabled={loading}
                 className="px-8 py-2 bg-gradient-button text-white rounded hover:opacity-75"
               >
-                WYŚLIJ
+                {loading ? 'WAIT' : 'WYŚLIJ'}
               </button>
             </div>
           </form>
@@ -47,4 +49,5 @@ export default function SolutionFormComponent({
 
 interface SolutionFormProps {
   onSubmit: (value: any) => void;
+  loading: boolean;
 }

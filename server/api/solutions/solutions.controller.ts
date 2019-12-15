@@ -17,7 +17,7 @@ export class SolutionsController {
   create(
     @Body() createSolutionBodyDto: CreateSolutionBodyDto,
     @Req() req: RequestWithUser,
-  ) {
+  ): Promise<Solution[] | void> | void {
     // todo: use middleware or smth to allow this endpoint only to specific users
     const authorId = req?.user?._id;
 
@@ -28,7 +28,7 @@ export class SolutionsController {
         _user: authorId,
       };
 
-      this.solutionsService.create(createSolutionDto);
+      return this.solutionsService.create(createSolutionDto);
     }
   }
 }

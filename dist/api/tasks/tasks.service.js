@@ -16,8 +16,9 @@ const common_1 = require("@nestjs/common");
 const mongoose_1 = require("@nestjs/mongoose");
 const mongoose_2 = require("mongoose");
 let TasksService = class TasksService {
-    constructor(taskModel) {
+    constructor(taskModel, userModel) {
         this.taskModel = taskModel;
+        this.userModel = userModel;
     }
     async findAll() {
         return await this.taskModel
@@ -34,6 +35,9 @@ let TasksService = class TasksService {
     async create(task) {
         const createdTask = new this.taskModel(task);
         try {
+            await this.userModel.findByIdAndUpdate(task._user, {
+                $push: { _tasks: createdTask._id },
+            });
             await createdTask.save();
             return createdTask;
         }
@@ -45,7 +49,9 @@ let TasksService = class TasksService {
 TasksService = __decorate([
     common_1.Injectable(),
     __param(0, mongoose_1.InjectModel('Task')),
-    __metadata("design:paramtypes", [mongoose_2.Model])
+    __param(1, mongoose_1.InjectModel('User')),
+    __metadata("design:paramtypes", [mongoose_2.Model,
+        mongoose_2.Model])
 ], TasksService);
 exports.TasksService = TasksService;
 //# sourceMappingURL=tasks.service.js.map

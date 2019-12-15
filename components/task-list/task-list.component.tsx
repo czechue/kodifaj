@@ -21,7 +21,7 @@ export default function TaskListComponent({
         </HeadingComponent>
         <HeadingComponent CustomTag="h2">Najnowsze Zadania</HeadingComponent>
       </div>
-      <div className="flex flex-wrap md:-mx-2">
+      <div className="flex flex-wrap md:-mx-2 flex-list__container">
         {tasks.length &&
           tasks.map(task => <TaskItemComponent key={task._id} task={task} />)}
       </div>

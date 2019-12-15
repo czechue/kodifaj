@@ -3,6 +3,6 @@ import { Task } from './task';
 import { User } from './user';
 
 export interface UserProps extends User {
-  solution: Solution[];
-  task: Task[];
+  _solutions: Solution[];
+  _tasks: Task[];
 }

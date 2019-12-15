@@ -10,33 +10,28 @@ import LayoutComponent from '../../../components/shared/layout/layout.component'
 import TaskDetailComponent from '../../../components/task-detail/task-detail.component';
 
 import '../../../public/static/style.css';
-
-// todo: string[] do naprawy typ, error handling
-
-async function fetchTask(id: string | string[]) {
-  const res = await fetch(`${HOSTNAME}/api/tasks/${id}`);
-  const task = await res.json();
-  return { task };
-}
+import {Solution} from "../../../lib/types/solution";
 
 const TaskPage: NextPage<Props> = ({ task }) => {
   const { user } = useContext(UserContext);
   const [currentTask, setCurrentTask] = useState<Task>(task);
 
-  async function refresh() {
-    const refreshedProps = await fetchTask(task._id);
-    setCurrentTask(refreshedProps.task);
+  function updateSolutions(solutions: Solution[]) {
+    console.log('updated solutions', solutions)
+    setCurrentTask({...currentTask, _solutions: solutions});
   }
 
   return (
     <LayoutComponent user={user}>
-      <TaskDetailComponent updateTaskData={refresh} {...currentTask} />
+      <TaskDetailComponent updateSolutions={updateSolutions} {...currentTask} />
     </LayoutComponent>
   );
 };
 
 TaskPage.getInitialProps = async ({ query: { id } }: NextPageContext) => {
-  return fetchTask(id);
+  const res = await fetch(`${HOSTNAME}/api/tasks/${id}`);
+  const task = await res.json();
+  return { task };
 };
 
 export default TaskPage;

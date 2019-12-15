@@ -20,7 +20,7 @@ let UsersRenderController = class UsersRenderController {
     }
 };
 __decorate([
-    common_1.Get(),
+    common_1.Get(''),
     common_1.Render('users'),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),

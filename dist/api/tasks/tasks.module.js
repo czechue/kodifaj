@@ -11,13 +11,20 @@ const mongoose_1 = require("@nestjs/mongoose");
 const tasks_controller_1 = require("./tasks.controller");
 const task_schema_1 = require("./schemas/task.schema");
 const tasks_service_1 = require("./tasks.service");
+const users_service_1 = require("../users/users.service");
+const user_schema_1 = require("../users/schemas/user.schema");
 let TasksModule = class TasksModule {
 };
 TasksModule = __decorate([
     common_1.Module({
-        imports: [mongoose_1.MongooseModule.forFeature([{ name: 'Task', schema: task_schema_1.TaskSchema }])],
+        imports: [
+            mongoose_1.MongooseModule.forFeature([
+                { name: 'Task', schema: task_schema_1.TaskSchema },
+                { name: 'User', schema: user_schema_1.UserSchema },
+            ]),
+        ],
         controllers: [tasks_controller_1.TasksController],
-        providers: [tasks_service_1.TasksService],
+        providers: [tasks_service_1.TasksService, users_service_1.UsersService],
     })
 ], TasksModule);
 exports.TasksModule = TasksModule;
