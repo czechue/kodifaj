@@ -398,6 +398,66 @@ function NavigationLinkComponent({
 
 /***/ }),
 
+/***/ "./components/providers/user.provider.tsx":
+/*!************************************************!*\
+  !*** ./components/providers/user.provider.tsx ***!
+  \************************************************/
+/*! exports provided: UserContext, default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UserContext", function() { return UserContext; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return UserProvider; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "axios");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _lib_hostname_config__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../lib/hostname.config */ "./lib/hostname.config.ts");
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+
+const UserContext = react__WEBPACK_IMPORTED_MODULE_0___default.a.createContext({
+  user: {
+    _id: '',
+    githubId: '',
+    login: '',
+    photo: ''
+  },
+  login: () => {},
+  logout: () => {}
+});
+function UserProvider({
+  children,
+  user
+}) {
+  const {
+    0: userState,
+    1: setUserState
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(user);
+
+  function login() {
+    setUserState(user);
+  } // todo: use this logout function instead of href
+
+
+  function logout() {
+    axios__WEBPACK_IMPORTED_MODULE_1___default.a.get(`${_lib_hostname_config__WEBPACK_IMPORTED_MODULE_2__["HOSTNAME"]}/api/logout`);
+  }
+
+  const context = {
+    user: userState,
+    login,
+    logout
+  };
+  return __jsx(UserContext.Provider, {
+    value: context
+  }, children);
+}
+
+/***/ }),
+
 /***/ "./components/shared/heading/heading.component.tsx":
 /*!*********************************************************!*\
   !*** ./components/shared/heading/heading.component.tsx ***!
@@ -778,8 +838,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _shared_heading_heading_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../shared/heading/heading.component */ "./components/shared/heading/heading.component.tsx");
-/* harmony import */ var _solution_form_solution_form_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../solution-form/solution-form.component */ "./components/task-detail/solution-form/solution-form.component.tsx");
-/* harmony import */ var _solutions_solutions_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../solutions/solutions.component */ "./components/task-detail/solutions/solutions.component.tsx");
+/* harmony import */ var _solution_form_solution_form_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./solution-form/solution-form.component */ "./components/task-detail/content/solution-form/solution-form.component.tsx");
+/* harmony import */ var _solutions_solutions_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./solutions/solutions.component */ "./components/task-detail/content/solutions/solutions.component.tsx");
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -817,10 +877,10 @@ function ContentComponent({
 
 /***/ }),
 
-/***/ "./components/task-detail/solution-form/solution-form.component.tsx":
-/*!**************************************************************************!*\
-  !*** ./components/task-detail/solution-form/solution-form.component.tsx ***!
-  \**************************************************************************/
+/***/ "./components/task-detail/content/solution-form/solution-form.component.tsx":
+/*!**********************************************************************************!*\
+  !*** ./components/task-detail/content/solution-form/solution-form.component.tsx ***!
+  \**********************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -831,7 +891,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_final_form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-final-form */ "react-final-form");
 /* harmony import */ var react_final_form__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_final_form__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _shared_input_input_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../shared/input/input.component */ "./components/shared/input/input.component.tsx");
+/* harmony import */ var _shared_input_input_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../shared/input/input.component */ "./components/shared/input/input.component.tsx");
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -874,10 +934,10 @@ function SolutionFormComponent({
 
 /***/ }),
 
-/***/ "./components/task-detail/solutions/solutions.component.tsx":
-/*!******************************************************************!*\
-  !*** ./components/task-detail/solutions/solutions.component.tsx ***!
-  \******************************************************************/
+/***/ "./components/task-detail/content/solutions/solutions.component.tsx":
+/*!**************************************************************************!*\
+  !*** ./components/task-detail/content/solutions/solutions.component.tsx ***!
+  \**************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -886,7 +946,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return SolutionsComponent; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _shared_solution_item_solution_item_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../shared/solution-item/solution-item.component */ "./components/shared/solution-item/solution-item.component.tsx");
+/* harmony import */ var _shared_solution_item_solution_item_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../shared/solution-item/solution-item.component */ "./components/shared/solution-item/solution-item.component.tsx");
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -897,9 +957,7 @@ function SolutionsComponent({
     return null;
   }
 
-  return __jsx("article", {
-    className: ""
-  }, __jsx("div", {
+  return __jsx("article", null, __jsx("div", {
     className: "w-full flex justify-between flex-wrap"
   }, solutions.map(solution => __jsx("div", {
     key: solution._id,
@@ -946,7 +1004,8 @@ function TaskDetailComponent({
   tags,
   repo,
   _solutions,
-  _id
+  _id,
+  updateTaskData
 }) {
   const handleOnSubmitSolution = ({
     repo,
@@ -959,7 +1018,7 @@ function TaskDetailComponent({
       comment,
       taskId: _id,
       phase: 'review'
-    });
+    }).then(() => updateTaskData());
   };
 
   return __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx("div", {
@@ -2849,34 +2908,56 @@ module.exports = __webpack_require__(/*! ./dist/client/link */ "./node_modules/n
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! isomorphic-unfetch */ "isomorphic-unfetch");
-/* harmony import */ var isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _providers_user_provider__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../providers/user.provider */ "./providers/user.provider.tsx");
-/* harmony import */ var _lib_hostname_config__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../lib/hostname.config */ "./lib/hostname.config.ts");
-/* harmony import */ var _components_shared_layout_layout_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../components/shared/layout/layout.component */ "./components/shared/layout/layout.component.tsx");
-/* harmony import */ var _components_task_detail_task_detail_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../components/task-detail/task-detail.component */ "./components/task-detail/task-detail.component.tsx");
-/* harmony import */ var _public_static_style_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../public/static/style.css */ "./public/static/style.css");
-/* harmony import */ var _public_static_style_css__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_public_static_style_css__WEBPACK_IMPORTED_MODULE_6__);
-var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/extends */ "./node_modules/@babel/runtime-corejs2/helpers/esm/extends.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! isomorphic-unfetch */ "isomorphic-unfetch");
+/* harmony import */ var isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _components_providers_user_provider__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../components/providers/user.provider */ "./components/providers/user.provider.tsx");
+/* harmony import */ var _lib_hostname_config__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../lib/hostname.config */ "./lib/hostname.config.ts");
+/* harmony import */ var _components_shared_layout_layout_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../components/shared/layout/layout.component */ "./components/shared/layout/layout.component.tsx");
+/* harmony import */ var _components_task_detail_task_detail_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../components/task-detail/task-detail.component */ "./components/task-detail/task-detail.component.tsx");
+/* harmony import */ var _public_static_style_css__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../public/static/style.css */ "./public/static/style.css");
+/* harmony import */ var _public_static_style_css__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_public_static_style_css__WEBPACK_IMPORTED_MODULE_7__);
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
 
 
 
 
 
 
+ // todo: string[] do naprawy typ, error handling
 
+async function fetchTask(id) {
+  const res = await isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_2___default()(`${_lib_hostname_config__WEBPACK_IMPORTED_MODULE_4__["HOSTNAME"]}/api/tasks/${id}`);
+  const task = await res.json();
+  return {
+    task
+  };
+}
 
 const TaskPage = ({
   task
 }) => {
   const {
     user
-  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_providers_user_provider__WEBPACK_IMPORTED_MODULE_2__["UserContext"]);
-  return __jsx(_components_shared_layout_layout_component__WEBPACK_IMPORTED_MODULE_4__["default"], {
+  } = Object(react__WEBPACK_IMPORTED_MODULE_1__["useContext"])(_components_providers_user_provider__WEBPACK_IMPORTED_MODULE_3__["UserContext"]);
+  const {
+    0: currentTask,
+    1: setCurrentTask
+  } = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])(task);
+
+  async function refresh() {
+    const refreshedProps = await fetchTask(task._id);
+    setCurrentTask(refreshedProps.task);
+  }
+
+  return __jsx(_components_shared_layout_layout_component__WEBPACK_IMPORTED_MODULE_5__["default"], {
     user: user
-  }, __jsx(_components_task_detail_task_detail_component__WEBPACK_IMPORTED_MODULE_5__["default"], task));
+  }, __jsx(_components_task_detail_task_detail_component__WEBPACK_IMPORTED_MODULE_6__["default"], Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({
+    updateTaskData: refresh
+  }, currentTask)));
 };
 
 TaskPage.getInitialProps = async ({
@@ -2884,74 +2965,10 @@ TaskPage.getInitialProps = async ({
     id
   }
 }) => {
-  const res = await isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_1___default()(`${_lib_hostname_config__WEBPACK_IMPORTED_MODULE_3__["HOSTNAME"]}/api/tasks/${id}`);
-  const task = await res.json();
-  return {
-    task
-  };
+  return fetchTask(id);
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (TaskPage);
-
-/***/ }),
-
-/***/ "./providers/user.provider.tsx":
-/*!*************************************!*\
-  !*** ./providers/user.provider.tsx ***!
-  \*************************************/
-/*! exports provided: UserContext, default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UserContext", function() { return UserContext; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return UserProvider; });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "axios");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _lib_hostname_config__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../lib/hostname.config */ "./lib/hostname.config.ts");
-var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
-
-
-
-const UserContext = react__WEBPACK_IMPORTED_MODULE_0___default.a.createContext({
-  user: {
-    _id: '',
-    githubId: '',
-    login: '',
-    photo: ''
-  },
-  login: () => {},
-  logout: () => {}
-});
-function UserProvider({
-  children,
-  user
-}) {
-  const {
-    0: userState,
-    1: setUserState
-  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(user);
-
-  function login() {
-    setUserState(user);
-  } // todo: use this logout function instead of href
-
-
-  function logout() {
-    axios__WEBPACK_IMPORTED_MODULE_1___default.a.get(`${_lib_hostname_config__WEBPACK_IMPORTED_MODULE_2__["HOSTNAME"]}/api/logout`);
-  }
-
-  const context = {
-    user: userState,
-    login,
-    logout
-  };
-  return __jsx(UserContext.Provider, {
-    value: context
-  }, children);
-}
 
 /***/ }),
 

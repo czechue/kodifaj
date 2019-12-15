@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react';
-import { Solution } from '../../../lib/types/solution';
-import SolutionItemComponent from '../../shared/solution-item/solution-item.component';
+import { Solution } from '../../../../lib/types/solution';
+import SolutionItemComponent from '../../../shared/solution-item/solution-item.component';
 
 export default function SolutionsComponent({
   solutions,
@@ -10,7 +10,7 @@ export default function SolutionsComponent({
   }
 
   return (
-    <article className="">
+    <article>
       <div className="w-full flex justify-between flex-wrap">
         {solutions.map(solution => (
           <div key={solution._id} className="w-1/3 px-2 mb-2 lg:w-1/4">

@@ -5,7 +5,7 @@ import fetch from 'isomorphic-unfetch';
 import { UserProfil } from '../../../lib/types/user';
 import { HOSTNAME } from '../../../lib/hostname.config';
 
-import { UserContext } from '../../../providers/user.provider';
+import { UserContext } from '../../../components/providers/user.provider';
 import LayoutComponent from '../../../components/shared/layout/layout.component';
 
 import '../../../public/static/style.css';

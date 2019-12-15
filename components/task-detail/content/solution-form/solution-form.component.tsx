@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react';
 import { Form, Field } from 'react-final-form';
-import InputComponent from '../../shared/input/input.component';
+import InputComponent from '../../../shared/input/input.component';
 
 export default function SolutionFormComponent({
   onSubmit,

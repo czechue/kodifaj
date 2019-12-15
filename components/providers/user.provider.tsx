@@ -1,6 +1,6 @@
 import React, { ReactElement, useState } from 'react';
 import axios from 'axios';
-import { HOSTNAME } from '../lib/hostname.config';
+import { HOSTNAME } from '../../lib/hostname.config';
 
 export const UserContext = React.createContext({
   user: {

@@ -17,15 +17,18 @@ export default function TaskDetailComponent({
   repo,
   _solutions,
   _id,
-}: Task) {
+  updateTaskData,
+}: TaskDetailProps) {
   const handleOnSubmitSolution = ({ repo, demo, comment }: any) => {
-    axios.post('/api/solutions', {
-      repo,
-      demo,
-      comment,
-      taskId: _id,
-      phase: 'review',
-    });
+    axios
+      .post('/api/solutions', {
+        repo,
+        demo,
+        comment,
+        taskId: _id,
+        phase: 'review',
+      })
+      .then(() => updateTaskData());
   };
 
   return (
@@ -58,4 +61,8 @@ export default function TaskDetailComponent({
       </article>
     </>
   );
+}
+
+interface TaskDetailProps extends Task {
+  updateTaskData: () => void;
 }

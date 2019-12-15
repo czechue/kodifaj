@@ -1,5 +1,5 @@
 import App, { AppContext } from 'next/app';
-import UserProvider, { User } from '../providers/user.provider';
+import UserProvider, { User } from '../components/providers/user.provider';
 import { IncomingMessage } from 'http';
 import ErrorBoundary from '../components/error-boundary/error-boundary.component';
 
