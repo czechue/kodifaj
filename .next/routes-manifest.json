@@ -1,1 +1,0 @@
-{"version":1,"redirects":[],"rewrites":[],"dynamicRoutes":[{"page":"/views/tasks/[id]","regex":"^\\/views\\/tasks\\/([^\\/]+?)(?:\\/)?$"},{"page":"/views/users/[id]","regex":"^\\/views\\/users\\/([^\\/]+?)(?:\\/)?$"}]}

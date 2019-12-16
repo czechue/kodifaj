@@ -15,7 +15,7 @@ export default function AccountDropdownComponent({
   }, []);
 
   useEffect(() => {
-    document.addEventListener('keydown', handleEscape);
+    document.addEventListener('keydown', handleEscape, false);
 
     return () => {
       document.removeEventListener('keydown', handleEscape, false);
@@ -34,14 +34,13 @@ export default function AccountDropdownComponent({
           alt="user photo"
         />
       </button>
-      {isOpen && (
-        <button
-          onClick={() => setIsOpen(false)}
-          tabIndex={-1}
-          className="fixed inset-0 w-full h-full bg-black opacity-50 cursor-default z-10"
-        />
-      )}
-
+      <button
+        onClick={() => setIsOpen(false)}
+        tabIndex={-1}
+        className={`fixed inset-0 w-full h-full bg-black opacity-50 cursor-default z-10 ${
+          isOpen ? 'block' : 'hidden'
+        }`}
+      />
       {isOpen && (
         <div className="absolute right-0 mt-2 py-2 w-48 bg-white rounded-lg shadow-xl z-20">
           <Link href={`/users/${user._id}`}>

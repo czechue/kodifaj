@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 6);
+/******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -124,7 +124,7 @@ function AccountDropdownComponent({
     }
   }, []);
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
-    document.addEventListener('keydown', handleEscape);
+    document.addEventListener('keydown', handleEscape, false);
     return () => {
       document.removeEventListener('keydown', handleEscape, false);
     };
@@ -138,10 +138,10 @@ function AccountDropdownComponent({
     className: "h-full w-full object-cover",
     src: user.photo,
     alt: "user photo"
-  })), isOpen && __jsx("button", {
+  })), __jsx("button", {
     onClick: () => setIsOpen(false),
     tabIndex: -1,
-    className: "fixed inset-0 w-full h-full bg-black opacity-50 cursor-default z-10"
+    className: `fixed inset-0 w-full h-full bg-black opacity-50 cursor-default z-10 ${isOpen ? 'block' : 'hidden'}`
   }), isOpen && __jsx("div", {
     className: "absolute right-0 mt-2 py-2 w-48 bg-white rounded-lg shadow-xl z-20"
   }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
@@ -2517,7 +2517,7 @@ UserPage.getInitialProps = async ({
 
 /***/ }),
 
-/***/ 6:
+/***/ 4:
 /*!******************************************!*\
   !*** multi ./pages/views/users/[id].tsx ***!
   \******************************************/

@@ -31,7 +31,7 @@ function AccountDropdownComponent(_ref) {
     }
   }, []);
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
-    document.addEventListener('keydown', handleEscape);
+    document.addEventListener('keydown', handleEscape, false);
     return function () {
       document.removeEventListener('keydown', handleEscape, false);
     };
@@ -47,12 +47,12 @@ function AccountDropdownComponent(_ref) {
     className: "h-full w-full object-cover",
     src: user.photo,
     alt: "user photo"
-  })), isOpen && __jsx("button", {
+  })), __jsx("button", {
     onClick: function onClick() {
       return setIsOpen(false);
     },
     tabIndex: -1,
-    className: "fixed inset-0 w-full h-full bg-black opacity-50 cursor-default z-10"
+    className: "fixed inset-0 w-full h-full bg-black opacity-50 cursor-default z-10 ".concat(isOpen ? 'block' : 'hidden')
   }), isOpen && __jsx("div", {
     className: "absolute right-0 mt-2 py-2 w-48 bg-white rounded-lg shadow-xl z-20"
   }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
@@ -11015,7 +11015,7 @@ UserPage.getInitialProps = function _callee(_ref2) {
 
 /***/ }),
 
-/***/ 6:
+/***/ 4:
 /*!***********************************************************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2Fviews%2Fusers%2F%5Bid%5D&absolutePagePath=%2FUsers%2Fmichal.lester%2FDocuments%2FML%2Fkodifaj%2Fpages%2Fviews%2Fusers%2F%5Bid%5D.tsx ***!
   \***********************************************************************************************************************************************************************************/
@@ -11038,5 +11038,5 @@ module.exports = dll_ef0ff7c60362f24a921f;
 
 /***/ })
 
-},[[6,"static/runtime/webpack.js","styles"]]]);
+},[[4,"static/runtime/webpack.js","styles"]]]);
 //# sourceMappingURL=[id].js.map
