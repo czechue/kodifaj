@@ -30,16 +30,19 @@ export default function SolutionItemComponent({
   return (
     <section className="w-full h-48 p-2 rounded text-sm shadow hover:shadow-md">
       <BadgeComponent>{solution.phase}</BadgeComponent>
-      <img
-        src={solution._user.photo}
-        className="my-2 w-16 h-16 mx-auto rounded-full"
-        alt="solution card"
-      />
+      {solution._user.photo && (
+        <img
+          src={solution._user.photo}
+          className="my-2 w-16 h-16 mx-auto rounded-full"
+          alt="solution card"
+        />
+      )}
       <span className="block mb-2 text-sm text-gray-600 w-full text-center">
         {solution._user.login}
       </span>
       <LinkComponent url={solution.repo}>GitHub</LinkComponent>
       <LinkComponent url={solution.demo}>Live</LinkComponent>
+      Zadanie: {solution._task.slice(-4)}
     </section>
   );
 }

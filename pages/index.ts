@@ -1,3 +1,3 @@
-import HomePage from './views/index';
+import HomePage from './views/Index';
 
 export default HomePage;

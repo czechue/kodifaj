@@ -2,6 +2,8 @@ import React from 'react';
 import InfoComponent from './info/info.component';
 import HeadingComponent from '../shared/heading/heading.component';
 import { UserProps } from '../../lib/types/props';
+import SolutionsComponent from '../shared/solutions/solutions.component';
+import TaskItemComponent from '../task-list/task-item/task-item.component';
 
 const Heading = ({ children }: { children: string }) => (
   <HeadingComponent orientation="left" size="2xl" font="thin" tracking="wide">
@@ -17,9 +19,15 @@ export default function UserDetailComponent({ user }: UserDetailProps) {
       </div>
       <div className="my-1 px-1 w-full overflow-hidden sm:w-3/4 sm:order-first">
         <Heading>Twoje rozwiązania</Heading>
-        <pre>{JSON.stringify(user._solutions, null, 2)}</pre>
+        <SolutionsComponent solutions={user._solutions} />
+
         <Heading>Twoje zadania</Heading>
-        <pre>{JSON.stringify(user._tasks, null, 2)}</pre>
+        <div className="flex flex-wrap md:-mx-2 flex-list__container">
+          {user._tasks.length &&
+            user._tasks.map(task => (
+              <TaskItemComponent key={task._id} task={task} />
+            ))}
+        </div>
       </div>
     </div>
   );
