@@ -485,12 +485,12 @@ function BadgeComponent(_ref) {
 function TaskItemComponent(_ref2) {
   var task = _ref2.task;
   return __jsx("div", {
-    className: "w-full my-4 md:px-2 md:w-1/3"
+    className: "w-full my-4 sm:px-2 sm:w-1/2 md:w-1/3 lg:w-1/3"
   }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_2___default.a, {
     href: '/tasks/[id]',
     as: "/tasks/".concat(task._id.toString())
   }, __jsx("a", null, __jsx("div", {
-    className: "relative pb-5/6 "
+    className: "relative pb-5/12 sm:pb-2/3 md:pb-5/6"
   }, __jsx("img", {
     className: "absolute h-full w-full object-cover rounded-lg overflow-hidden shadow-md",
     src: task.images[0],
@@ -11210,7 +11210,7 @@ HomePage.getInitialProps = function _callee() {
 
 /***/ }),
 
-/***/ 5:
+/***/ 6:
 /*!*********************************************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2Fviews%2Ftasks&absolutePagePath=%2FUsers%2Fmichal.lester%2FDocuments%2FML%2Fkodifaj%2Fpages%2Fviews%2Ftasks%2Findex.tsx ***!
   \*********************************************************************************************************************************************************************/
@@ -11233,5 +11233,5 @@ module.exports = dll_ef0ff7c60362f24a921f;
 
 /***/ })
 
-},[[5,"static/runtime/webpack.js","styles"]]]);
+},[[6,"static/runtime/webpack.js","styles"]]]);
 //# sourceMappingURL=tasks.js.map

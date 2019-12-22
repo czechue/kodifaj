@@ -22,10 +22,10 @@ export default function TaskItemComponent({
   task,
 }: TaskItemProps): ReactElement {
   return (
-    <div className="w-full my-4 md:px-2 md:w-1/3">
+    <div className="w-full my-4 sm:px-2 sm:w-1/2 md:w-1/3 lg:w-1/3">
       <Link href={'/tasks/[id]'} as={`/tasks/${task._id.toString()}`}>
         <a>
-          <div className="relative pb-5/6 ">
+          <div className="relative pb-5/12 sm:pb-2/3 md:pb-5/6">
             <img
               className="absolute h-full w-full object-cover rounded-lg overflow-hidden shadow-md"
               src={task.images[0]}

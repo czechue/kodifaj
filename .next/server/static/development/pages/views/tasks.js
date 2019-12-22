@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 5);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -570,12 +570,12 @@ function TaskItemComponent({
   task
 }) {
   return __jsx("div", {
-    className: "w-full my-4 md:px-2 md:w-1/3"
+    className: "w-full my-4 sm:px-2 sm:w-1/2 md:w-1/3 lg:w-1/3"
   }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
     href: '/tasks/[id]',
     as: `/tasks/${task._id.toString()}`
   }, __jsx("a", null, __jsx("div", {
-    className: "relative pb-5/6 "
+    className: "relative pb-5/12 sm:pb-2/3 md:pb-5/6"
   }, __jsx("img", {
     className: "absolute h-full w-full object-cover rounded-lg overflow-hidden shadow-md",
     src: task.images[0],
@@ -2537,7 +2537,7 @@ HomePage.getInitialProps = async () => {
 
 /***/ }),
 
-/***/ 5:
+/***/ 3:
 /*!*******************************************!*\
   !*** multi ./pages/views/tasks/index.tsx ***!
   \*******************************************/

@@ -2,7 +2,9 @@ import React from 'react';
 import InfoComponent from './info/info.component';
 import HeadingComponent from '../shared/heading/heading.component';
 import { UserProps } from '../../lib/types/props';
-import SolutionsComponent from '../shared/solutions/solutions.component';
+import SolutionsComponent, {
+  SolutionType,
+} from '../shared/solutions/solutions.component';
 import TaskItemComponent from '../task-list/task-item/task-item.component';
 
 const Heading = ({ children }: { children: string }) => (
@@ -19,7 +21,10 @@ export default function UserDetailComponent({ user }: UserDetailProps) {
       </div>
       <div className="my-1 px-1 w-full overflow-hidden sm:w-3/4 sm:order-first">
         <Heading>Twoje rozwiązania</Heading>
-        <SolutionsComponent solutions={user._solutions} />
+        <SolutionsComponent
+          type={SolutionType.WithoutUserData}
+          solutions={user._solutions}
+        />
 
         <Heading>Twoje zadania</Heading>
         <div className="flex flex-wrap md:-mx-2 flex-list__container">
