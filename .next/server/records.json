@@ -1,0 +1,55 @@
+{
+  "modules": {
+    "byIdentifier": {
+      "multi private-next-pages/_app.tsx": 0,
+      "multi private-next-pages/index.ts": 1,
+      "multi private-next-pages/views/Index.tsx": 2,
+      "multi private-next-pages/views/tasks/[id].tsx": 3,
+      "multi private-next-pages/views/tasks/index.tsx": 4,
+      "multi private-next-pages/views/tasks/new.tsx": 5,
+      "multi private-next-pages/views/users/[id].tsx": 6,
+      "multi next/dist/pages/_error": 7,
+      "multi next/dist/pages/_document": 8
+    },
+    "usedIds": {
+      "0": 0,
+      "1": 1,
+      "2": 2,
+      "3": 3,
+      "4": 4,
+      "5": 5,
+      "6": 6,
+      "7": 7,
+      "8": 8
+    }
+  },
+  "chunks": {
+    "byName": {
+      "init-server.js": 0,
+      "on-error-server.js": 1,
+      "static/rex9hRu3m7s4qXyygUyCz/pages/_app.js": 2,
+      "static/rex9hRu3m7s4qXyygUyCz/pages/_document.js": 3,
+      "static/rex9hRu3m7s4qXyygUyCz/pages/_error.js": 4,
+      "static/rex9hRu3m7s4qXyygUyCz/pages/index.js": 5,
+      "static/rex9hRu3m7s4qXyygUyCz/pages/views/Index.js": 6,
+      "static/rex9hRu3m7s4qXyygUyCz/pages/views/tasks.js": 7,
+      "static/rex9hRu3m7s4qXyygUyCz/pages/views/tasks/[id].js": 8,
+      "static/rex9hRu3m7s4qXyygUyCz/pages/views/tasks/new.js": 9,
+      "static/rex9hRu3m7s4qXyygUyCz/pages/views/users/[id].js": 10
+    },
+    "bySource": {},
+    "usedIds": [
+      0,
+      1,
+      10,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ]
+  }
+}

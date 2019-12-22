@@ -26,7 +26,11 @@ let UsersService = class UsersService {
         return await this.userModel
             .findOne(filter)
             .populate('_tasks')
-            .populate('_solutions');
+            .populate({
+            path: '_solutions',
+            model: 'Solution',
+            populate: { path: '_task', model: 'Task', select: 'images title' },
+        });
     }
     async create(profile) {
         const newUser = await new this.userModel({
