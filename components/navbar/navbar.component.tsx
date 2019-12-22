@@ -65,7 +65,7 @@ export default function NavbarComponent({
             <NavigationLinkComponent url="/auth/github">
               <button className="flex items-center">
                 <img
-                  src="/public/static/images/github-icon.svg"
+                  src="/static/images/github-icon.svg"
                   alt="github icon"
                   className="opacity-50"
                 />

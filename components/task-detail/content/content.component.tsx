@@ -2,7 +2,9 @@ import React from 'react';
 import HeadingComponent from '../../shared/heading/heading.component';
 import SolutionFormComponent from './solution-form/solution-form.component';
 import { Solution } from '../../../lib/types/solution';
-import SolutionsComponent from './solutions/solutions.component';
+import SolutionsComponent, {
+  SolutionType,
+} from '../../shared/solutions/solutions.component';
 
 const Heading = ({ children }: { children: string }) => (
   <HeadingComponent
@@ -42,7 +44,10 @@ export default function ContentComponent({
 
       <section className="mt-6">
         <Heading>Rozwiązania</Heading>
-        <SolutionsComponent solutions={solutions} />
+        <SolutionsComponent
+          type={SolutionType.WithoutTaskData}
+          solutions={solutions}
+        />
       </section>
     </>
   );

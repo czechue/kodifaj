@@ -8,21 +8,20 @@ import {
   Res,
   UseGuards,
 } from '@nestjs/common';
-import { AuthGuard } from '@nestjs/passport';
 import { GithubGuard } from '../common/guards/github.guard';
 import { Public } from '../common/guards/public.guard';
 
-@Controller('auth')
+@Controller('/auth')
 export class AuthController {
   @Public()
-  @UseGuards(AuthGuard('github'))
+  @UseGuards(GithubGuard)
   @Get('github')
   async githubLogin() {
     // GithubStrategy to redirect to github login page
   }
 
   @Public()
-  @Get('github/callback')
+  @Get('/github/callback')
   @UseGuards(GithubGuard)
   @Redirect('/')
   public githubLoginCallback(): void {}

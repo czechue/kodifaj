@@ -13,7 +13,6 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const common_1 = require("@nestjs/common");
-const passport_1 = require("@nestjs/passport");
 const github_guard_1 = require("../common/guards/github.guard");
 const public_guard_1 = require("../common/guards/public.guard");
 let AuthController = class AuthController {
@@ -30,7 +29,7 @@ let AuthController = class AuthController {
 };
 __decorate([
     public_guard_1.Public(),
-    common_1.UseGuards(passport_1.AuthGuard('github')),
+    common_1.UseGuards(github_guard_1.GithubGuard),
     common_1.Get('github'),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
@@ -38,7 +37,7 @@ __decorate([
 ], AuthController.prototype, "githubLogin", null);
 __decorate([
     public_guard_1.Public(),
-    common_1.Get('github/callback'),
+    common_1.Get('/github/callback'),
     common_1.UseGuards(github_guard_1.GithubGuard),
     common_1.Redirect('/'),
     __metadata("design:type", Function),
@@ -55,7 +54,7 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], AuthController.prototype, "logout", null);
 AuthController = __decorate([
-    common_1.Controller('auth')
+    common_1.Controller('/auth')
 ], AuthController);
 exports.AuthController = AuthController;
 //# sourceMappingURL=auth.controller.js.map
