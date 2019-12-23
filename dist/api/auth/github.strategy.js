@@ -35,7 +35,7 @@ let GithubStrategy = class GithubStrategy extends passport_1.PassportStrategy(pa
             return existingUser;
         }
         try {
-            this.usersService.create(profile);
+            return await this.usersService.create(profile);
         }
         catch (e) {
             throw new common_1.UnauthorizedException();

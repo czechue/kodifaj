@@ -38,7 +38,8 @@ let UsersService = class UsersService {
             login: profile.displayName,
             photo: profile.photos ? profile.photos[0].value : '',
         });
-        return newUser.save();
+        await newUser.save();
+        return newUser;
     }
 };
 UsersService = __decorate([

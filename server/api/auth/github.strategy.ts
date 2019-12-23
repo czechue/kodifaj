@@ -30,7 +30,7 @@ export class GithubStrategy extends PassportStrategy(Strategy, 'github') {
     }
 
     try {
-      this.usersService.create(profile);
+      return await this.usersService.create(profile);
     } catch (e) {
       throw new UnauthorizedException();
     }

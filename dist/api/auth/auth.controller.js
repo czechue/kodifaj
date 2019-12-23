@@ -15,11 +15,14 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const common_1 = require("@nestjs/common");
 const github_guard_1 = require("../common/guards/github.guard");
 const public_guard_1 = require("../common/guards/public.guard");
+const user_decorator_1 = require("../common/decorators/user.decorator");
 let AuthController = class AuthController {
     async githubLogin() {
         // GithubStrategy to redirect to github login page
     }
-    githubLoginCallback() { }
+    githubLoginCallback(user) {
+        return user;
+    }
     logout(req, res) {
         // @ts-ignore
         req.logout();
@@ -30,7 +33,7 @@ let AuthController = class AuthController {
 __decorate([
     public_guard_1.Public(),
     common_1.UseGuards(github_guard_1.GithubGuard),
-    common_1.Get('github'),
+    common_1.Get('/github'),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", Promise)
@@ -40,8 +43,9 @@ __decorate([
     common_1.Get('/github/callback'),
     common_1.UseGuards(github_guard_1.GithubGuard),
     common_1.Redirect('/'),
+    __param(0, user_decorator_1.User()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
+    __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", void 0)
 ], AuthController.prototype, "githubLoginCallback", null);
 __decorate([

@@ -10,12 +10,13 @@ import {
 } from '@nestjs/common';
 import { GithubGuard } from '../common/guards/github.guard';
 import { Public } from '../common/guards/public.guard';
+import { User } from '../common/decorators/user.decorator';
 
 @Controller('/auth')
 export class AuthController {
   @Public()
   @UseGuards(GithubGuard)
-  @Get('github')
+  @Get('/github')
   async githubLogin() {
     // GithubStrategy to redirect to github login page
   }
@@ -24,7 +25,9 @@ export class AuthController {
   @Get('/github/callback')
   @UseGuards(GithubGuard)
   @Redirect('/')
-  public githubLoginCallback(): void {}
+  public githubLoginCallback(@User() user: any): void {
+    return user;
+  }
 
   @Public()
   @HttpCode(204)
