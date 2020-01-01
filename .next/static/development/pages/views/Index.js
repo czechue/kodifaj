@@ -11225,7 +11225,7 @@ HomePage.getInitialProps = function _callee() {
 
 /***/ }),
 
-/***/ 1:
+/***/ 0:
 /*!*************************************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2Fviews%2FIndex&absolutePagePath=%2FUsers%2Fmichal.lester%2FDocuments%2FML%2Fkodifaj%2Fpages%2Fviews%2FIndex.tsx ***!
   \*************************************************************************************************************************************************************/
@@ -11248,5 +11248,5 @@ module.exports = dll_ef0ff7c60362f24a921f;
 
 /***/ })
 
-},[[1,"static/runtime/webpack.js","styles"]]]);
+},[[0,"static/runtime/webpack.js","styles"]]]);
 //# sourceMappingURL=Index.js.map
