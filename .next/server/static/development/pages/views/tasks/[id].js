@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 7);
+/******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -3266,7 +3266,6 @@ const TaskPage = ({
   } = Object(react__WEBPACK_IMPORTED_MODULE_8__["useState"])(task);
 
   function updateSolutions(solutions) {
-    console.log('updated solutions', solutions);
     setCurrentTask(_objectSpread({}, currentTask, {
       _solutions: solutions
     }));
@@ -3306,7 +3305,7 @@ TaskPage.getInitialProps = async ({
 
 /***/ }),
 
-/***/ 7:
+/***/ 4:
 /*!******************************************!*\
   !*** multi ./pages/views/tasks/[id].tsx ***!
   \******************************************/

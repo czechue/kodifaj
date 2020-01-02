@@ -63,7 +63,7 @@
     "@types/react-dom": "16.9.4"
   },
   "lint-staged": {
-    "**.{ts,tsx}": [
+    "src/**/**.{ts,tsx}": [
       "prettier --write",
       "git add"
     ]
