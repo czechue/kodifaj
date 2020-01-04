@@ -4,11 +4,15 @@ import { Form, Field } from 'react-final-form';
 import { FieldArray } from 'react-final-form-arrays';
 import arrayMutators from 'final-form-arrays';
 
+import ReactMarkdown from 'react-markdown';
+
 import FormWrapperComponent from '../shared/form-wrapper/form-wrapper.component';
 import InputComponent from '../shared/input/input.component';
 import mapFormToNewTaskFormat from './utils/map-form-to-new-task-form.util';
 import NewTaskHeading from './heading/heading.component';
 import FieldArrayComponent from './field-array/field-array.component';
+import CodeBlock from './utils/code-block.hoc';
+import MarkdownEditorComponent from '../shared/markdown-editor/markdown-editor.component';
 
 // const required = (value: string) => (value ? undefined : "Required");
 
@@ -29,21 +33,13 @@ export default function NewTaskComponent({ onSubmit }: NewTaskProps) {
           mutators={{
             ...arrayMutators,
           }}
-          render={({ handleSubmit }) => (
+          render={({ handleSubmit, values }) => (
             <form onSubmit={handleSubmit}>
               <Field
                 name="title"
                 label="Tytuł"
                 component={InputComponent}
                 placeholder="np. Super cool formularz"
-              />
-
-              <Field
-                name="content"
-                label="Treść"
-                component={InputComponent}
-                placeholder="Na czym polega zadanie?"
-                fieldType="textarea"
               />
 
               <Field
@@ -84,7 +80,32 @@ export default function NewTaskComponent({ onSubmit }: NewTaskProps) {
                 )}
               </FieldArray>
 
-              <button type="submit">Submit</button>
+              <Field
+                name="content"
+                label="Treść"
+                component={MarkdownEditorComponent}
+                placeholder="Na czym polega zadanie?"
+              />
+
+              <span>Preview</span>
+              <div className="bg-white p-2 my-2 h-48 rounded">
+                <ReactMarkdown
+                  renderers={{
+                    code: CodeBlock,
+                  }}
+                  source={values.content}
+                />
+              </div>
+
+              <span>form state</span>
+              <pre>{JSON.stringify(values, null, 2)}</pre>
+
+              <button
+                className="bg-gradient-button text-white px-4 py-2 rounded tracking-wide"
+                type="submit"
+              >
+                Wyślij
+              </button>
             </form>
           )}
         />
