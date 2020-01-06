@@ -46,6 +46,45 @@
   padding-bottom: 50%;
 }
 
+.markdown-view h1 {
+  font-size: 1.875rem;
+}
+
+.markdown-view h2 {
+  font-size: 1.5rem;
+}
+
+.markdown-view h3 {
+  font-size: 1.25rem;
+}
+
+.markdown-view h4,
+h5,
+h6 {
+  font-size: 1.125rem;
+}
+
+.markdown-view p {
+  margin-top: 0.5rem;
+}
+
+.markdown-view ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+.markdown-view ol {
+  list-style-type: decimal;
+  padding-left: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+.markdown-view pre {
+  padding-left: 1.5rem;
+  margin-top: 0.5rem;
+}
+
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 
 /* Document

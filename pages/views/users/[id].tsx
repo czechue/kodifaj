@@ -13,10 +13,11 @@ import { UserProps } from '../../../lib/types/props';
 
 const UserPage: NextPage<Props> = ({ userProfile }) => {
   const { user } = useContext(UserContext);
+  const isAdmin = userProfile._id === user._id;
 
   return (
     <LayoutComponent user={user}>
-      <UserDetailComponent user={userProfile} />
+      <UserDetailComponent userProfile={userProfile} isAdmin={isAdmin}/>
     </LayoutComponent>
   );
 };

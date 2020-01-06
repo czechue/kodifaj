@@ -4,15 +4,13 @@ import { Form, Field } from 'react-final-form';
 import { FieldArray } from 'react-final-form-arrays';
 import arrayMutators from 'final-form-arrays';
 
-import ReactMarkdown from 'react-markdown';
-
 import FormWrapperComponent from '../shared/form-wrapper/form-wrapper.component';
 import InputComponent from '../shared/input/input.component';
 import mapFormToNewTaskFormat from './utils/map-form-to-new-task-form.util';
 import NewTaskHeading from './heading/heading.component';
 import FieldArrayComponent from './field-array/field-array.component';
-import CodeBlock from './utils/code-block.hoc';
 import MarkdownEditorComponent from '../shared/markdown-editor/markdown-editor.component';
+import { MarkdownViewComponent } from '../shared/markdown-view/markdown-view.component';
 
 // const required = (value: string) => (value ? undefined : "Required");
 
@@ -89,12 +87,7 @@ export default function NewTaskComponent({ onSubmit }: NewTaskProps) {
 
               <span>Preview</span>
               <div className="bg-white p-2 my-2 h-48 rounded">
-                <ReactMarkdown
-                  renderers={{
-                    code: CodeBlock,
-                  }}
-                  source={values.content}
-                />
+                <MarkdownViewComponent source={values.content} />
               </div>
 
               <span>form state</span>

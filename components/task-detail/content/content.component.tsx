@@ -1,22 +1,12 @@
 import React, { useState } from 'react';
-import HeadingComponent from '../../shared/heading/heading.component';
+
+import { TaskHeading } from '../heading/task-heading.component';
 import SolutionFormComponent from './solution-form/solution-form.component';
 import { Solution } from '../../../lib/types/solution';
 import SolutionsComponent, {
   SolutionType,
 } from '../../shared/solutions/solutions.component';
-
-const Heading = ({ children }: { children: string }) => (
-  <HeadingComponent
-    CustomTag="h2"
-    orientation="left"
-    size="2xl"
-    font="thin"
-    tracking="wide"
-  >
-    {children}
-  </HeadingComponent>
-);
+import { MarkdownViewComponent } from '../../shared/markdown-view/markdown-view.component';
 
 const SectionToggleIcon = ({ isOpen }: { isOpen: boolean }) => (
   <img
@@ -33,6 +23,7 @@ const SectionToggleIcon = ({ isOpen }: { isOpen: boolean }) => (
 export default function ContentComponent({
   content,
   solutions = [],
+  tips = [],
   onSubmit,
   loading,
 }: ContentProps) {
@@ -52,13 +43,13 @@ export default function ContentComponent({
   return (
     <>
       <section>
-        <Heading>Zadanie</Heading>
-        <p>{content}</p>
+        <TaskHeading>Zadanie</TaskHeading>
+        <MarkdownViewComponent source={content} />
       </section>
 
       <section className="mt-6">
         <div className="flex">
-          <Heading>Dodaj rozwiązanie</Heading>
+          <TaskHeading>Dodaj rozwiązanie</TaskHeading>
           <button onClick={() => toggleSection(OpenableSections.SOLUTION)}>
             <SectionToggleIcon isOpen={openSections.solution} />
           </button>
@@ -72,17 +63,17 @@ export default function ContentComponent({
 
       <section>
         <div className="flex">
-          <Heading>Wskazówki</Heading>
+          <TaskHeading>Wskazówki</TaskHeading>
           <button onClick={() => toggleSection(OpenableSections.TIPS)}>
             <SectionToggleIcon isOpen={openSections.tips} />
           </button>
         </div>
-        {openSections.tips && <p className="my-2">{content}</p>}
+        {openSections.tips && <p className="my-2">{tips.join(',')}</p>}
       </section>
 
       <section>
         <div className="flex">
-          <Heading>Rozwiązania</Heading>
+          <TaskHeading>Rozwiązania</TaskHeading>
           <button onClick={() => toggleSection(OpenableSections.SOLITIONS)}>
             <SectionToggleIcon isOpen={openSections.solutions} />
           </button>
@@ -103,6 +94,7 @@ export default function ContentComponent({
 interface ContentProps {
   content: string;
   solutions: Solution[];
+  tips: string[];
   onSubmit: (value: any) => void;
   loading: boolean;
 }
