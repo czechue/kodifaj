@@ -72021,7 +72021,7 @@ TaskPage.getInitialProps = function _callee(_ref2) {
 
 /***/ }),
 
-/***/ 8:
+/***/ 6:
 /*!***********************************************************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2Fviews%2Ftasks%2F%5Bid%5D&absolutePagePath=%2FUsers%2Fmichal.lester%2FDocuments%2FML%2Fkodifaj%2Fpages%2Fviews%2Ftasks%2F%5Bid%5D.tsx ***!
   \***********************************************************************************************************************************************************************************/
@@ -72044,5 +72044,5 @@ module.exports = dll_ef0ff7c60362f24a921f;
 
 /***/ })
 
-},[[8,"static/runtime/webpack.js","styles"]]]);
+},[[6,"static/runtime/webpack.js","styles"]]]);
 //# sourceMappingURL=[id].js.map
