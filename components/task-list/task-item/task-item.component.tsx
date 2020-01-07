@@ -16,12 +16,9 @@ function BadgeComponent({ children }: BadgeProps): ReactElement {
 
 function AdminPanelTask({ id }: { id: string }): ReactElement {
   return (
-    <div>
-      Admin options:{' '}
-      <Link href={'/tasks/[id]/edit'} as={`/tasks/${id.toString()}/edit`}>
-        <a className="text-blue-300">Edit</a>
-      </Link>{' '}
-    </div>
+    <Link href={'/tasks/[id]/edit'} as={`/tasks/${id.toString()}/edit`}>
+      <span className="text-blue-300">Edit</span>
+    </Link>
   );
 }
 
@@ -37,7 +34,7 @@ export default function TaskItemComponent({
   return (
     <div className="w-full my-4 sm:px-2 sm:w-1/2 md:w-1/3 lg:w-1/3">
       <Link href={'/tasks/[id]'} as={`/tasks/${task._id.toString()}`}>
-        <a>
+        <>
           <div className="relative pb-5/12 sm:pb-2/3 md:pb-5/6">
             <img
               className="absolute h-full w-full object-cover rounded-lg overflow-hidden shadow-md"
@@ -80,7 +77,7 @@ export default function TaskItemComponent({
               </div>
             </div>
           </div>
-        </a>
+        </>
       </Link>
     </div>
   );

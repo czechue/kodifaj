@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 6);
+/******/ 	return __webpack_require__(__webpack_require__.s = 7);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -774,12 +774,12 @@ function BadgeComponent({
 function AdminPanelTask({
   id
 }) {
-  return __jsx("div", null, "Admin options:", ' ', __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
+  return __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
     href: '/tasks/[id]/edit',
     as: `/tasks/${id.toString()}/edit`
-  }, __jsx("a", {
+  }, __jsx("span", {
     className: "text-blue-300"
-  }, "Edit")), ' ');
+  }, "Edit"));
 }
 
 function TaskItemComponent({
@@ -791,7 +791,7 @@ function TaskItemComponent({
   }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
     href: '/tasks/[id]',
     as: `/tasks/${task._id.toString()}`
-  }, __jsx("a", null, __jsx("div", {
+  }, __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx("div", {
     className: "relative pb-5/12 sm:pb-2/3 md:pb-5/6"
   }, __jsx("img", {
     className: "absolute h-full w-full object-cover rounded-lg overflow-hidden shadow-md",
@@ -2806,7 +2806,7 @@ UserPage.getInitialProps = async ({
 
 /***/ }),
 
-/***/ 6:
+/***/ 7:
 /*!******************************************!*\
   !*** multi ./pages/views/users/[id].tsx ***!
   \******************************************/

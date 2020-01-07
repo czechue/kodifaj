@@ -1,5 +1,6 @@
 export class CreateTaskDto {
   readonly content?: string;
+  readonly repo?: string;
   readonly images?: string[];
   readonly tips?: string[];
   readonly title?: string;

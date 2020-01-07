@@ -11,10 +11,12 @@ import NewTaskHeading from './heading/heading.component';
 import FieldArrayComponent from './field-array/field-array.component';
 import MarkdownEditorComponent from '../shared/markdown-editor/markdown-editor.component';
 import { MarkdownViewComponent } from '../shared/markdown-view/markdown-view.component';
+import { Task } from '../../lib/types/task';
+import taskMapper from './utils/task-mapper.util';
 
 // const required = (value: string) => (value ? undefined : "Required");
 
-export default function NewTaskComponent({ onSubmit }: NewTaskProps) {
+export default function NewTaskComponent({ task, onSubmit }: NewTaskProps) {
   // todo: investigate why values argument doesnt work with NewTaskForm type
   async function onFormSubmit(values: any) {
     if (onSubmit) {
@@ -31,6 +33,7 @@ export default function NewTaskComponent({ onSubmit }: NewTaskProps) {
           mutators={{
             ...arrayMutators,
           }}
+          initialValues={task ? taskMapper(task) : {}}
           render={({ handleSubmit, values }) => (
             <form onSubmit={handleSubmit}>
               <Field
@@ -90,9 +93,6 @@ export default function NewTaskComponent({ onSubmit }: NewTaskProps) {
                 <MarkdownViewComponent source={values.content} />
               </div>
 
-              <span>form state</span>
-              <pre>{JSON.stringify(values, null, 2)}</pre>
-
               <button
                 className="bg-gradient-button text-white px-4 py-2 rounded tracking-wide"
                 type="submit"
@@ -109,10 +109,12 @@ export default function NewTaskComponent({ onSubmit }: NewTaskProps) {
 
 interface NewTaskProps {
   onSubmit: (task: NewTaskMapped) => Promise<AxiosResponse<NewTaskMapped>>;
+  task?: Task;
 }
 
 export interface NewTaskForm {
   content: string;
+  repo: string;
   images: Image[];
   tips: Tip[];
   title: string;
@@ -121,6 +123,7 @@ export interface NewTaskForm {
 
 export interface NewTaskMapped {
   content: string;
+  repo: string;
   images: string[] | [];
   tips: string[] | [];
   title: string;
