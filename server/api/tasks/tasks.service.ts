@@ -38,4 +38,15 @@ export class TasksService {
       console.log('error');
     }
   }
+
+  async update(
+    taskId: string,
+    updatedTask: CreateTaskDto,
+  ): Promise<Task | null | void> {
+    try {
+      return await this.taskModel.findByIdAndUpdate(taskId, updatedTask);
+    } catch (e) {
+      console.log('error');
+    }
+  }
 }

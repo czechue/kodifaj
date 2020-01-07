@@ -10,15 +10,14 @@ import LayoutComponent from '../../../components/shared/layout/layout.component'
 import TaskDetailComponent from '../../../components/task-detail/task-detail.component';
 
 import '../../../public/static/style.css';
-import {Solution} from "../../../lib/types/solution";
+import { Solution } from '../../../lib/types/solution';
 
 const TaskPage: NextPage<Props> = ({ task }) => {
   const { user } = useContext(UserContext);
   const [currentTask, setCurrentTask] = useState<Task>(task);
 
   function updateSolutions(solutions: Solution[]) {
-    console.log('updated solutions', solutions)
-    setCurrentTask({...currentTask, _solutions: solutions});
+    setCurrentTask({ ...currentTask, _solutions: solutions });
   }
 
   return (

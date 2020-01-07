@@ -9,10 +9,14 @@ import InputComponent from '../shared/input/input.component';
 import mapFormToNewTaskFormat from './utils/map-form-to-new-task-form.util';
 import NewTaskHeading from './heading/heading.component';
 import FieldArrayComponent from './field-array/field-array.component';
+import MarkdownEditorComponent from '../shared/markdown-editor/markdown-editor.component';
+import { MarkdownViewComponent } from '../shared/markdown-view/markdown-view.component';
+import { Task } from '../../lib/types/task';
+import taskMapper from './utils/task-mapper.util';
 
 // const required = (value: string) => (value ? undefined : "Required");
 
-export default function NewTaskComponent({ onSubmit }: NewTaskProps) {
+export default function NewTaskComponent({ task, onSubmit }: NewTaskProps) {
   // todo: investigate why values argument doesnt work with NewTaskForm type
   async function onFormSubmit(values: any) {
     if (onSubmit) {
@@ -29,21 +33,14 @@ export default function NewTaskComponent({ onSubmit }: NewTaskProps) {
           mutators={{
             ...arrayMutators,
           }}
-          render={({ handleSubmit }) => (
+          initialValues={task ? taskMapper(task) : {}}
+          render={({ handleSubmit, values }) => (
             <form onSubmit={handleSubmit}>
               <Field
                 name="title"
                 label="Tytuł"
                 component={InputComponent}
                 placeholder="np. Super cool formularz"
-              />
-
-              <Field
-                name="content"
-                label="Treść"
-                component={InputComponent}
-                placeholder="Na czym polega zadanie?"
-                fieldType="textarea"
               />
 
               <Field
@@ -84,7 +81,24 @@ export default function NewTaskComponent({ onSubmit }: NewTaskProps) {
                 )}
               </FieldArray>
 
-              <button type="submit">Submit</button>
+              <Field
+                name="content"
+                label="Treść"
+                component={MarkdownEditorComponent}
+                placeholder="Na czym polega zadanie?"
+              />
+
+              <span>Preview</span>
+              <div className="bg-white p-2 my-2 h-48 rounded">
+                <MarkdownViewComponent source={values.content} />
+              </div>
+
+              <button
+                className="bg-gradient-button text-white px-4 py-2 rounded tracking-wide"
+                type="submit"
+              >
+                Wyślij
+              </button>
             </form>
           )}
         />
@@ -95,10 +109,12 @@ export default function NewTaskComponent({ onSubmit }: NewTaskProps) {
 
 interface NewTaskProps {
   onSubmit: (task: NewTaskMapped) => Promise<AxiosResponse<NewTaskMapped>>;
+  task?: Task;
 }
 
 export interface NewTaskForm {
   content: string;
+  repo: string;
   images: Image[];
   tips: Tip[];
   title: string;
@@ -107,6 +123,7 @@ export interface NewTaskForm {
 
 export interface NewTaskMapped {
   content: string;
+  repo: string;
   images: string[] | [];
   tips: string[] | [];
   title: string;

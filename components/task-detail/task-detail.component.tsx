@@ -6,19 +6,21 @@ import ContentComponent from './content/content.component';
 import HeadingComponent from '../shared/heading/heading.component';
 import addSolution, { AddSolutionFormData } from './utils/add-solution.util';
 import { Solution } from '../../lib/types/solution';
+import { TaskHeading } from './heading/task-heading.component';
 
 export default function TaskDetailComponent({
   images,
   title,
   content,
   createdAt,
-  _user,
   difficulty,
   tags,
+  tips,
   repo,
-  _solutions,
-  _id,
   updateSolutions,
+  _solutions,
+  _user,
+  _id,
 }: TaskDetailProps) {
   const [loading, setLoading] = useState(false);
 
@@ -44,6 +46,7 @@ export default function TaskDetailComponent({
       </div>
       <article className="task-detail__wrapper">
         <section className="task-detail__carousel sm:p-2">
+          <TaskHeading>Screeny</TaskHeading>
           <CarouselComponent images={images} />
         </section>
         <section className="task-detail__aside sm:pl-12">
@@ -59,6 +62,7 @@ export default function TaskDetailComponent({
           <ContentComponent
             content={content}
             solutions={_solutions}
+            tips={tips}
             onSubmit={handleOnSubmitSolution}
             loading={loading}
           />

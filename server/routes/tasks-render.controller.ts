@@ -15,4 +15,10 @@ export class TasksRenderController {
   public task(@Param('id') id: string) {
     return { id };
   }
+
+  @Get(':id/edit')
+  @Render('tasks/edit')
+  public editTask(@Param('id') id: string) {
+    return { id };
+  }
 }

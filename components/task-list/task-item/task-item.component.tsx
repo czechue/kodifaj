@@ -6,7 +6,7 @@ interface BadgeProps {
   children: string;
 }
 
-function BadgeComponent({ children }: BadgeProps) {
+function BadgeComponent({ children }: BadgeProps): ReactElement {
   return (
     <span className="inline-block mr-1 bg-pink-200 text-pink-700 text-xs px-1 rounded">
       #{children}
@@ -14,17 +14,27 @@ function BadgeComponent({ children }: BadgeProps) {
   );
 }
 
+function AdminPanelTask({ id }: { id: string }): ReactElement {
+  return (
+    <Link href={'/tasks/[id]/edit'} as={`/tasks/${id.toString()}/edit`}>
+      <span className="text-blue-300">Edit</span>
+    </Link>
+  );
+}
+
 interface TaskItemProps {
   task: Task;
+  admin?: boolean;
 }
 
 export default function TaskItemComponent({
   task,
+  admin = false,
 }: TaskItemProps): ReactElement {
   return (
     <div className="w-full my-4 sm:px-2 sm:w-1/2 md:w-1/3 lg:w-1/3">
       <Link href={'/tasks/[id]'} as={`/tasks/${task._id.toString()}`}>
-        <a>
+        <>
           <div className="relative pb-5/12 sm:pb-2/3 md:pb-5/6">
             <img
               className="absolute h-full w-full object-cover rounded-lg overflow-hidden shadow-md"
@@ -34,6 +44,7 @@ export default function TaskItemComponent({
           </div>
           <div className="relative -mt-16">
             <div className="bg-white p-6 rounded-lg shadow-lg">
+              {admin && <AdminPanelTask id={task._id.toString()} />}
               <div className="text-gray-600 text-xs font-semibold uppercase tracking-widest">
                 {task._user.login}
               </div>
@@ -66,7 +77,7 @@ export default function TaskItemComponent({
               </div>
             </div>
           </div>
-        </a>
+        </>
       </Link>
     </div>
   );

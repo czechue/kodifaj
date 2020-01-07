@@ -9,7 +9,7 @@ export default function InputComponent(
   const Component = fieldType ? fieldType : 'input';
 
   const inputClassNames = clsx(
-    'appearance-none block w-full bg-white text-gray-700 rounded-l py-3 px-4 leading-tight border-transparent border focus:outline-none focus:border-violet_primary',
+    'font-mono appearance-none block w-full bg-white text-gray-700 rounded-l py-3 px-4 leading-tight border-transparent border focus:outline-none focus:border-violet_primary',
     {
       'rounded-r': !inputButton,
     },
