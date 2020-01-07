@@ -706,7 +706,7 @@ function TaskItemComponent(_ref3) {
   }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_2___default.a, {
     href: '/tasks/[id]',
     as: "/tasks/".concat(task._id.toString())
-  }, __jsx(react__WEBPACK_IMPORTED_MODULE_1___default.a.Fragment, null, __jsx("div", {
+  }, __jsx("a", null, __jsx("div", {
     className: "relative pb-5/12 sm:pb-2/3 md:pb-5/6"
   }, __jsx("img", {
     className: "absolute h-full w-full object-cover rounded-lg overflow-hidden shadow-md",
@@ -11473,7 +11473,7 @@ UserPage.getInitialProps = function _callee(_ref2) {
 
 /***/ }),
 
-/***/ 9:
+/***/ 7:
 /*!***********************************************************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2Fviews%2Fusers%2F%5Bid%5D&absolutePagePath=%2FUsers%2Fmichal.lester%2FDocuments%2FML%2Fkodifaj%2Fpages%2Fviews%2Fusers%2F%5Bid%5D.tsx ***!
   \***********************************************************************************************************************************************************************************/
@@ -11496,5 +11496,5 @@ module.exports = dll_ef0ff7c60362f24a921f;
 
 /***/ })
 
-},[[9,"static/runtime/webpack.js","styles"]]]);
+},[[7,"static/runtime/webpack.js","styles"]]]);
 //# sourceMappingURL=[id].js.map
