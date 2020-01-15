@@ -10,9 +10,7 @@ export default function LayoutComponent({
   return (
     <div className="antialiased text-gray-900">
       <NavbarComponent user={user} withHero={withHero} />
-      <main className="container mx-auto py-8 px-4 md:py-12 md:px-8">
-        {children}
-      </main>
+      <main className="container mx-auto sm:py-8 sm:px-4 ">{children}</main>
     </div>
   );
 }
