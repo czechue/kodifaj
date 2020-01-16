@@ -1,4 +1,9 @@
 import React from 'react';
+import Router from 'next/router';
+
+const bgImage = {
+  backgroundImage: `url(/static/images/bg-login.png)`,
+};
 
 export default function LoginComponent() {
   return (
@@ -22,30 +27,22 @@ export default function LoginComponent() {
           <div className="flex flex-1 items-center justify-end pb-12 sm:pb-0">
             <span className="pr-5 text-purple-900">
               wróć do poprzedniej
-              <a className="text-indigo-800 font-bold" href="#">
+              <span
+                className="text-indigo-800 font-bold cursor-pointer"
+                onClick={() => Router.back()}
+              >
+                {' '}
                 strony
-              </a>
+              </span>
             </span>
           </div>
         </div>
 
-        <div className="sm:w-1/2 sm:block relative hidden">
-          <h2
-            className="absolute text-5xl text-white"
-            style={{
-              top: '50%',
-              left: '50%',
-              transform: 'translate(-50%, -50%)',
-            }}
-          >
-            Kodifaj
-          </h2>
-          <img
-            src="/static/images/bg-login.png"
-            alt="object"
-            className=" w-full"
-            style={{}}
-          />
+        <div
+          className="sm:w-1/2 sm:flex justify-center flex-col items-center bg-repeat-round h-100 hidden"
+          style={bgImage}
+        >
+          <h2 className=" text-5xl text-white">Kodifaj</h2>
         </div>
       </div>
     </div>
