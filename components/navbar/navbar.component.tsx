@@ -62,19 +62,19 @@ export default function NavbarComponent({
           <nav className={mobileLinksContainerClassName}>
             <div className="px-2 pb-2 sm:flex sm:items-center sm:bg-transparent sm:pb-0">
               {navLinks}
+              <NavigationLinkComponent url="/auth/github">
+                <button className="flex items-center">
+                  <span className="pr-2 font-semibold sm:uppercase sm:font-normal sm:text-xs">
+                    Rejestracja
+                  </span>
+                  <img
+                    src="/static/images/github-icon.svg"
+                    alt="github icon"
+                    className="w-5 opacity-50"
+                  />
+                </button>
+              </NavigationLinkComponent>
             </div>
-            <NavigationLinkComponent url="/auth/github">
-              <button className="flex items-center">
-                <img
-                  src="/static/images/github-icon.svg"
-                  alt="github icon"
-                  className="opacity-50"
-                />
-                <span className="pl-2 sm:uppercase sm:font-normal sm:text-xs">
-                  Rejestracja
-                </span>
-              </button>
-            </NavigationLinkComponent>
           </nav>
         )}
 
