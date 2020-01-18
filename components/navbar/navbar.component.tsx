@@ -43,6 +43,7 @@ export default function NavbarComponent({
     <div className="bg-gradient-navbar">
       <header className="sm:flex sm:justify-between sm:items-center sm:max-w-6xl sm:ml-auto sm:mr-auto">
         <div className="flex items-center justify-between p-4 h-20">
+          <span></span>
           <Link href="/">
             <a>
               <span className="text-white text-2xl">Kodifaj</span>
@@ -88,7 +89,7 @@ export default function NavbarComponent({
             </div>
 
             <div className="px-4 py-5 border-t border-pink__accent sm:hidden">
-              <div className="flex items-center">
+              <div className="flex justify-center items-center">
                 <img
                   className="h-8 w-8 border-2 rounded-full object-cover"
                   src={user.photo}
