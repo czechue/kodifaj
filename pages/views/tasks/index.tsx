@@ -16,7 +16,9 @@ const HomePage: NextPage<Props> = ({ tasks }) => {
 
   return (
     <LayoutComponent user={user} withHero>
-      <TaskListComponent tasks={tasks} />
+      <div className="py-8 px-4">
+        <TaskListComponent tasks={tasks} />
+      </div>
     </LayoutComponent>
   );
 };
