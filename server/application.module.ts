@@ -12,6 +12,7 @@ import { HomeRenderController } from './routes/home-render.controller';
 import { TasksRenderController } from './routes/tasks-render.controller';
 import { UsersRenderController } from './routes/users-render.controller';
 import { FaqRenderController } from './routes/faq-render.controller';
+import { LoginRenderController } from './routes/login-render.controller';
 import { AuthModule } from './api/auth/auth.module';
 
 @Module({
@@ -32,6 +33,7 @@ import { AuthModule } from './api/auth/auth.module';
     TasksRenderController,
     UsersRenderController,
     FaqRenderController,
+    LoginRenderController,
   ],
 })
 export class AppModule {}
