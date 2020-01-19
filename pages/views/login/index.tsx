@@ -8,7 +8,9 @@ import { NextPage } from 'next';
 const LoginPage: NextPage<Props> = ({ user }) => {
   return (
     <LayoutComponent user={user}>
-      <LoginComponent />
+      <div className="flex flex-col sm:justify-center h-max">
+        <LoginComponent />
+      </div>
     </LayoutComponent>
   );
 };

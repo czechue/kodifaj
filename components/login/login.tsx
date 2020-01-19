@@ -8,7 +8,7 @@ const bgImage = {
 export default function LoginComponent() {
   return (
     <div>
-      <div className="container flex">
+      <div className="container flex m-auto w-full lg:w-3/5 ">
         <div className="sm:w-1/2 flex flex-col justify-between w-full bg-purple-100">
           <div className="flex-1 pb-5 sm:pb-0 text-xl text-purple-600 text-center font-bold">
             <p className="pt-5">Logowanie</p>
