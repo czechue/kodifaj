@@ -119,32 +119,29 @@ module.exports = /******/ (function(modules) {
   /******/
   /******/
   /******/ /******/ return __webpack_require__(
-    (__webpack_require__.s =
-      './node_modules/next/dist/build/webpack/loaders/next-plugin-loader.js?middleware=on-error-server!./'),
+    (__webpack_require__.s = 'KqAr'),
   );
   /******/
 })(
   /************************************************************************/
   /******/ {
-    /***/ './node_modules/next/dist/build/webpack/loaders/next-plugin-loader.js?middleware=on-error-server!./':
-      /*!*******************************************************************************************************!*\
-  !*** ./node_modules/next/dist/build/webpack/loaders/next-plugin-loader.js?middleware=on-error-server ***!
-  \*******************************************************************************************************/
-      /*! exports provided: default */
-      /***/ function(module, __webpack_exports__, __webpack_require__) {
-        'use strict';
-        __webpack_require__.r(__webpack_exports__);
+    /***/ KqAr: /***/ function(
+      module,
+      __webpack_exports__,
+      __webpack_require__,
+    ) {
+      'use strict';
+      __webpack_require__.r(__webpack_exports__);
 
-        /* harmony default export */ __webpack_exports__['default'] = function(
-          ctx,
-        ) {
-          return Promise.all([]);
-        };
+      /* harmony default export */ __webpack_exports__['default'] = function(
+        ctx,
+      ) {
+        return Promise.all([]);
+      };
 
-        /***/
-      },
+      /***/
+    },
 
     /******/
   },
 );
-//# sourceMappingURL=on-error-server.js.map
