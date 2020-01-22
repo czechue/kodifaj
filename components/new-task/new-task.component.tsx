@@ -88,17 +88,21 @@ export default function NewTaskComponent({ task, onSubmit }: NewTaskProps) {
                 placeholder="Na czym polega zadanie?"
               />
 
-              <span>Preview</span>
-              <div className="bg-white p-2 my-2 h-48 rounded">
+              <span className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+                Preview
+              </span>
+              <div className="bg-white p-2 my-2 rounded">
                 <MarkdownViewComponent source={values.content} />
               </div>
 
-              <button
-                className="bg-gradient-button text-white px-4 py-2 rounded tracking-wide"
-                type="submit"
-              >
-                Wyślij
-              </button>
+              <div className="mt-6 flex flex-row-reverse">
+                <button
+                  className="bg-gradient-button text-white px-4 py-2 rounded tracking-wide"
+                  type="submit"
+                >
+                  zapisz zadanie
+                </button>
+              </div>
             </form>
           )}
         />

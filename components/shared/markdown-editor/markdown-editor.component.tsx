@@ -1,3 +1,27 @@
+/*
+MIT License
+
+Copyright (c) 2017-present Michał Miszczyszyn typeofweb.com
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+*/
+
 import React, { MouseEventHandler, ReactElement } from 'react';
 import { FieldRenderProps } from 'react-final-form';
 
@@ -6,8 +30,8 @@ export default function MarkdownEditorComponent(
 ): ReactElement {
   const { input, placeholder, label } = props;
   const textAreaRef = React.createRef<HTMLTextAreaElement>();
-  const inputClassNames =
-    'font-mono appearance-none block w-full bg-white text-gray-700 rounded-l py-3 px-4 leading-tight border-transparent border focus:outline-none focus:border-violet_primary';
+  const textAreaClassNames =
+    'font-mono appearance-none block w-full h-80 bg-white text-gray-700 rounded-l py-3 px-4 leading-tight border-transparent border focus:outline-none focus:border-violet_primary';
 
   const actionToTokens: { [action in Actions]: Tokens } = {
     BOLD: { open: '**', close: '**' },
@@ -128,7 +152,7 @@ export default function MarkdownEditorComponent(
         <textarea
           placeholder={placeholder}
           {...input}
-          className={inputClassNames}
+          className={textAreaClassNames}
           ref={textAreaRef}
         />
       </div>
