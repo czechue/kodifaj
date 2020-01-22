@@ -24,21 +24,42 @@ export default function FieldArrayComponent({
             inputButton={
               <button
                 type="button"
-                className="h-full w-16 max-w-full rounded-r bg-gradient-button text-white text-xs font-semibold"
+                className="h-full pl-1 w-16 max-w-full rounded-r  text-white text-xs font-semibold"
                 onClick={() => fields.remove(index)}
               >
-                Usuń
+                <svg
+                  className="text-white"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  width="32"
+                  height="32"
+                >
+                  <path
+                    className="heroicon-ui"
+                    d="M5 3h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5c0-1.1.9-2 2-2zm0 2v14h14V5H5zm11 7a1 1 0 0 1-1 1H9a1 1 0 0 1 0-2h6a1 1 0 0 1 1 1z"
+                  />
+                </svg>
               </button>
             }
           />
         </div>
       ))}
       <button
-        className="mt-1 h-8 px-2 rounded bg-gradient-button text-white text-white text-xs font-semibold"
+        title="dodaj wskazówkę"
         type="button"
         onClick={() => fields.push({ [recordName]: '' })}
       >
-        Dodaj
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          width="32"
+          height="32"
+        >
+          <path
+            className="heroicon-ui"
+            d="M5 3h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5c0-1.1.9-2 2-2zm0 2v14h14V5H5zm8 6h2a1 1 0 0 1 0 2h-2v2a1 1 0 0 1-2 0v-2H9a1 1 0 0 1 0-2h2V9a1 1 0 0 1 2 0v2z"
+          />
+        </svg>
       </button>
     </div>
   );

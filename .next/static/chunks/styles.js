@@ -32,7 +32,7 @@
                 if (!link.href.match(prefix) || link.stale) return;
                 injectCss(
                   link,
-                  link.href.split('?')[0] + '?unix=1578429403115',
+                  link.href.split('?')[0] + '?unix=1578479693828',
                 );
               });
           }

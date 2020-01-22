@@ -119,29 +119,32 @@ module.exports = /******/ (function(modules) {
   /******/
   /******/
   /******/ /******/ return __webpack_require__(
-    (__webpack_require__.s = 'GX0O'),
+    (__webpack_require__.s =
+      './node_modules/next/dist/build/webpack/loaders/next-plugin-loader.js?middleware=on-init-server!./'),
   );
   /******/
 })(
   /************************************************************************/
   /******/ {
-    /***/ GX0O: /***/ function(
-      module,
-      __webpack_exports__,
-      __webpack_require__,
-    ) {
-      'use strict';
-      __webpack_require__.r(__webpack_exports__);
+    /***/ './node_modules/next/dist/build/webpack/loaders/next-plugin-loader.js?middleware=on-init-server!./':
+      /*!******************************************************************************************************!*\
+  !*** ./node_modules/next/dist/build/webpack/loaders/next-plugin-loader.js?middleware=on-init-server ***!
+  \******************************************************************************************************/
+      /*! exports provided: default */
+      /***/ function(module, __webpack_exports__, __webpack_require__) {
+        'use strict';
+        __webpack_require__.r(__webpack_exports__);
 
-      /* harmony default export */ __webpack_exports__['default'] = function(
-        ctx,
-      ) {
-        return Promise.all([]);
-      };
+        /* harmony default export */ __webpack_exports__['default'] = function(
+          ctx,
+        ) {
+          return Promise.all([]);
+        };
 
-      /***/
-    },
+        /***/
+      },
 
     /******/
   },
 );
+//# sourceMappingURL=init-server.js.map
