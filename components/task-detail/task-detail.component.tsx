@@ -39,35 +39,37 @@ export default function TaskDetailComponent({
 
   return (
     <>
-      <div className="mb-5">
-        <HeadingComponent orientation="left" size="normal">
-          {title}
-        </HeadingComponent>
+      <div className="py-8 px-4">
+        <div className="mb-5">
+          <HeadingComponent orientation="left" size="normal">
+            {title}
+          </HeadingComponent>
+        </div>
+        <article className="task-detail__wrapper">
+          <section className="task-detail__carousel sm:p-2">
+            <TaskHeading>Screeny</TaskHeading>
+            <CarouselComponent images={images} />
+          </section>
+          <section className="task-detail__aside sm:pl-12">
+            <AsideComponent
+              createdAt={createdAt}
+              author={_user.login}
+              tags={tags}
+              difficulty={difficulty}
+              repo={repo}
+            />
+          </section>
+          <section className="task-detail__content sm:p-2">
+            <ContentComponent
+              content={content}
+              solutions={_solutions}
+              tips={tips}
+              onSubmit={handleOnSubmitSolution}
+              loading={loading}
+            />
+          </section>
+        </article>
       </div>
-      <article className="task-detail__wrapper">
-        <section className="task-detail__carousel sm:p-2">
-          <TaskHeading>Screeny</TaskHeading>
-          <CarouselComponent images={images} />
-        </section>
-        <section className="task-detail__aside sm:pl-12">
-          <AsideComponent
-            createdAt={createdAt}
-            author={_user.login}
-            tags={tags}
-            difficulty={difficulty}
-            repo={repo}
-          />
-        </section>
-        <section className="task-detail__content sm:p-2">
-          <ContentComponent
-            content={content}
-            solutions={_solutions}
-            tips={tips}
-            onSubmit={handleOnSubmitSolution}
-            loading={loading}
-          />
-        </section>
-      </article>
     </>
   );
 }

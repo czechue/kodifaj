@@ -43,6 +43,7 @@ export default function NavbarComponent({
     <div className="bg-gradient-navbar">
       <header className="sm:flex sm:justify-between sm:items-center sm:max-w-6xl sm:ml-auto sm:mr-auto">
         <div className="flex items-center justify-between p-4 h-20">
+          <span></span>
           <Link href="/">
             <a>
               <span className="text-white text-2xl">Kodifaj</span>
@@ -61,19 +62,19 @@ export default function NavbarComponent({
           <nav className={mobileLinksContainerClassName}>
             <div className="px-2 pb-2 sm:flex sm:items-center sm:bg-transparent sm:pb-0">
               {navLinks}
+              <NavigationLinkComponent url="/auth/github">
+                <button className="flex items-center">
+                  <span className="pr-2 font-semibold sm:uppercase sm:font-normal sm:text-xs">
+                    Rejestracja
+                  </span>
+                  <img
+                    src="/static/images/github-icon.svg"
+                    alt="github icon"
+                    className="w-5 opacity-50"
+                  />
+                </button>
+              </NavigationLinkComponent>
             </div>
-            <NavigationLinkComponent url="/auth/github">
-              <button className="flex items-center">
-                <img
-                  src="/static/images/github-icon.svg"
-                  alt="github icon"
-                  className="opacity-50"
-                />
-                <span className="pl-2 sm:uppercase sm:font-normal sm:text-xs">
-                  Rejestracja
-                </span>
-              </button>
-            </NavigationLinkComponent>
           </nav>
         )}
 
@@ -88,7 +89,7 @@ export default function NavbarComponent({
             </div>
 
             <div className="px-4 py-5 border-t border-pink__accent sm:hidden">
-              <div className="flex items-center">
+              <div className="flex justify-center items-center">
                 <img
                   className="h-8 w-8 border-2 rounded-full object-cover"
                   src={user.photo}
