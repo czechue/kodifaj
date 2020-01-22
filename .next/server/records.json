@@ -1,0 +1,74 @@
+{
+  "modules": {
+    "byIdentifier": {
+      "multi private-next-pages/_app.tsx": 0,
+      "multi private-next-pages/index.ts": 1,
+      "multi private-next-pages/views/Index.tsx": 2,
+      "multi private-next-pages/views/login/index.tsx": 3,
+      "multi private-next-pages/views/tasks/[id].tsx": 4,
+      "multi private-next-pages/views/tasks/edit.tsx": 5,
+      "multi private-next-pages/views/tasks/index.tsx": 6,
+      "multi private-next-pages/views/tasks/new.tsx": 7,
+      "multi private-next-pages/views/users/[id].tsx": 8,
+      "multi next/dist/pages/_error": 9,
+      "multi next/dist/pages/_document": 10
+    },
+    "usedIds": {
+      "0": 0,
+      "1": 1,
+      "2": 2,
+      "3": 3,
+      "4": 4,
+      "5": 5,
+      "6": 6,
+      "7": 7,
+      "8": 8,
+      "9": 9,
+      "10": 10
+    }
+  },
+  "chunks": {
+    "byName": {
+      "init-server.js": 0,
+      "on-error-server.js": 1,
+      "static/n6Von4psddRAe-sIb6two/pages/_app.js": 2,
+      "static/n6Von4psddRAe-sIb6two/pages/_document.js": 3,
+      "static/n6Von4psddRAe-sIb6two/pages/_error.js": 4,
+      "static/n6Von4psddRAe-sIb6two/pages/index.js": 5,
+      "static/n6Von4psddRAe-sIb6two/pages/views/Index.js": 6,
+      "static/n6Von4psddRAe-sIb6two/pages/views/login.js": 7,
+      "static/n6Von4psddRAe-sIb6two/pages/views/tasks.js": 8,
+      "static/n6Von4psddRAe-sIb6two/pages/views/tasks/[id].js": 9,
+      "static/n6Von4psddRAe-sIb6two/pages/views/tasks/edit.js": 10,
+      "static/n6Von4psddRAe-sIb6two/pages/views/tasks/new.js": 11,
+      "static/n6Von4psddRAe-sIb6two/pages/views/users/[id].js": 12,
+      "static/7ZTWT6cs6yBzGuDMbjYtc/pages/_app.js": 13,
+      "static/7ZTWT6cs6yBzGuDMbjYtc/pages/_document.js": 14,
+      "static/7ZTWT6cs6yBzGuDMbjYtc/pages/_error.js": 15,
+      "static/7ZTWT6cs6yBzGuDMbjYtc/pages/index.js": 16,
+      "static/7ZTWT6cs6yBzGuDMbjYtc/pages/views/Index.js": 17,
+      "static/7ZTWT6cs6yBzGuDMbjYtc/pages/views/login.js": 18,
+      "static/7ZTWT6cs6yBzGuDMbjYtc/pages/views/tasks.js": 19,
+      "static/7ZTWT6cs6yBzGuDMbjYtc/pages/views/tasks/[id].js": 20,
+      "static/7ZTWT6cs6yBzGuDMbjYtc/pages/views/tasks/edit.js": 21,
+      "static/7ZTWT6cs6yBzGuDMbjYtc/pages/views/tasks/new.js": 22,
+      "static/7ZTWT6cs6yBzGuDMbjYtc/pages/views/users/[id].js": 23
+    },
+    "bySource": {},
+    "usedIds": [
+      0,
+      1,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23
+    ]
+  }
+}
