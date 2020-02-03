@@ -8,6 +8,9 @@ module.exports = {
         pink_bg: '#F6F4FD',
         violet_primary: '#6633CC',
       },
+      backgroundColor: {
+        'gray-1000': '#464646',
+      },
       spacing: {
         '1/2': '50%',
         '1/3': '33.333333%',
@@ -39,6 +42,7 @@ module.exports = {
         '240': '60rem',
         full: '100%',
         screen: '100vw',
+        max: '90vh',
       },
     },
   },

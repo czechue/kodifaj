@@ -6,6 +6,7 @@
 @import "styles/task-detail.css";
 @import "styles/solution-item.css";
 @import 'styles/markdown-view.css';
+@import 'styles/reset.css';
 
 .bg-gradient-navbar {
   background-image: linear-gradient(
