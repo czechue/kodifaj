@@ -20,32 +20,20 @@ export default function CollapseComponent(
   props: CollapseComponentProps,
 ): ReactElement {
   const { title, description } = props;
-  const [openCollapse, setOpenedCollapse] = useState({
-    collapse: false,
-  });
-
-  function toggleCollapse() {
-    setOpenedCollapse(prevState => {
-      return {
-        collapse: !prevState.collapse,
-      };
-    });
-  }
+  const [openCollapse, setOpenedCollapse] = useState(false);
 
   return (
     <div className="mb-4 pb-4 border-b border-gray-300">
       <div className="w-full">
         <button
-          onClick={() => toggleCollapse()}
+          onClick={() => setOpenedCollapse(!openCollapse)}
           className="flex items-center w-full justify-between "
         >
           <span className="text-purple-600 text-xl font-medium">{title}</span>
-          <ToggleIcon isOpen={openCollapse.collapse} />
+          <ToggleIcon isOpen={openCollapse} />
         </button>
       </div>
-      {openCollapse.collapse && (
-        <p className="mt-5 text-purple-800">{description}</p>
-      )}
+      {openCollapse && <p className="mt-5 text-purple-800">{description}</p>}
     </div>
   );
 }
