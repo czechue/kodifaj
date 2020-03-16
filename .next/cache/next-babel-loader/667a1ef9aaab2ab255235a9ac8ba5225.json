@@ -1,1 +1,0 @@
-{"ast":null,"code":"export default function taskMapper(task) {\n  return {\n    content: task.content,\n    repo: task.repo,\n    images: task.images.map(image => ({\n      image\n    })),\n    tips: task.tips.map(tip => ({\n      tip\n    })),\n    title: task.title,\n    tags: task.tags.join(',')\n  };\n}","map":null,"metadata":{},"sourceType":"module"}

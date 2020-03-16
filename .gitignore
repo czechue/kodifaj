@@ -1,6 +1,9 @@
 # Dependency directories
 node_modules/
 dev.ts
+.idea
+dist
+.next
 
 # next.js build output
 
