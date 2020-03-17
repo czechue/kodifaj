@@ -1,0 +1,1 @@
+{"ast":null,"code":"import HomePage from './tasks/index';\nexport default HomePage;","map":null,"metadata":{},"sourceType":"module"}
