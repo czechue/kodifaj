@@ -1,1 +1,0 @@
-{"ast":null,"code":"import HomePage from './views/Index';\nexport default HomePage;","map":{"version":3,"sources":["/Users/michal.lester/Documents/ML/kodifaj/pages/index.ts"],"names":["HomePage"],"mappings":"AAAA,OAAOA,QAAP,MAAqB,eAArB;AAEA,eAAeA,QAAf","sourcesContent":["import HomePage from './views/Index';\n\nexport default HomePage;\n"]},"metadata":{},"sourceType":"module"}

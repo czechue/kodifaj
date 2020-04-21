@@ -1,1 +1,0 @@
-{"ast":null,"code":"import axios from 'axios';\nexport default function addSolution({\n  repo,\n  demo,\n  comment,\n  taskId\n}) {\n  return axios.post('/api/solutions', {\n    repo,\n    demo,\n    comment,\n    taskId,\n    phase: 'review'\n  });\n}","map":null,"metadata":{},"sourceType":"module"}

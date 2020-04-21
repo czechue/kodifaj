@@ -1,1 +1,0 @@
-{"ast":null,"code":"var __jsx = React.createElement;\nimport React from 'react';\nexport default function SolutionBadgeComponent(_ref) {\n  var children = _ref.children;\n  return __jsx(\"span\", {\n    className: \" flex-initial block mr-1 bg-pink-200 text-pink-700 text-xs px-1 rounded\"\n  }, \"#\", children);\n}","map":null,"metadata":{},"sourceType":"module"}
