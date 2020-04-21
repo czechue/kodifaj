@@ -1,7 +1,8 @@
 # Dependency directories
 node_modules/
 dev.ts
-
+.next
+dist
 # next.js build output
 
 .env
